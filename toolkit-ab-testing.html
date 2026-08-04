@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A complete A/B testing playbook for responsive search ads, landing pages, and campaign experiments by Cosmin Pintilie.">
+    <meta name="theme-color" content="#09090b">
+    <title>A/B Testing Playbook — Cosmin Pintilie</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css?v=20260804d">
+    <script src="script.js" defer></script>
+  </head>
+  <body class="detail-body">
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header" data-header>
+      <a class="wordmark" href="index.html" aria-label="Cosmin Pintilie, portfolio home"><span>CP</span><strong>Cosmin Pintilie</strong></a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button><span class="menu-button__label">Menu</span><span class="menu-button__lines" aria-hidden="true"></span></button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation" data-menu>
+        <a href="index.html#work">Work</a><a href="index.html#toolkits">Toolkits</a><a href="index.html#experience">Experience</a><a href="index.html#contact">Contact</a>
+        <a class="nav-resume" href="assets/Cosmin-Pintilie-Resume-2026.pdf" download>Résumé <span aria-hidden="true">↓</span></a>
+      </nav>
+    </header>
+    <main class="detail-main" id="main">
+      <a class="detail-back" href="index.html#toolkits"><span aria-hidden="true">←</span> Back to strategic toolkits</a>
+      <header class="detail-hero">
+        <h1>A/B testing playbook</h1>
+        <p class="detail-hero__summary">A working process for writing a hypothesis, planning the sample, checking the result, and recording what happens next.</p>
+        <div class="detail-meta"><span><strong>Platforms:</strong> Google Ads Experiments, GA4, Optimizely / VWO</span><span><strong>Target:</strong> 95% confidence</span><span><strong>Scope:</strong> RSA, extensions &amp; CRO</span></div>
+        <div class="detail-callout"><strong>Portfolio examples, not employer outcomes.</strong> The experiment IDs and results are demonstration material from the supplied playbook.</div>
+      </header>
+
+      <section class="detail-section" aria-labelledby="lifecycle-title">
+        <h2 id="lifecycle-title">Four-stage experimentation lifecycle</h2>
+        <ol class="process-list">
+          <li><strong>Hypothesis &amp; variant isolation</strong><span>Define one variable, such as price anchor versus friction-free migration, and keep control and challenger bid caps equal.</span></li>
+          <li><strong>Traffic &amp; sample-size validation</strong><span>Target at least 2,000 impressions and 100 conversions per variant, with a minimum 14-day run covering two weekly cycles.</span></li>
+          <li><strong>Statistical evaluation &amp; runtime</strong><span>Monitor CTR, CVR, CPA, and Ad Strength daily; require the selected confidence threshold before action.</span></li>
+          <li><strong>Decision &amp; rollout</strong><span>Scale a meaningful winner, close an inconclusive test, or pause a challenger with materially worse CPA or CVR.</span></li>
+        </ol>
+        <div class="detail-grid detail-grid--three">
+          <article><h3>Winner</h3><p><code>p &lt; 0.05</code> and a meaningful CVR improvement: promote and document the winning concept.</p></article>
+          <article><h3>Inconclusive</h3><p>Delta below 3%: end the test and pivot toward a genuinely different message.</p></article>
+          <article><h3>Loser</h3><p>Material CVR decline or higher CPA: pause the challenger and log the learning.</p></article>
+        </div>
+      </section>
+
+      <section class="detail-section" aria-labelledby="guardrail-title">
+        <h2 id="guardrail-title">Statistical significance &amp; guardrails</h2>
+        <div class="data-table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Metric or guardrail</th><th>Minimum threshold</th><th>Benchmark target</th><th>Failure action</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Sample size</strong></td><td>2,000 impressions per variant</td><td>5,000+ impressions per variant</td><td>Do not evaluate results early.</td></tr>
+              <tr><td><strong>Duration</strong></td><td>14 days</td><td>21–30 days</td><td>Avoid stopping before two complete weekly cycles.</td></tr>
+              <tr><td><strong>Confidence</strong></td><td>90%</td><td>95% (<code>p &lt; 0.05</code>)</td><td>Treat results below 90% as inconclusive.</td></tr>
+              <tr><td><strong>Ad Strength</strong></td><td>Good</td><td>Excellent</td><td>Do not let forced pinning reduce the rating below Good.</td></tr>
+              <tr><td><strong>CPA volatility</strong></td><td>+15% cap</td><td>10–25% CPA reduction</td><td>Pause if CPA rises more than 25% above control during warm-up.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="detail-section" aria-labelledby="variant-title">
+        <h2 id="variant-title">Copy hypothesis &amp; asset matrix</h2>
+        <p><strong>Example scenario:</strong> Android switcher campaign. The challenger tests whether easier-transfer messaging can beat a price and trade-in offer on non-brand conversion rate.</p>
+        <div class="detail-grid">
+          <article>
+            <h3>Control: price anchor &amp; trade-in</h3>
+            <pre class="code-sample">Headline 1: Save Up to $800 with Trade-In
+Headline 2: Upgrade to iPhone 17 Today
+Headline 3: Official Apple Store Offer
+Description: Get maximum trade-in value for your current phone. Free shipping included.</pre>
+          </article>
+          <article>
+            <h3>Challenger: frictionless migration</h3>
+            <pre class="code-sample">Headline 1: Switch to iPhone Effortlessly
+Headline 2: Easy Data Transfer in 1-Click
+Headline 3: Keep Your Photos &amp; Contacts
+Description: Move from Android in minutes. Simple guided setup with zero data loss.</pre>
+          </article>
+        </div>
+      </section>
+
+      <section class="detail-section" aria-labelledby="log-title">
+        <h2 id="log-title">Active experiment log &amp; decision matrix</h2>
+        <div class="data-table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Test</th><th>Campaign</th><th>Variable</th><th>Metric</th><th>Result</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td><strong>EXP-2026-01</strong></td><td>Non-brand switcher</td><td>Price anchor vs friction reduction</td><td>CVR &amp; CPA</td><td>Winner, <code>p = 0.03</code></td><td>Scaled Concept B; scenario CVR +18.4%.</td></tr>
+              <tr><td><strong>EXP-2026-02</strong></td><td>Brand defense</td><td>Official Store CTA vs free shipping</td><td>CTR</td><td>Winner, <code>p = 0.01</code></td><td>Retained Official Store CTA; scenario CTR 24.2%.</td></tr>
+              <tr><td><strong>EXP-2026-03</strong></td><td>Mac B2B creator</td><td>Finance per month vs performance specification</td><td>Conversion value / cost</td><td>Inconclusive, <code>p = 0.42</code></td><td>Ended after 30 days; pivoted to M4 benchmark messaging.</td></tr>
+              <tr><td><strong>EXP-2026-04</strong></td><td>Performance Max fleet</td><td>Lifestyle vs product closeups</td><td>ROAS</td><td>Winner, <code>p = 0.02</code></td><td>Allocated a 70% scenario budget cap to product closeups.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="detail-section" aria-labelledby="scaling-title">
+        <h2 id="scaling-title">What happens after the test</h2>
+        <h3>If the challenger wins</h3>
+        <ol>
+          <li>Update the master copy bank with the winning hook.</li>
+          <li>Promote the winning variant to the approved traffic allocation.</li>
+          <li>Verify that any headline pinning retains Good or Excellent Ad Strength.</li>
+          <li>Align the landing-page H1 with the winning message.</li>
+        </ol>
+        <h3>If the challenger loses or remains inconclusive</h3>
+        <ol>
+          <li>Return traffic to the control.</li>
+          <li>Record the rejected hypothesis so subtle variants are not repeated.</li>
+          <li>When <code>p &gt; 0.10</code>, test a genuinely different proposition rather than minor copy edits.</li>
+        </ol>
+      </section>
+
+      <nav class="detail-footer-nav" aria-label="Toolkit navigation"><a href="toolkit-negative-keywords.html">← Previous: Negative keywords</a><a href="toolkit-monthly-reporting.html">Next: Monthly reporting →</a></nav>
+    </main>
+  </body>
+</html>

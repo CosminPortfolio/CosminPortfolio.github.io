@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A complete monthly SEM reporting, QA, escalation, and manager-sync specification by Cosmin Pintilie.">
+    <meta name="theme-color" content="#09090b">
+    <title>Monthly Reporting Specification — Cosmin Pintilie</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css?v=20260804d">
+    <script src="script.js" defer></script>
+  </head>
+  <body class="detail-body">
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header" data-header>
+      <a class="wordmark" href="index.html" aria-label="Cosmin Pintilie, portfolio home"><span>CP</span><strong>Cosmin Pintilie</strong></a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button><span class="menu-button__label">Menu</span><span class="menu-button__lines" aria-hidden="true"></span></button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation" data-menu>
+        <a href="index.html#work">Work</a><a href="index.html#toolkits">Toolkits</a><a href="index.html#experience">Experience</a><a href="index.html#contact">Contact</a>
+        <a class="nav-resume" href="assets/Cosmin-Pintilie-Resume-2026.pdf" download>Résumé <span aria-hidden="true">↓</span></a>
+      </nav>
+    </header>
+    <main class="detail-main" id="main">
+      <a class="detail-back" href="index.html#toolkits"><span aria-hidden="true">←</span> Back to strategic toolkits</a>
+      <header class="detail-hero">
+        <h1>Monthly reporting specification</h1>
+        <p class="detail-hero__summary">A monthly reporting routine for checking spend and revenue, explaining changes, flagging data problems, and agreeing on next steps.</p>
+        <div class="detail-meta"><span><strong>Audience:</strong> CMO, VP Growth, finance &amp; marketing directors</span><span><strong>Cadence:</strong> Monthly and quarterly</span><span><strong>Focus:</strong> Performance, QA &amp; escalation</span></div>
+      </header>
+
+      <section class="detail-section" aria-labelledby="brief-title">
+        <h2 id="brief-title">Monthly performance brief template</h2>
+        <pre class="code-sample">MONTHLY PERFORMANCE BRIEF: [MONTH, YEAR] — [CAMPAIGN]
+
+1. TOP-LINE PERFORMANCE &amp; BUDGET PACING
+Spend reached $[Amount] against a cap of $[Amount] (Pacing: [X]%).
+GA4 attributed revenue was $[Amount], producing [X]% blended ROAS
+and $[Amount] average CPA against the approved targets.
+
+2. CORE OPTIMIZATION WINS &amp; EXPERIMENT RESULTS
+[Top campaign] generated $[Amount] in net-new revenue.
+[Experiment ID] reached 95% confidence and changed CVR by [X]%.
+Search-term sculpting removed an estimated $[Amount] in avoidable spend.
+
+3. RISKS, COMPETITOR SHIFTS &amp; PROPOSED ADJUSTMENTS
+[Campaign] experienced an [X]% movement in Lost Impression Share (Rank).
+Next month, move [X]% of budget toward [approved fleet] subject to sign-off.</pre>
+      </section>
+
+      <section class="detail-section" aria-labelledby="variance-title">
+        <h2 id="variance-title">KPI variance &amp; escalation matrix</h2>
+        <div class="data-table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Metric</th><th>Target</th><th>Acceptable variance</th><th>Manager flag</th><th>Remediation</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Blended ROAS</strong></td><td>480% / 4.8×</td><td>±5%</td><td>More than 10% below target</td><td>Audit search terms, landing-page status, and Performance Max placements within 24 hours.</td></tr>
+              <tr><td><strong>Cost per acquisition</strong></td><td>≤ $110</td><td>+$5</td><td>More than 15% above cap</td><td>Reduce broad-match exposure and reallocate toward exact brand and high-intent flagship terms.</td></tr>
+              <tr><td><strong>Spend pacing</strong></td><td>100%</td><td>98–102%</td><td>Below 95% or above 105%</td><td>Recalibrate daily budgets and request sign-off on target-ROAS adjustments.</td></tr>
+              <tr><td><strong>Search impression share (rank)</strong></td><td>≥65% for brand / flagship</td><td>−3%</td><td>Drop greater than 8%</td><td>Run Auction Insights, Quality Score, and Ad Strength reviews.</td></tr>
+              <tr><td><strong>GA4 purchase deduplication</strong></td><td>100% match</td><td>97–100%</td><td>Discrepancy above 5%</td><td>Verify GTM triggers, <code>utm_id</code>, and BigQuery transaction logs with analytics.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="detail-callout"><strong>Template benchmarks.</strong> These thresholds are preserved from the supplied reporting specification and should be replaced with approved business targets before operational use.</div>
+      </section>
+
+      <section class="detail-section" aria-labelledby="qa-title">
+        <h2 id="qa-title">Pre-flight data QA checklist</h2>
+        <ul class="check-list">
+          <li><strong>Billing reconciliation:</strong> Google Ads UI spend matches dashboard and invoice totals within 0.5%.</li>
+          <li><strong>GA4 transaction match:</strong> e-commerce purchase counts reconcile with backend or CRM sales without double counting.</li>
+          <li><strong>UTM check:</strong> no missing campaign tags or unexplained Unassigned traffic spikes.</li>
+          <li><strong>Conversion-tag verification:</strong> core Google Ads conversion actions show Active status and recent event hits.</li>
+          <li><strong>Dashboard sync:</strong> Looker Studio sources have refreshed without broken fields or join errors.</li>
+        </ul>
+      </section>
+
+      <section class="detail-section" aria-labelledby="agenda-title">
+        <h2 id="agenda-title">A focused 30-minute review</h2>
+        <ol class="process-list">
+          <li><strong>00:00–00:05 · Top-line health check</strong><span>Review spend, revenue, blended ROAS, and goal attainment.</span></li>
+          <li><strong>00:05–00:15 · Campaign breakdown &amp; optimizations</strong><span>Cover wins and losses across brand defense, flagship, and switcher campaigns.</span></li>
+          <li><strong>00:15–00:22 · Experimentation &amp; copy testing</strong><span>Review completed A/B tests and agree on the next hypotheses.</span></li>
+          <li><strong>00:22–00:30 · Next-month action plan</strong><span>Approve bid adjustments, budget reallocations, and priorities.</span></li>
+        </ol>
+      </section>
+
+      <nav class="detail-footer-nav" aria-label="Toolkit navigation"><a href="toolkit-ab-testing.html">← Previous: A/B testing</a><a href="index.html#contact">Contact Cosmin →</a></nav>
+    </main>
+  </body>
+</html>
