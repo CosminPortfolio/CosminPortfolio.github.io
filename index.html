@@ -11,7 +11,7 @@
     <meta property="og:image" content="assets/images/cosmin-profile.png">
     <title>Cosmin Pintilie — Performance Marketing & Analytics</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css?v=20260805b">
+    <link rel="stylesheet" href="styles.css?v=20260805c">
     <script src="script.js" defer></script>
     <script src="case-workspace.js?v=20260805c" type="module"></script>
   </head>
@@ -134,18 +134,27 @@
                   <a class="button button--primary case-panel__cta" href="case-strategy.html" data-open-workspace="strategy">View 5 campaign builds <span aria-hidden="true">→</span></a>
                 </div>
               </div>
-              <div class="architecture" aria-label="Planning budget allocation: 25% Brand defense, 55% Mac B2B and Flagship driver, 10% Competitor conquesting, and 10% Performance Max">
-                <div class="architecture__heading"><strong>Planning budget split</strong><span>Initial allocation · 100%</span></div>
-                <button class="architecture__segment architecture__segment--brand" type="button" data-open-case="brand-defense"><strong>Brand defense</strong><b>25%</b><span>Protect core equity</span></button>
-                <div class="architecture__segment architecture__segment--growth">
-                  <div class="architecture__group-label"><strong>Mac B2B + Flagship driver</strong><b>55%</b></div>
-                  <div class="architecture__subsegments">
-                    <button type="button" data-open-case="mac-b2b"><strong>Mac B2B &amp; pro creator</strong><small>High-value fleet</small></button>
-                    <button type="button" data-open-case="flagship-driver"><strong>Flagship driver</strong><small>High-intent B2C</small></button>
-                  </div>
+              <div class="architecture" aria-label="Planning budget allocation: 25% Brand defense, 55% shared by Mac B2B and Flagship driver, 10% Competitor conquesting, and 10% Performance Max">
+                <div class="architecture__heading">
+                  <div><strong>Planning budget</strong><span>How the initial 100% is ring-fenced</span></div>
+                  <span>25 / 55 / 10 / 10</span>
                 </div>
-                <button class="architecture__segment architecture__segment--conquest" type="button" data-open-case="competitor-conquesting"><strong>Conquesting</strong><b>10%</b><span>Intercept switchers</span></button>
-                <button class="architecture__segment architecture__segment--pmax" type="button" data-open-case="performance-max"><strong>Performance Max</strong><b>10%</b><span>Controlled scale</span></button>
+                <div class="architecture__track" aria-hidden="true">
+                  <div class="architecture__allocation architecture__allocation--brand"><span>Brand defense</span><b>25%</b></div>
+                  <div class="architecture__allocation architecture__allocation--growth">
+                    <div><span>Mac B2B + Flagship driver</span><b>55%</b></div>
+                    <i><span>Mac B2B</span><span>Flagship</span></i>
+                  </div>
+                  <div class="architecture__allocation architecture__allocation--conquest"><span>Conquest</span><b>10%</b></div>
+                  <div class="architecture__allocation architecture__allocation--pmax"><span>PMax</span><b>10%</b></div>
+                </div>
+                <div class="architecture__campaigns" aria-label="Open a campaign build">
+                  <button type="button" data-open-case="brand-defense"><span>Brand defense</span><small>25% · Protect core equity</small></button>
+                  <button type="button" data-open-case="mac-b2b"><span>Mac B2B &amp; pro creator</span><small>Shared 55% · High-value fleet</small></button>
+                  <button type="button" data-open-case="flagship-driver"><span>Flagship driver</span><small>Shared 55% · High-intent B2C</small></button>
+                  <button type="button" data-open-case="competitor-conquesting"><span>Competitor conquesting</span><small>10% · Intercept switchers</small></button>
+                  <button type="button" data-open-case="performance-max"><span>Performance Max</span><small>10% · Controlled scale</small></button>
+                </div>
               </div>
               <div class="case-panel__notes">
                 <div><h4>Key decision</h4><p>Keep brand defense separate from discovery so automated traffic does not hide where demand started.</p></div>
