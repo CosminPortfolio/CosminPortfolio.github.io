@@ -10,7 +10,7 @@ const caseModules = {
         decision: 'Use exact and phrase match, campaign-level exclusions, a €1.50 CPC ceiling, and official-store messaging.',
         artifact: 'A paused campaign build with keyword groups, campaign controls, sitelinks, and launch checks.',
         next: 'Launch with approved brand rules, then evaluate query quality, CPC, conversion rate, and incremental value.',
-        limit: 'Portfolio exercise using staged platform screens; no verified Apple campaign performance is claimed.',
+        limit: 'Hands-on portfolio project using staged platform screens and demonstration data; no Apple account access is claimed.',
         pdf: 'assets/cases/brand-defense.pdf', pages: 5, route: 'campaign-brand-defense.html',
         notion: 'Case-Study-01-Brand-Defense-3a5425578d358038afccf032fbc514bc'
       },
