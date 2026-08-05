@@ -11,9 +11,9 @@
     <meta property="og:image" content="assets/images/cosmin-profile.png">
     <title>Cosmin Pintilie — Performance Marketing & Analytics</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css?v=20260805c">
-    <script src="script.js" defer></script>
-    <script src="case-workspace.js?v=20260805d" type="module"></script>
+    <link rel="stylesheet" href="styles.css?v=20260805e">
+    <script src="script.js?v=20260805c" defer></script>
+    <script src="case-workspace.js?v=20260805i" type="module"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
@@ -131,7 +131,7 @@
                 </div>
                 <div class="case-panel__intro">
                   <p>A five-part account structure that separates branded, product, competitor, professional, and automated demand.</p>
-                  <a class="button button--primary case-panel__cta" href="case-strategy.html" data-open-workspace="strategy">View 5 campaign builds <span aria-hidden="true">→</span></a>
+                  <p class="case-panel__prompt">Choose a campaign below to read the complete build and rationale here.</p>
                 </div>
               </div>
               <div class="architecture" aria-label="Planning budget allocation: 25% Brand defense, 55% shared by Mac B2B and Flagship driver, 10% Competitor conquesting, and 10% Performance Max">
@@ -147,13 +147,6 @@
                   </div>
                   <div class="architecture__allocation architecture__allocation--conquest"><span>Conquest</span><b>10%</b></div>
                   <div class="architecture__allocation architecture__allocation--pmax"><span>PMax</span><b>10%</b></div>
-                </div>
-                <div class="architecture__campaigns" aria-label="Open a campaign build">
-                  <button type="button" data-open-case="brand-defense"><span>Brand defense</span><small>25% · Protect core equity</small></button>
-                  <button type="button" data-open-case="mac-b2b"><span>Mac B2B &amp; pro creator</span><small>Shared 55% · High-value fleet</small></button>
-                  <button type="button" data-open-case="flagship-driver"><span>Flagship driver</span><small>Shared 55% · High-intent B2C</small></button>
-                  <button type="button" data-open-case="competitor-conquesting"><span>Competitor conquesting</span><small>10% · Intercept switchers</small></button>
-                  <button type="button" data-open-case="performance-max"><span>Performance Max</span><small>10% · Controlled scale</small></button>
                 </div>
               </div>
               <div class="case-panel__notes">
@@ -171,7 +164,7 @@
                 </div>
                 <div class="case-panel__intro">
                   <p>A tracking plan for consent states, e-commerce events, cross-domain journeys, and BigQuery exports.</p>
-                  <a class="button button--primary case-panel__cta" href="case-measurement.html" data-open-workspace="measurement">View 5 technical cases <span aria-hidden="true">→</span></a>
+                  <p class="case-panel__prompt">Choose a case below to inspect the full technical blueprint here.</p>
                 </div>
               </div>
               <div class="pipeline" aria-label="Measurement pipeline">
@@ -194,7 +187,7 @@
                 </div>
                 <div class="case-panel__intro">
                   <p>A repeatable review for cutting irrelevant spend, testing ad messages, and responding to auction pressure.</p>
-                  <a class="button button--primary case-panel__cta" href="case-optimization.html" data-open-workspace="optimization">View 3 optimization deliverables <span aria-hidden="true">→</span></a>
+                  <p class="case-panel__prompt">Choose a deliverable below to inspect the complete operating method here.</p>
                 </div>
               </div>
               <div class="audit-example">
@@ -218,7 +211,7 @@
                 </div>
                 <div class="case-panel__intro">
                   <p>Three dashboard views for executive performance, budget pacing, and funnel analysis.</p>
-                  <a class="button button--primary case-panel__cta" href="case-reporting.html" data-open-workspace="reporting">View 3 reporting cases <span aria-hidden="true">→</span></a>
+                  <p class="case-panel__prompt">Choose a dashboard below to read the complete analysis and recommendations here.</p>
                 </div>
               </div>
               <div class="dashboard-stack">
@@ -236,62 +229,829 @@
           </div>
         </div>
 
-        <template id="case-workspace-template">
-          <section class="case-workspace" aria-labelledby="case-workspace-title" data-case-workspace>
-            <header class="case-workspace__bar">
-              <div>
-                <button class="case-workspace__back" type="button" data-workspace-close><span aria-hidden="true">←</span> Back to overview</button>
-                <p data-workspace-module></p>
-              </div>
-              <span class="case-workspace__count" data-workspace-count></span>
+        <template id="case-content-template">
+          <!-- Case articles are cloned into the active discipline panel by case-workspace.js. -->
+
+          <article class="full-case" data-case-article data-module="strategy" data-case-id="brand-defense" data-card-title="Brand defense" data-card-summary="Protect branded purchase intent with strict query, budget, and message control.">
+            <header class="full-case__header">
+              <h3 tabindex="-1">Brand defense</h3>
+              <p class="full-case__lede">A precision-led Search build for protecting branded purchase intent without mixing it with broader discovery traffic.</p>
+              <ul class="full-case__meta" aria-label="Case details">
+                <li><strong>Channel</strong>Google Ads Search</li>
+                <li><strong>Market</strong>United States</li>
+                <li><strong>Status</strong>Paused demonstration build</li>
+              </ul>
+              <p class="evidence-notice"><strong>Portfolio exercise — not client work.</strong> The platform screens and figures demonstrate the build; no Apple account access or live commercial results are claimed.</p>
             </header>
-
-            <div class="case-selector" role="tablist" aria-label="Cases in this discipline" data-case-selector></div>
-
-            <article class="case-evidence" id="case-evidence-panel" role="tabpanel" aria-labelledby="case-workspace-title">
-              <header class="case-evidence__header">
-                <div class="case-evidence__copy">
-                  <p class="case-evidence__meta" data-case-meta></p>
-                  <h3 id="case-workspace-title" tabindex="-1" data-case-title></h3>
-                  <p data-case-synopsis></p>
-                  <p class="case-evidence__limit" data-case-limit></p>
+            <dl class="case-summary">
+              <div><dt>Question</dt><dd>How should branded purchase intent be protected without mixing it with broader discovery traffic?</dd></div>
+              <div><dt>Decision</dt><dd>Use exact and phrase match, separate exclusions, a €1.50 CPC guardrail, and trust-led ad assets.</dd></div>
+              <div><dt>Artifact</dt><dd>A paused campaign build with keyword groups, campaign controls, sitelinks, and launch checks.</dd></div>
+              <div><dt>Next step</dt><dd>Validate query quality, landing pages, conversion tracking, and impression-share loss before launch.</dd></div>
+            </dl>
+            <div class="case-story">
+              <section>
+                <h4>Why the campaign stays narrow</h4>
+                <p>Brand protection is designed to capture a finite set of high-intent searches, not discover new traffic. The keyword set therefore uses exact match for unambiguous brand terms such as <code>[apple store]</code>, <code>[apple.com]</code>, and <code>[apple website]</code>, plus tightly scoped phrase match for purchase intent such as <code>"buy macbook online"</code> and <code>"buy iphone online"</code>. Broad match is excluded because unrelated, competitor-adjacent, support, or informational queries would dilute the signal and consume a budget intended for brand coverage.</p>
+                <p>A campaign-level negative layer routes recruitment, support, repair, and other non-sales intent elsewhere. Examples include careers and internship searches, repair and support-number searches, and appointment queries. The goal is not simply lower traffic; it is traffic whose intent is consistent enough that performance can be interpreted.</p>
+              </section>
+              <section>
+                <h4>Message and bidding controls</h4>
+                <div class="decision-list">
+                  <div><strong>Guaranteed trust signal</strong><p>“Official Apple Store” is pinned to headline position one so authenticity is present on every eligible impression rather than left to responsive-ad rotation.</p></div>
+                  <div><strong>Bounded automation</strong><p>Maximize Clicks is paired with a €1.50 maximum CPC. Automation can seek volume, but it cannot set an unlimited price for an individual branded click.</p></div>
+                  <div><strong>Disciplined daily budget</strong><p>The demonstration uses a €10 daily budget instead of accepting the platform’s recommendation automatically. Branded demand is finite, so a recommendation to spend more must be supported by lost-impression-share evidence.</p></div>
+                  <div><strong>Search-only inventory</strong><p>English targeting, relevant audience observation, and exclusion of Display inventory keep the campaign aligned with active branded search demand.</p></div>
                 </div>
-                <div class="case-evidence__actions">
-                  <button class="button button--primary" type="button" data-document-fullscreen>Open fullscreen</button>
-                  <a class="button button--secondary" target="_blank" rel="noopener" data-document-open>Open PDF <span aria-hidden="true">↗</span></a>
-                  <a class="case-evidence__download" download data-document-download>Download PDF <span aria-hidden="true">↓</span></a>
-                </div>
-              </header>
+              </section>
+              <figure class="case-figure">
+                <img src="assets/images/case-evidence/brand-defense.webp" width="1851" height="1855" loading="lazy" decoding="async" alt="Staged Google Ads responsive search ad builder showing the official-store headline, description inventory, and mobile preview">
+                <figcaption>The staged responsive-ad build shows the official-store trust message, supporting product and service headlines, and a live mobile preview.</figcaption>
+              </figure>
+              <section>
+                <h4>Assets and validation</h4>
+                <p>Product-specific sitelinks—Trade In, Refurbished Deals, Shop Mac, and Shop iPhone—expand the result while keeping destinations commercially relevant. Supporting descriptions cover delivery, trade-in value, financing, and product breadth. Before launch, the build requires a validated purchase event, landing-page checks, policy approval, search-term review, and separate monitoring of impression share lost to rank and budget.</p>
+                <p>The campaign remains paused because this is a portfolio construction exercise. A clean build demonstrates architecture and QA discipline; it does not demonstrate incremental revenue or prove that paid brand coverage is necessary.</p>
+              </section>
+            </div>
+          </article>
 
-              <div class="document-viewer" tabindex="0" aria-label="Case-study document viewer" data-document-viewer>
-                <div class="document-stage" data-document-stage>
-                  <p class="document-status" role="status" aria-live="polite" data-document-status>Preparing document…</p>
-                  <canvas role="img" data-document-canvas></canvas>
-                  <div class="document-error" data-document-error hidden>
-                    <strong>Preview unavailable</strong>
-                    <p>The original document is still available to open or download.</p>
-                  </div>
-                </div>
-                <div class="document-controls" aria-label="Document page controls">
-                  <button type="button" data-page-previous><span aria-hidden="true">←</span> Previous</button>
-                  <span data-page-indicator>Page 1 of 1</span>
-                  <button type="button" data-page-next>Next <span aria-hidden="true">→</span></button>
-                </div>
-                <div class="document-thumbnails" role="group" aria-label="Document pages" data-document-thumbnails></div>
-              </div>
+          <article class="full-case" data-case-article data-module="strategy" data-case-id="flagship-driver" data-card-title="Flagship driver" data-card-summary="Capture high-intent iPhone demand without surrendering routing and launch control.">
+            <header class="full-case__header">
+              <h3 tabindex="-1">Flagship driver</h3>
+              <p class="full-case__lede">A high-intent iPhone Search build designed for controlled volume, complete asset coverage, and a deliberate launch state.</p>
+              <ul class="full-case__meta" aria-label="Case details">
+                <li><strong>Channel</strong>Google Ads Search</li>
+                <li><strong>Objective</strong>Website visits and purchase intent</li>
+                <li><strong>Status</strong>Paused demonstration build</li>
+              </ul>
+              <p class="evidence-notice"><strong>Portfolio exercise — not client work.</strong> Product names, settings, and screens demonstrate campaign construction. Spend and performance remain at zero by design.</p>
+            </header>
+            <dl class="case-summary">
+              <div><dt>Question</dt><dd>How can a flagship-product campaign capture demand without surrendering routing and budget control?</dd></div>
+              <div><dt>Decision</dt><dd>Build Search directly, align every product asset to its destination, and keep the demonstration campaign paused.</dd></div>
+              <div><dt>Artifact</dt><dd>Campaign setup, product sitelinks, responsive ad copy, service callouts, and a launch-verification view.</dd></div>
+              <div><dt>Next step</dt><dd>Validate tracking, policy, landing pages, and query routing before enabling automated bidding.</dd></div>
+            </dl>
+            <div class="case-story">
+              <section>
+                <h4>Direct setup instead of guided defaults</h4>
+                <p>The build starts with “Create a campaign without guidance” and selects Search explicitly. That choice keeps control over campaign settings, bidding, destinations, and assets rather than inheriting a guided template whose defaults may not match the account structure. The demonstration campaign is named for market, channel, product role, and objective so it can sit inside a larger fleet without relying on memory.</p>
+              </section>
+              <section>
+                <h4>Product routing and ad coverage</h4>
+                <p>Sitelinks map comparison and purchase intent to distinct destinations: flagship Pro, Air, standard, and Max variants; Trade In; and model comparison. The responsive ad uses exact product language early in the headline set, then adds non-repeating value propositions around financing, chip performance, design, delivery, and purchase actions.</p>
+                <p>Descriptions cover financing, trade-in credit, delivery speed, and the product range. Callouts such as “Free 2-Day Delivery” and “Flexible Payment Plans” bring commercial detail into the result before the click. Optional asset fields are treated as part of the build rather than decoration because thin asset coverage limits the combinations the system can test.</p>
+              </section>
+              <figure class="case-figure case-figure--wide">
+                <img src="assets/images/case-evidence/flagship-driver.webp" width="1987" height="1031" loading="lazy" decoding="async" alt="Staged Google Ads campaign overview showing the flagship campaign paused with zero spend">
+                <figcaption>Final launch verification confirms the portfolio campaign is published but paused, with no live spend.</figcaption>
+              </figure>
+              <section>
+                <h4>Launch gate</h4>
+                <ol class="process-list process-list--compact">
+                  <li><strong>Measurement</strong><span>Confirm the purchase event, value, currency, and transaction identifier in preview and reporting tools.</span></li>
+                  <li><strong>Experience</strong><span>Verify each asset lands on the promised product or comparison page and works across mobile and desktop.</span></li>
+                  <li><strong>Governance</strong><span>Check policy status, budget ownership, query exclusions, and campaign naming before activation.</span></li>
+                  <li><strong>Optimization</strong><span>Establish a clean search-term and CPA baseline before handing more control to bid automation.</span></li>
+                </ol>
+              </section>
+            </div>
+          </article>
 
-              <details class="case-rationale">
-                <summary>Case rationale and technical depth</summary>
-                <dl class="case-rationale__grid">
-                  <div><dt>Question</dt><dd data-case-question></dd></div>
-                  <div><dt>Decision</dt><dd data-case-decision></dd></div>
-                  <div><dt>Artifact</dt><dd data-case-artifact></dd></div>
-                  <div><dt>Next step</dt><dd data-case-next></dd></div>
-                </dl>
-                <a class="detail-link" data-case-standalone>Open the standalone case page <span aria-hidden="true">→</span></a>
-              </details>
-            </article>
-          </section>
+          <article class="full-case" data-case-article data-module="strategy" data-case-id="mac-b2b" data-card-title="Mac B2B &amp; pro creator" data-card-summary="Separate enterprise, procurement, developer, and creator demand from consumer traffic.">
+            <header class="full-case__header">
+              <h3 tabindex="-1">Mac B2B &amp; pro creator</h3>
+              <p class="full-case__lede">Search architecture for technical buyers, teams, and enterprise demand, using precise destinations and language as pre-qualification.</p>
+              <ul class="full-case__meta" aria-label="Case details">
+                <li><strong>Channel</strong>Google Ads Search</li>
+                <li><strong>Audience</strong>Enterprise and professional buyers</li>
+                <li><strong>Status</strong>Paused demonstration build</li>
+              </ul>
+              <p class="evidence-notice"><strong>Portfolio exercise — not client work.</strong> The case demonstrates segmentation and construction; it does not claim qualified leads, pipeline, or sales.</p>
+            </header>
+            <dl class="case-summary">
+              <div><dt>Question</dt><dd>How should professional and business intent be separated from general consumer hardware traffic?</dd></div>
+              <div><dt>Decision</dt><dd>Keep URL and copy control, combine exact and phrase intent, and use B2B-specific assets and exclusions.</dd></div>
+              <div><dt>Artifact</dt><dd>Automation controls, keyword architecture, technical RSA copy, negative taxonomy, and a paused build.</dd></div>
+              <div><dt>Next step</dt><dd>Confirm landing-page capability, sales follow-up, audience policy, and lead-quality feedback before launch.</dd></div>
+            </dl>
+            <div class="case-story">
+              <section>
+                <h4>Control before automation</h4>
+                <p>AI Max, Final URL Expansion, and Text Customization remain disabled. A buyer looking to place a bulk workstation order should not be routed to a consumer article or support page, and automatically generated retail language should not replace exact chip, memory, deployment, or volume-pricing terms. In this campaign, destination and language accuracy are part of qualification.</p>
+              </section>
+              <section>
+                <h4>Intent architecture</h4>
+                <p>Exact and phrase keywords isolate procurement, development, fleet, and professional-creator demand without broad match. Sitelinks act as SERP-level filters: request a bulk quote, configure a workstation, set up Apple Business Manager, or submit tax-exemption information. Someone looking for a single discounted laptop should recognize immediately that the path is not designed for them.</p>
+                <div class="decision-list">
+                  <div><strong>Enterprise assets</strong><p>Volume discounts, zero-touch deployment, workstation configuration, and tax handling make the buying context explicit.</p></div>
+                  <div><strong>Technical ad copy</strong><p>Headlines focus on professional use, exact specifications, fleet needs, and direct procurement rather than generic lifestyle claims.</p></div>
+                  <div><strong>Consumer exclusions</strong><p>Bargain, free, tutorial, career, education-discount, repair, warranty, and store-hours terms are blocked from the corporate budget.</p></div>
+                  <div><strong>Protected B2B language</strong><p>Business and enterprise phrases remain eligible even when automated recommendations suggest excluding unfamiliar variants.</p></div>
+                </div>
+              </section>
+              <figure class="case-figure">
+                <img src="assets/images/case-evidence/mac-b2b.webp" width="1405" height="1482" loading="lazy" decoding="async" alt="Staged Google Ads build showing B2B-focused responsive search ad headlines and a search preview">
+                <figcaption>The responsive-ad build uses business-specific headlines and destinations rather than consumer promotion language.</figcaption>
+              </figure>
+              <section>
+                <h4>Negative-keyword governance</h4>
+                <p>The negative list is grouped by why the query conflicts with the campaign: bargain retail, free information, jobs, education pricing, and consumer support. Broad negatives are used carefully to block any query containing a clearly incompatible term, while high-value “business” and “enterprise” language is explicitly protected. After launch, sales feedback and search-term data would determine whether intent is genuinely qualified; the staged console alone cannot prove lead quality.</p>
+              </section>
+            </div>
+          </article>
+
+          <article class="full-case" data-case-article data-module="strategy" data-case-id="competitor-conquesting" data-card-title="Competitor conquesting" data-card-summary="Address switching demand through objection-led messaging and strict exclusions.">
+            <header class="full-case__header">
+              <h3 tabindex="-1">Competitor conquesting</h3>
+              <p class="full-case__lede">A controlled Search route for comparison and switching demand without unsupported product claims or indiscriminate competitor traffic.</p>
+              <ul class="full-case__meta" aria-label="Case details">
+                <li><strong>Channel</strong>Google Ads Search</li>
+                <li><strong>Audience</strong>Android comparison and switcher intent</li>
+                <li><strong>Status</strong>Staged scenario</li>
+              </ul>
+              <p class="evidence-notice"><strong>Portfolio exercise — not client work.</strong> Competitor benchmarks, auction outcomes, and conversion performance are not live observations.</p>
+            </header>
+            <dl class="case-summary">
+              <div><dt>Question</dt><dd>How can competitor demand be addressed without relying on unsupported product-comparison claims?</dd></div>
+              <div><dt>Decision</dt><dd>Lead with switching friction, route to a purpose-built page, and isolate competitor terms and exclusions.</dd></div>
+              <div><dt>Artifact</dt><dd>Campaign controls, landing-page requirements, keyword groups, responsive messaging, sitelinks, and negatives.</dd></div>
+              <div><dt>Next step</dt><dd>Confirm legal language, query economics, destination readiness, and conversion tracking in a bounded test.</dd></div>
+            </dl>
+            <div class="case-story">
+              <section>
+                <h4>A dedicated switching route</h4>
+                <p>The campaign is separated from the flagship iPhone build so competitor economics, policies, and message tests can be evaluated independently. Its final URL must resolve the objections raised in the ad: a trade-in calculator, a Move to iOS walkthrough, evidence from real switchers, carrier-compatibility answers, and financing information. Locking a URL has little value if the destination still behaves like a generic product page.</p>
+              </section>
+              <section>
+                <h4>Query and message strategy</h4>
+                <p>Phrase match covers flagship model families and explicit switching language; exact match covers more specific configurations. Broad match stays off because it would invite general news, troubleshooting, accessories, and existing-owner support queries. The ad focuses on reducing migration friction—moving data, trade-in, compatibility, and setup—rather than making product-superiority claims the demonstration cannot support.</p>
+                <p>Four sitelinks answer distinct objections instead of repeating the same destination: trade-in value, switching guidance, model comparison, and financing or carrier help.</p>
+              </section>
+              <figure class="case-figure case-figure--portrait">
+                <img src="assets/images/case-evidence/competitor-conquesting.webp" width="652" height="1416" loading="lazy" decoding="async" alt="Staged Google Ads responsive ad build for switching from Android to iPhone">
+                <figcaption>The staged ad build centers switching assistance and destination relevance rather than unverified superiority claims.</figcaption>
+              </figure>
+              <section>
+                <h4>Exclusions and review</h4>
+                <p>Negatives separate three incompatible signals: support and repair terms from existing owners; secondary-market and accessory searches; and informational queries such as manuals, forums, or teardowns. All indicate that the searcher is committed to the current device or looking for something other than a new ecosystem.</p>
+                <p>A live test would monitor search terms, policy status, assisted conversions, CPA, landing-page completion, and switching behavior. Legal approval and a defined comparison-claim standard are launch requirements, not cleanup tasks.</p>
+              </section>
+            </div>
+          </article>
+
+          <article class="full-case" data-case-article data-module="strategy" data-case-id="performance-max" data-card-title="Performance Max growth" data-card-summary="Add cross-channel reach without obscuring demand already owned by Search.">
+            <header class="full-case__header">
+              <h3 tabindex="-1">Performance Max portfolio growth</h3>
+              <p class="full-case__lede">A governed cross-channel growth layer designed to extend the Search portfolio without hiding where demand began.</p>
+              <ul class="full-case__meta" aria-label="Case details">
+                <li><strong>Channel</strong>Google Ads Performance Max</li>
+                <li><strong>Reach</strong>Search, YouTube, Display, Discover, Gmail, and Maps</li>
+                <li><strong>Status</strong>Demonstration configuration</li>
+              </ul>
+              <p class="evidence-notice"><strong>Portfolio exercise — not client work.</strong> The case shows controllable inputs and governance. It does not demonstrate incremental lift or verified production performance.</p>
+            </header>
+            <dl class="case-summary">
+              <div><dt>Question</dt><dd>How should Performance Max add reach without obscuring the intent structure already owned by Search?</dd></div>
+              <div><dt>Decision</dt><dd>Use a governed feed, one coherent asset group, complete creative coverage, and audience signals as inputs.</dd></div>
+              <div><dt>Artifact</dt><dd>Merchant setup, asset-group configuration, creative inventory, sitelinks, and audience-signal design.</dd></div>
+              <div><dt>Next step</dt><dd>Validate the feed and tracking, establish a baseline, then test with an approved budget and holdout logic.</dd></div>
+            </dl>
+            <div class="case-story">
+              <section>
+                <h4>One governed foundation</h4>
+                <p>The demonstration connects Merchant Center and establishes one coherent asset group, “All Products — Core Creative,” with a specific product destination. Performance Max does not expose the same keyword and ad-group controls as Search, so feed health, asset grouping, URL logic, brand exclusions, and measurement become the operating levers.</p>
+              </section>
+              <section>
+                <h4>Complete inputs for automation</h4>
+                <p>All short and long headline slots are filled with distinct product, service, financing, and switching messages rather than variations of one sentence. The sitelinks—Business Solutions, Trade-In Value, Compare iPhone Models, and Shop Mac &amp; iPad—use themes consistent with the Search portfolio so cross-channel exposure does not create a disconnected experience.</p>
+                <p>Audience signals combine search themes such as hardware deals, upgrading to iPhone, custom workstation specifications, and creative-professional needs with relevant in-market groups. These are starting signals, not hard targeting rules; the distinction matters when interpreting delivery.</p>
+              </section>
+              <figure class="case-figure case-figure--portrait">
+                <img src="assets/images/case-evidence/performance-max.webp" width="837" height="953" loading="lazy" decoding="async" alt="Staged Performance Max asset group setup with a named group and product destination">
+                <figcaption>The asset-group setup establishes the destination and coherent creative unit that the rest of the PMax build depends on.</figcaption>
+              </figure>
+              <section>
+                <h4>Validation and incrementality</h4>
+                <div class="decision-list">
+                  <div><strong>Feed health</strong><p>Resolve disapprovals, pricing mismatches, availability issues, and weak product titles before media is allowed to scale.</p></div>
+                  <div><strong>Measurement</strong><p>Validate conversion value, currency, purchase deduplication, and attribution before comparing the channel with Search.</p></div>
+                  <div><strong>Overlap control</strong><p>Monitor brand exclusions, search-term insights, and existing Search coverage so automated reach is not mistaken for incremental demand.</p></div>
+                  <div><strong>Test design</strong><p>Use an approved budget, baseline period, and holdout or comparable incrementality method before claiming lift.</p></div>
+                </div>
+              </section>
+            </div>
+          </article>
+
+          <article class="full-case" data-case-article data-module="measurement" data-case-id="gtm-consent" data-card-title="GTM architecture &amp; consent" data-card-summary="Separate tag responsibilities, event triggers, release governance, and consent states.">
+            <header class="full-case__header">
+              <h3 tabindex="-1">GTM architecture &amp; consent governance</h3>
+              <p class="full-case__lede">A governed container, event-trigger, release, and Consent Mode architecture with an engineering-ready commerce payload.</p>
+              <ul class="full-case__meta" aria-label="Case details">
+                <li><strong>Tools</strong>Google Tag Manager and GA4</li>
+                <li><strong>Pattern</strong>Event-driven data layer</li>
+                <li><strong>Status</strong>Technical demonstration</li>
+              </ul>
+              <p class="evidence-notice"><strong>Portfolio demonstration — not a production deployment.</strong> Public identifiers are withheld and the implementation is presented as a technical blueprint.</p>
+            </header>
+            <dl class="case-summary">
+              <div><dt>Question</dt><dd>How should container responsibilities, consent states, and commerce-event triggers be separated?</dd></div>
+              <div><dt>Decision</dt><dd>Use clear tag taxonomy, default-denied consent, event-driven triggers, and named releases.</dd></div>
+              <div><dt>Artifact</dt><dd>A tag map, trigger model, release history, and an engineering-ready <code>add_to_cart</code> contract.</dd></div>
+              <div><dt>Next step</dt><dd>Run GTM Preview and GA4 DebugView, then reconcile event payloads with commerce data.</dd></div>
+            </dl>
+            <div class="case-story">
+              <section>
+                <h4>A decoupled measurement layer</h4>
+                <p>Business-significant interactions are pushed into a structured <code>dataLayer</code> and consumed asynchronously by the container. This avoids brittle listeners tied to CSS selectors or DOM structure, so a front-end redesign does not silently break the measurement contract. GTM owns container and trigger orchestration, GA4 owns event and e-commerce reporting, and the Conversion Linker persists eligible first-party click identifiers.</p>
+              </section>
+              <section>
+                <h4>Container responsibilities</h4>
+                <div class="decision-list">
+                  <div><strong>Google tag</strong><p>Fires during initialization so the measurement identity and session context exist before event-scoped tags.</p></div>
+                  <div><strong>Conversion Linker</strong><p>Runs at initialization to preserve eligible advertising click identifiers in first-party context.</p></div>
+                  <div><strong>Commerce events</strong><p>Listen for named data-layer events such as <code>add_to_cart</code>, not presentation-layer clicks or class names.</p></div>
+                  <div><strong>Consent governance</strong><p>Begin from denied storage states where required, then update state from the consent-management platform before eligible tags act.</p></div>
+                </div>
+              </section>
+              <figure class="case-figure case-figure--wide">
+                <img src="assets/images/case-evidence/gtm-consent.webp" width="1600" height="917" loading="lazy" decoding="async" alt="Staged Google Tag Manager workspace showing a base Google tag and an add-to-cart event tag with named triggers">
+                <figcaption>The container uses self-documenting tags and explicit triggers rather than opaque click listeners.</figcaption>
+              </figure>
+              <section>
+                <h4>Engineering data contract</h4>
+                <p>The payload clears stale e-commerce state before sending a new item array. Currency, value, SKU, name, price, quantity, and category are typed consistently so the same event can support GA4 reporting and downstream advertising use.</p>
+                <pre class="code-sample"><code>window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({ ecommerce: null });
+window.dataLayer.push({
+  event: "add_to_cart",
+  ecommerce: {
+    currency: "USD",
+    value: 1199.00,
+    items: [{
+      item_id: "IPHONE-15-PRO-128",
+      item_name: "iPhone 15 Pro 128GB",
+      price: 1199.00,
+      quantity: 1,
+      item_category: "Smartphones"
+    }]
+  }
+});</code></pre>
+                <p>Named container versions record who changed the implementation, what changed, and when it was released. Preview, DebugView, and backend reconciliation form the release gate; a published container version alone is not proof that the data is correct.</p>
+              </section>
+            </div>
+          </article>
+
+          <article class="full-case" data-case-article data-module="measurement" data-case-id="cross-domain" data-card-title="Cross-domain sessions" data-card-summary="Preserve sessions and acquisition credit across storefront and payment boundaries.">
+            <header class="full-case__header">
+              <h3 tabindex="-1">Stream architecture &amp; cross-domain linking</h3>
+              <p class="full-case__lede">A session-continuity blueprint covering linked domains, referral exclusions, internal traffic, retention, and enhanced measurement.</p>
+              <ul class="full-case__meta" aria-label="Case details">
+                <li><strong>Tool</strong>GA4 web stream</li>
+                <li><strong>Journey</strong>Marketing site to storefront and checkout</li>
+                <li><strong>Retention</strong>14 months</li>
+              </ul>
+              <p class="evidence-notice"><strong>Portfolio demonstration — not a verified production configuration.</strong> The architecture shows the intended controls and validation method.</p>
+            </header>
+            <dl class="case-summary">
+              <div><dt>Question</dt><dd>How can sessions and acquisition credit remain intact when a commerce journey crosses domains?</dd></div>
+              <div><dt>Decision</dt><dd>Configure linked domains, preserve linker parameters, exclude payment referrals, and govern internal traffic.</dd></div>
+              <div><dt>Artifact</dt><dd>A stream-governance blueprint covering domain rules, referral exclusions, traffic filters, and retention.</dd></div>
+              <div><dt>Next step</dt><dd>Trace one test journey across every boundary and confirm identifiers and original attribution persist.</dd></div>
+            </dl>
+            <div class="case-story">
+              <section>
+                <h4>Keep one journey as one journey</h4>
+                <p>A campaign may begin on a marketing domain, continue on a storefront, and pass through a payment service before purchase. Without deliberate configuration, those boundaries can fragment a single visitor into separate sessions and allow a payment referral to overwrite the original acquisition source.</p>
+                <p>Same-root subdomains can share first-party identifiers under the correct cookie configuration. For genuinely distinct domains, the domain configuration and linker behavior must pass the required client context through eligible links; the receiving page must not discard the linker parameter before analytics reads it.</p>
+              </section>
+              <section>
+                <h4>Governance controls</h4>
+                <div class="decision-list">
+                  <div><strong>Domain rules</strong><p>Register every participant in the measured journey using rules narrow enough to avoid linking unrelated hosts.</p></div>
+                  <div><strong>Referral exclusions</strong><p>Exclude known payment and checkout services so their return redirects do not claim acquisition credit.</p></div>
+                  <div><strong>Internal traffic</strong><p>Define employee, developer, QA, and staging traffic before activating filters that could permanently remove it.</p></div>
+                  <div><strong>Retention</strong><p>Use a 14-month event retention setting to support seasonal and year-over-year Explorations.</p></div>
+                </div>
+              </section>
+              <figure class="case-figure case-figure--wide">
+                <img src="assets/images/case-evidence/cross-domain.webp" width="1600" height="845" loading="lazy" decoding="async" alt="Staged GA4 web-stream administration view with tag and stream configuration controls">
+                <figcaption>The stream administration surface holds the domain, internal-traffic, and tag controls used by the blueprint.</figcaption>
+              </figure>
+              <section>
+                <h4>Validation path</h4>
+                <p>Start a controlled session with campaign parameters, cross every domain and payment boundary, then verify the same client and session context survives. Confirm the original source remains intact, unwanted self-referrals are absent, key events fire once with the expected parameters, and internal test traffic is labeled before any exclusion filter becomes active.</p>
+              </section>
+            </div>
+          </article>
+
+          <article class="full-case" data-case-article data-module="measurement" data-case-id="events-validation" data-card-title="Key events &amp; validation" data-card-summary="Define commerce milestones, parameter contracts, counting rules, and end-to-end QA.">
+            <header class="full-case__header">
+              <h3 tabindex="-1">Key events, e-commerce models &amp; validation</h3>
+              <p class="full-case__lede">A commerce-event contract joining funnel definitions, required item parameters, counting rules, and real-time evidence.</p>
+              <ul class="full-case__meta" aria-label="Case details">
+                <li><strong>Tool</strong>GA4 e-commerce</li>
+                <li><strong>Core events</strong><code>add_to_cart</code>, <code>begin_checkout</code>, <code>purchase</code></li>
+                <li><strong>Counting</strong>Once per event</li>
+              </ul>
+              <p class="evidence-notice"><strong>Portfolio demonstration — not production telemetry.</strong> The case demonstrates the schema and QA method without exposing live identifiers or orders.</p>
+            </header>
+            <dl class="case-summary">
+              <div><dt>Question</dt><dd>How should commerce milestones and payload requirements be defined and validated end to end?</dd></div>
+              <div><dt>Decision</dt><dd>Use standard events, consistent item arrays, once-per-event counting, and a staged GTM-to-GA4 QA sequence.</dd></div>
+              <div><dt>Artifact</dt><dd>An event specification linking funnel milestones, required parameters, counting rules, and test evidence.</dd></div>
+              <div><dt>Next step</dt><dd>Validate controlled orders in GTM Preview, DebugView, GA4 reports, and backend order totals.</dd></div>
+            </dl>
+            <div class="case-story">
+              <section>
+                <h4>Measure business milestones, not every interaction equally</h4>
+                <p>The event model promotes three standard commerce milestones to key events: cart addition, checkout start, and purchase. They anchor the buying funnel and give downstream reporting and bidding systems a smaller, more meaningful signal set than raw clicks, scroll depth, and page views.</p>
+                <div class="funnel-route" aria-label="Commerce funnel"><span>add_to_cart</span><i aria-hidden="true"></i><span>begin_checkout</span><i aria-hidden="true"></i><span>purchase</span></div>
+              </section>
+              <section>
+                <h4>Shared payload contract</h4>
+                <div class="table-scroll" tabindex="0" role="region" aria-label="Required e-commerce parameters">
+                  <table>
+                    <thead><tr><th>Parameter</th><th>Type</th><th>Purpose</th></tr></thead>
+                    <tbody>
+                      <tr><td><code>item_id</code></td><td>String</td><td>Stable SKU across all funnel events</td></tr>
+                      <tr><td><code>item_name</code></td><td>String</td><td>Readable product label in reporting</td></tr>
+                      <tr><td><code>price</code></td><td>Number</td><td>Per-unit price at interaction time</td></tr>
+                      <tr><td><code>quantity</code></td><td>Integer</td><td>Units represented by the action</td></tr>
+                      <tr><td><code>currency</code></td><td>ISO 4217 string</td><td>Reliable multi-currency rollups</td></tr>
+                      <tr><td><code>value</code></td><td>Number</td><td>Total commercial value for reporting and bidding</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p>E-commerce milestones count once per event so separate item actions remain visible. Engagement-style goals may instead use once-per-session counting where repeat actions would inflate the intended outcome. Default lead-event placeholders can remain documented and unused rather than being mistaken for active commerce events.</p>
+              </section>
+              <figure class="case-figure case-figure--wide">
+                <img src="assets/images/case-evidence/events-validation.webp" width="1600" height="829" loading="lazy" decoding="async" alt="Staged GA4 key-events registry showing commerce events and unused lead-event placeholders">
+                <figcaption>The registry distinguishes the intended commerce events from unused default lead-generation placeholders.</figcaption>
+              </figure>
+              <section>
+                <h4>End-to-end QA</h4>
+                <ol class="process-list process-list--compact">
+                  <li><strong>Pre-production</strong><span>Inspect the data-layer payload and tag sequence in GTM Preview before publishing.</span></li>
+                  <li><strong>Real time</strong><span>Use DebugView to confirm event order, trigger timing, and every required parameter.</span></li>
+                  <li><strong>Processed reports</strong><span>Confirm registered events and revenue appear after normal processing.</span></li>
+                  <li><strong>Source reconciliation</strong><span>Match transaction identifiers, orders, currency, value, and refunds against the commerce backend.</span></li>
+                </ol>
+              </section>
+            </div>
+          </article>
+
+          <article class="full-case" data-case-article data-module="measurement" data-case-id="custom-definitions" data-card-title="Custom definitions" data-card-summary="Register raw parameters at the correct scope for reporting and audience use.">
+            <header class="full-case__header">
+              <h3 tabindex="-1">Custom definitions, metrics &amp; user properties</h3>
+              <p class="full-case__lede">A registration map connecting raw commerce parameters to useful event-scoped and user-scoped analysis.</p>
+              <ul class="full-case__meta" aria-label="Case details">
+                <li><strong>Tool</strong>GA4 schema governance</li>
+                <li><strong>Event scope</strong><code>item_category</code></li>
+                <li><strong>User scope</strong><code>customer_type</code></li>
+              </ul>
+              <p class="evidence-notice"><strong>Portfolio demonstration.</strong> The case documents configuration choices and activation paths rather than verified business outcomes.</p>
+            </header>
+            <dl class="case-summary">
+              <div><dt>Question</dt><dd>Which parameters should become durable GA4 definitions, and at what scope?</dd></div>
+              <div><dt>Decision</dt><dd>Register product category at event scope and customer status at user scope with consent-aware activation.</dd></div>
+              <div><dt>Artifact</dt><dd>A schema map connecting raw parameters to reportable definitions and audience use cases.</dd></div>
+              <div><dt>Next step</dt><dd>Confirm values in DebugView, allow processing, then test them in Explorations and audiences.</dd></div>
+            </dl>
+            <div class="case-story">
+              <section>
+                <h4>Registration makes parameters reportable</h4>
+                <p>Raw payload keys can arrive in the GA4 event stream without becoming available as useful breakdowns. Registration is the governance step that turns a collected value into a dimension or metric. Scope must match what the value describes: a product category belongs to an individual event, while a customer type describes the person across sessions until updated.</p>
+              </section>
+              <section>
+                <h4>Two definitions, two jobs</h4>
+                <div class="comparison-grid">
+                  <div><h5>Product category</h5><p><strong>Event-scoped · <code>item_category</code></strong></p><p>Breaks commerce interactions and revenue down by catalog family such as smartphones, laptops, and wearables.</p></div>
+                  <div><h5>Customer status</h5><p><strong>User-scoped · <code>customer_type</code></strong></p><p>Persists a classification such as guest, registered, or VIP for cohort analysis and consent-aware audience building.</p></div>
+                </div>
+                <p>The registered dimensions support custom Exploration tables such as revenue by product category and engagement by customer tier. A user-scoped property can also support audience activation, subject to consent, policy, and data-quality requirements.</p>
+              </section>
+              <figure class="case-figure case-figure--wide">
+                <img src="assets/images/case-evidence/custom-definitions.webp" width="1600" height="827" loading="lazy" decoding="async" alt="Staged GA4 custom-definitions table showing product category at event scope and customer status at user scope">
+                <figcaption>The administration table confirms the two custom definitions are registered at their intended scopes.</figcaption>
+              </figure>
+              <section>
+                <h4>Validation</h4>
+                <p>Inspect raw parameter values first, confirm that naming and case are consistent, then wait for processing before testing report availability. Audience activation should only follow after value coverage, consent eligibility, membership logic, and refresh behavior have been verified.</p>
+              </section>
+            </div>
+          </article>
+
+          <article class="full-case" data-case-article data-module="measurement" data-case-id="bigquery" data-card-title="BigQuery export" data-card-summary="Define raw-event export modes, residency, ownership, cost, and downstream questions.">
+            <header class="full-case__header">
+              <h3 tabindex="-1">BigQuery export &amp; cloud warehousing</h3>
+              <p class="full-case__lede">An event-level export design covering daily and intraday modes, data residency, warehouse ownership, and analytical use.</p>
+              <ul class="full-case__meta" aria-label="Case details">
+                <li><strong>Source</strong>GA4</li>
+                <li><strong>Destination</strong>Google BigQuery</li>
+                <li><strong>Modes</strong>Daily and intraday</li>
+              </ul>
+              <p class="evidence-notice"><strong>Portfolio blueprint.</strong> The setup surface is demonstrated, but no completed production link or historical warehouse is claimed.</p>
+            </header>
+            <dl class="case-summary">
+              <div><dt>Question</dt><dd>How should event-level GA4 data be exported and governed for deeper analysis?</dd></div>
+              <div><dt>Decision</dt><dd>Define export mode, dataset region, ownership, cost controls, and downstream questions before activation.</dd></div>
+              <div><dt>Artifact</dt><dd>An export design connecting operational requirements with warehouse configuration and analytical use cases.</dd></div>
+              <div><dt>Next step</dt><dd>Complete the property link, inspect the first partitions, and reconcile purchase events with GA4 totals.</dd></div>
+            </dl>
+            <div class="case-story">
+              <section>
+                <h4>Why leave the reporting interface</h4>
+                <p>The GA4 interface is built for fast product reporting, not arbitrary event-level analysis over an unrestricted history. A BigQuery export exposes collected events, parameters, user properties, and item arrays for SQL modeling, custom retention, CRM joins, and reproducible transformation logic. The warehouse does not improve poor collection; it makes the collected structure available for deeper inspection.</p>
+              </section>
+              <section>
+                <h4>Export choices</h4>
+                <div class="comparison-grid">
+                  <div><h5>Daily export</h5><p><strong>Cost-conscious historical pipeline</strong></p><p>One partitioned table per day supports scheduled reporting, long-horizon analysis, and models that do not need same-hour data.</p></div>
+                  <div><h5>Intraday export</h5><p><strong>Low-latency operational pipeline</strong></p><p>Intraday tables support fresher dashboards, anomaly detection, and operational use cases that cannot wait for the next daily partition.</p></div>
+                </div>
+                <p>The Google Cloud project, dataset region, access roles, retention, query-cost controls, and downstream owner must be defined before linking. Dataset residency is a governance choice because it cannot be changed retroactively without creating a new export path.</p>
+              </section>
+              <figure class="case-figure case-figure--wide">
+                <img src="assets/images/case-evidence/bigquery-export.webp" width="1600" height="824" loading="lazy" decoding="async" alt="Staged GA4 BigQuery Links administration surface ready for property configuration">
+                <figcaption>The demonstration reaches the correct BigQuery integration surface but does not claim that a production link has been completed.</figcaption>
+              </figure>
+              <section>
+                <h4>Downstream capabilities</h4>
+                <ul class="feature-list">
+                  <li><strong>Attribution:</strong> flatten event parameters and item arrays to model touchpoints with explicit SQL logic.</li>
+                  <li><strong>Lifetime value:</strong> build cohorts and revenue histories beyond interface-level reports.</li>
+                  <li><strong>CRM joining:</strong> connect consented identifiers to downstream customer records under defined governance.</li>
+                  <li><strong>Business intelligence:</strong> publish modeled tables to Looker Studio or another BI layer.</li>
+                  <li><strong>Machine learning readiness:</strong> prepare governed features only after data quality, cost, and privacy controls are in place.</li>
+                </ul>
+              </section>
+            </div>
+          </article>
+
+          <article class="full-case" data-case-article data-module="optimization" data-case-id="search-term-audit" data-card-title="Search-term audit" data-card-summary="Turn a large query export into governed keep, isolate, and exclusion decisions.">
+            <header class="full-case__header">
+              <h3 tabindex="-1">Search-term audit &amp; negative-keyword governance</h3>
+              <p class="full-case__lede">A repeatable query-classification and exclusion workflow for locating waste without blocking valuable intent.</p>
+              <ul class="full-case__meta" aria-label="Case details">
+                <li><strong>Environment</strong>Paused staging sandbox</li>
+                <li><strong>Illustrative scope</strong>1,200+ queries</li>
+                <li><strong>Cadence</strong>Daily triage and bi-weekly governance</li>
+              </ul>
+              <p class="evidence-notice"><strong>Portfolio simulation — not client data.</strong> The $48,250 spend, $12,410 projected waste, and 98.4% precision figures demonstrate the audit method rather than a verified employer outcome.</p>
+            </header>
+            <dl class="case-summary">
+              <div><dt>Question</dt><dd>How should a large query set be classified into keep, exact, isolate, or exclude decisions?</dd></div>
+              <div><dt>Decision</dt><dd>Use spend and conversion evidence, record exclusion scope, and monitor approved changes for reversals.</dd></div>
+              <div><dt>Artifact</dt><dd>A query log with intent, action, exclusion scope, expected effect, owner, and review cadence.</dd></div>
+              <div><dt>Next step</dt><dd>Export the live report, document the waste calculation, apply approved changes, and monitor impact.</dd></div>
+            </dl>
+            <div class="case-story">
+              <section>
+                <h4>Method and decision log</h4>
+                <p>Every search term is evaluated against intent, spend, conversion evidence, and the account structure it should belong to. The audit avoids treating all zero-conversion traffic alike: a commercially relevant query may need a dedicated exact keyword, a new ad group, or more data rather than an immediate negative.</p>
+                <div class="table-scroll" tabindex="0" role="region" aria-label="Sample search-term triage log">
+                  <table>
+                    <thead><tr><th>Query</th><th>Signal</th><th>Decision</th><th>Directive</th></tr></thead>
+                    <tbody>
+                      <tr><td>buy macbook pro 16 inch</td><td>High commercial intent, positive CVR</td><td>Keep and scale</td><td>Promote to exact</td></tr>
+                      <tr><td>free macbook pro pdf manual</td><td>Informational, no conversion</td><td>Negative exact</td><td>Add <code>[free]</code> and <code>[pdf]</code></td></tr>
+                      <tr><td>apple macbook repair store near me</td><td>Service intent, no conversion</td><td>Negative phrase</td><td>Add <code>"repair"</code></td></tr>
+                      <tr><td>galaxy s23 ultra case leather</td><td>Accessory and competitor noise</td><td>Negative phrase</td><td>Add <code>"galaxy"</code></td></tr>
+                      <tr><td>macbook pro trade in value</td><td>Mid-funnel, positive CVR, wrong route</td><td>Isolate</td><td>Dedicated exact campaign</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+              <section>
+                <h4>Two levels of exclusions</h4>
+                <div class="governance-tree" aria-label="Negative keyword hierarchy">
+                  <strong>Search account</strong>
+                  <div><span>Campaign-level sculpting</span><p>Protect Brand Defense from competitor terms, isolate trade-in and support intent from Flagship, and keep branded demand out of PMax where required.</p></div>
+                  <div><span>Account-level shared lists</span><p>Apply universal zero-intent, secondary-market, employment, support, and post-purchase exclusions consistently across eligible campaigns.</p></div>
+                </div>
+              </section>
+              <figure class="case-figure case-figure--wide">
+                <img src="assets/images/case-evidence/search-term-audit.webp" width="2000" height="202" loading="lazy" decoding="async" alt="Staged Google Ads shared negative-keyword list inventory across the demonstration account">
+                <figcaption>The sandbox inventory verifies that governed shared lists exist at account level; the case-study metrics remain simulated.</figcaption>
+              </figure>
+              <section>
+                <h4>Operating thresholds and cadence</h4>
+                <div class="decision-list">
+                  <div><strong>Spend without conversion</strong><p>A term reaching $50 in a rolling 30-day window with no conversion is flagged for triage within 48 hours, not auto-blocked.</p></div>
+                  <div><strong>CTR decay</strong><p>An exact keyword below 60% of its ad-group average across 1,000+ impressions triggers match and message review.</p></div>
+                  <div><strong>Match-type isolation</strong><p>A converting broad or phrase term is promoted to exact and then excluded from the source route to prevent internal competition.</p></div>
+                  <div><strong>Weekly loop</strong><p>Search terms → negatives → RSA review → auction insights → budget adjustments → reporting → repeat.</p></div>
+                </div>
+              </section>
+            </div>
+          </article>
+
+          <article class="full-case" data-case-article data-module="optimization" data-case-id="rsa-testing" data-card-title="RSA experiment" data-card-summary="Pre-register a message contrast, sample requirement, guardrails, and rollout rule.">
+            <header class="full-case__header">
+              <h3 tabindex="-1">Responsive Search Ad experiment</h3>
+              <p class="full-case__lede">A controlled test comparing price-anchor messaging with friction-reduction messaging under commercial guardrails.</p>
+              <ul class="full-case__meta" aria-label="Case details">
+                <li><strong>Campaign</strong>Non-brand flagship Search</li>
+                <li><strong>Primary contrast</strong>Price anchor vs. switching simplicity</li>
+                <li><strong>Minimum sample</strong>2,000 clicks per variant</li>
+              </ul>
+              <p class="evidence-notice"><strong>Portfolio simulation.</strong> The 30-day split-test figures illustrate the decision framework and do not represent a live employer experiment.</p>
+            </header>
+            <dl class="case-summary">
+              <div><dt>Question</dt><dd>Does friction-reduction messaging improve conversion performance relative to a price anchor?</dd></div>
+              <div><dt>Decision</dt><dd>Test one message contrast with pre-registered metrics, stopping rules, and CPA/ROAS guardrails.</dd></div>
+              <div><dt>Artifact</dt><dd>A hypothesis, controlled asset matrix, primary metrics, guardrails, and rollout protocol.</dd></div>
+              <div><dt>Next step</dt><dd>Use a campaign experiment where allocation must remain clean and register the stopping rule before launch.</dd></div>
+            </dl>
+            <div class="case-story">
+              <section>
+                <h4>Hypothesis and thresholds</h4>
+                <p>For non-brand Android switchers, Concept B reduces perceived migration friction with one-click transfer and switching-assistance language. Concept A anchors the offer in price, financing, and product performance. The pre-registered thresholds require at least 2,000 clicks per variant, more than 15% CTR uplift, more than 10% CVR uplift, and 95% statistical confidence, while downstream CPA and ROAS must hold or improve.</p>
+              </section>
+              <section>
+                <h4>Controlled asset matrix</h4>
+                <div class="table-scroll" tabindex="0" role="region" aria-label="RSA message variants">
+                  <table>
+                    <thead><tr><th>Asset</th><th>Copy</th><th>Concept</th><th>Role</th></tr></thead>
+                    <tbody>
+                      <tr><td>Headline</td><td>Official Apple Store — Fast Free Shipping</td><td>Control A</td><td>Brand relevance</td></tr>
+                      <tr><td>Headline</td><td>Switch to iPhone Effortlessly — Move in 1-Click</td><td>Variant B</td><td>Friction reduction</td></tr>
+                      <tr><td>Headline</td><td>Get Up to $250 Instant Trade-In Credit</td><td>Variant B</td><td>Switcher incentive</td></tr>
+                      <tr><td>Headline</td><td>Powered by A19 Bionic — Unmatched Performance</td><td>Control A</td><td>Feature anchor</td></tr>
+                      <tr><td>Description</td><td>Transfer your Android files, photos, and settings with Move to iOS.</td><td>Variant B</td><td>Migration CTA</td></tr>
+                      <tr><td>Description</td><td>Get zero-percent financing and fast, free delivery on all models.</td><td>Control A</td><td>Value anchor</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+              <figure class="case-figure case-figure--portrait">
+                <img src="assets/images/case-evidence/rsa-testing.webp" width="900" height="988" loading="lazy" decoding="async" alt="Staged responsive search ad builder showing a full headline inventory and mobile preview">
+                <figcaption>The staged builder verifies complete asset inventory and “Excellent” ad strength; ad strength is a setup signal, not the experiment outcome.</figcaption>
+              </figure>
+              <section>
+                <h4>Illustrative decision matrix</h4>
+                <div class="result-comparison" aria-label="Illustrative split-test results">
+                  <div><span>Control A</span><strong>4.1% CTR · 2.8% CVR · $142 CPA</strong></div>
+                  <div class="is-winner"><span>Challenger B</span><strong>5.8% CTR · 4.2% CVR · $95 CPA</strong></div>
+                </div>
+                <ul class="feature-list">
+                  <li><strong>If B wins and commercial guardrails hold:</strong> scale the winning proposition across non-brand switcher campaigns and update related asset groups.</li>
+                  <li><strong>If the result is inconclusive:</strong> retain the learning and test a clearer CTA contrast rather than declaring a winner early.</li>
+                  <li><strong>If A wins or downstream economics worsen:</strong> revert to ecosystem-authority messaging and test pricing separately.</li>
+                </ul>
+              </section>
+            </div>
+          </article>
+
+          <article class="full-case" data-case-article data-module="optimization" data-case-id="auction-memo" data-card-title="Auction response" data-card-summary="Separate rank, budget, demand, and competitor pressure before changing bids.">
+            <header class="full-case__header">
+              <h3 tabindex="-1">Competitive auction response</h3>
+              <p class="full-case__lede">A bounded response memo that distinguishes rank pressure, budget pressure, demand movement, and competitor displacement.</p>
+              <ul class="full-case__meta" aria-label="Case details">
+                <li><strong>Window</strong>Illustrative 14-day alert</li>
+                <li><strong>Primary signal</strong>Search impression-share loss</li>
+                <li><strong>Output</strong>Three-step response protocol</li>
+              </ul>
+              <p class="evidence-notice"><strong>Portfolio simulation.</strong> The competitor panel and benchmark table use illustrative case-study values because the sandbox remains below Google’s reporting threshold.</p>
+            </header>
+            <dl class="case-summary">
+              <div><dt>Question</dt><dd>What evidence is required before responding to a modeled decline in impression share?</dd></div>
+              <div><dt>Decision</dt><dd>Confirm the source of loss before changing bids, then use constrained messaging, bidding, and audience tests.</dd></div>
+              <div><dt>Artifact</dt><dd>An executive memo separating rank, budget, demand, and competitor displacement.</dd></div>
+              <div><dt>Next step</dt><dd>Pull segmented Auction Insights, confirm the cause, and run a bounded response test.</dd></div>
+            </dl>
+            <div class="case-story">
+              <section>
+                <h4>Situation diagnosis</h4>
+                <p>The modeled alert shows flagship Search impression share falling from 78% to 63%. Lost impression share from rank rises by 11 points while lost share from budget remains stable at 4%, indicating that simply increasing the daily budget would not address the modeled problem. Competitor overlap and top-of-page presence are the hypotheses to investigate, not proof by themselves.</p>
+                <div class="table-scroll" tabindex="0" role="region" aria-label="Illustrative auction metrics">
+                  <table>
+                    <thead><tr><th>Domain</th><th>Impression share</th><th>Overlap rate</th><th>Top of page</th><th>Outranking share</th></tr></thead>
+                    <tbody>
+                      <tr><td>apple.com</td><td>63.2%</td><td>—</td><td>82.4%</td><td>—</td></tr>
+                      <tr><td>samsung.com</td><td>24.8%</td><td>48.6%</td><td>74.1%</td><td>18.2%</td></tr>
+                      <tr><td>bestbuy.com</td><td>18.5%</td><td>36.2%</td><td>58.9%</td><td>12.4%</td></tr>
+                      <tr><td>amazon.com</td><td>14.1%</td><td>28.5%</td><td>46.3%</td><td>8.1%</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+              <figure class="case-figure case-figure--wide">
+                <img src="assets/images/case-evidence/auction-memo.webp" width="1500" height="227" loading="lazy" decoding="async" alt="Staged empty Google Ads Auction Insights table with the expected diagnostic columns">
+                <figcaption>The sandbox panel correctly returns no competitor rows below its reporting threshold; the modeled table above demonstrates how the populated data would be interpreted.</figcaption>
+              </figure>
+              <section>
+                <h4>Three-step response</h4>
+                <ol class="process-list process-list--compact">
+                  <li><strong>Adapt assets</strong><span>Test trade-in and structured benefit messaging that addresses the observed promotion without unsupported comparison claims.</span></li>
+                  <li><strong>Run a bounded bidding test</strong><span>Evaluate Target Impression Share on a limited set of exact switcher terms rather than changing the whole account.</span></li>
+                  <li><strong>Intercept qualified intent</strong><span>Add relevant competitor-promotion themes as PMax audience signals, treating them as inputs rather than strict targeting.</span></li>
+                </ol>
+                <p>Success is not “recover impression share at any cost.” The test must monitor CPC, CPA, conversion quality, and marginal return so a rank response does not create a larger commercial problem.</p>
+              </section>
+            </div>
+          </article>
+
+          <article class="full-case" data-case-article data-module="reporting" data-case-id="fleet-executive" data-card-title="SEM fleet center" data-card-summary="Give leadership a 60-second path from status to trend, mix, and accountability.">
+            <header class="full-case__header">
+              <h3 tabindex="-1">SEM fleet executive center</h3>
+              <p class="full-case__lede">A leadership reading path from portfolio status to historical trend, device composition, campaign accountability, risks, and owned actions.</p>
+              <ul class="full-case__meta" aria-label="Case details">
+                <li><strong>Tool</strong>Looker Studio</li>
+                <li><strong>Audience</strong>Marketing leadership</li>
+                <li><strong>Window</strong>January 2018 to July 2024</li>
+              </ul>
+              <p class="evidence-notice"><strong>Portfolio demonstration — illustrative data.</strong> Revenue, conversion, mix, and campaign figures are case-study values rather than independently verified results.</p>
+            </header>
+            <dl class="case-summary">
+              <div><dt>Question</dt><dd>What does leadership need to see to judge fleet health and direct the next review?</dd></div>
+              <div><dt>Decision</dt><dd>Use a four-layer reading path: status, trend, composition, and campaign accountability.</dd></div>
+              <div><dt>Artifact</dt><dd>A leadership dashboard with defined KPI, trend, device, matrix, risk, and action layers.</dd></div>
+              <div><dt>Next step</dt><dd>Reconcile source totals, annotate incidents, and present each proposed action with an owner and review date.</dd></div>
+            </dl>
+            <div class="case-story">
+              <section>
+                <h4>Four layers, four questions</h4>
+                <div class="report-layers">
+                  <div><strong>Status</strong><p>Revenue, conversions, clicks, and conversion rate answer whether the fleet is healthy now.</p></div>
+                  <div><strong>Trend</strong><p>Revenue and traffic on the same timeline show whether volume and value are moving together.</p></div>
+                  <div><strong>Composition</strong><p>Device revenue makes the operating mix visible and informs experience investment.</p></div>
+                  <div><strong>Accountability</strong><p>A campaign matrix exposes where spend, clicks, conversions, and revenue are concentrated.</p></div>
+                </div>
+                <p>The sequence moves from “How are we doing?” to “Where does the result come from?” before anyone changes a campaign. Limiting the first layer to four metrics protects the executive view from becoming another analyst dashboard.</p>
+              </section>
+              <section>
+                <h4>Illustrative dashboard read</h4>
+                <div class="metric-board" aria-label="Illustrative device revenue composition">
+                  <div><span>Mobile</span><strong>64.0%</strong><progress max="100" value="64">64%</progress></div>
+                  <div><span>Desktop</span><strong>29.9%</strong><progress max="100" value="29.9">29.9%</progress></div>
+                  <div><span>Tablet</span><strong>6.1%</strong><progress max="100" value="6.1">6.1%</progress></div>
+                </div>
+                <p>The modeled trend is relatively flat through most of 2020, then shows revenue and clicks rising together and reaching peak monthly revenue above $900K in late 2023. The dashboard treats the post-2020 period as the more relevant operating baseline while still requiring the team to explain seasonality, attribution changes, and tracking incidents before forecasting from it.</p>
+              </section>
+              <section>
+                <h4>Campaign interpretation</h4>
+                <div class="table-scroll" tabindex="0" role="region" aria-label="Illustrative campaign structure interpretation">
+                  <table>
+                    <thead><tr><th>Signal</th><th>Observation</th><th>Working implication</th></tr></thead>
+                    <tbody>
+                      <tr><td>Top PMax value</td><td>$1.8M–$2.0M per campaign</td><td>Investigate whether proven structures can absorb incremental budget.</td></tr>
+                      <tr><td>Heatmap concentration</td><td>High-density cells cluster around PMax and hybrid structures</td><td>Review PMax as a scaling candidate, subject to incrementality and marginal return.</td></tr>
+                      <tr><td>Search role</td><td>Secondary contributor in the model</td><td>Retain deliberate brand and high-intent query control.</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p>Concentration alone does not prove causality. The working response is to improve the inputs automation depends on—first-party signals, creative depth, feed quality, and offline outcomes—while testing marginal return instead of fragmenting spend into more campaigns.</p>
+              </section>
+              <section>
+                <h4>Risk and executive roadmap</h4>
+                <div class="risk-grid">
+                  <div><strong>Mobile CPC inflation</strong><span>Monitor mobile CPA</span></div>
+                  <div><strong>PMax concentration</strong><span>Monitor revenue share by campaign</span></div>
+                  <div><strong>Impression-share loss</strong><span>Separate rank from budget</span></div>
+                  <div><strong>Creative fatigue</strong><span>Monitor CTR trend</span></div>
+                  <div><strong>Budget saturation</strong><span>Monitor marginal ROAS</span></div>
+                </div>
+                <ol class="process-list process-list--compact">
+                  <li><strong>Revenue acceleration</strong><span>Test incremental budget in top-decile structures and deepen the asset groups and signals supporting them.</span></li>
+                  <li><strong>Mobile efficiency</strong><span>Prioritize page speed, checkout, and mobile creative while maintaining desktop coverage and reviewing tablet priority.</span></li>
+                  <li><strong>Reporting governance</strong><span>Use the dashboard as the standing review layer and add efficiency-normalized metrics to the campaign matrix.</span></li>
+                </ol>
+              </section>
+            </div>
+          </article>
+
+          <article class="full-case" data-case-article data-module="reporting" data-case-id="roas-pacing" data-card-title="ROAS &amp; budget pacing" data-card-summary="Unify finance and marketing around one return definition and campaign-level action view.">
+            <header class="full-case__header">
+              <h3 tabindex="-1">ROAS &amp; budget pacing monitor</h3>
+              <p class="full-case__lede">A financial control view joining spend, revenue, calculated return, pacing, campaign profitability, risks, and approval-ready reallocations.</p>
+              <ul class="full-case__meta" aria-label="Case details">
+                <li><strong>Tool</strong>Looker Studio</li>
+                <li><strong>Audience</strong>Finance and marketing</li>
+                <li><strong>Metric</strong>Actual ROAS at campaign grain</li>
+              </ul>
+              <p class="evidence-notice"><strong>Portfolio demonstration — illustrative data.</strong> Spend, revenue, profitability, and reallocation figures are not independently verified business results.</p>
+            </header>
+            <dl class="case-summary">
+              <div><dt>Question</dt><dd>How can finance and marketing inspect return and pacing without losing campaign-level context?</dd></div>
+              <div><dt>Decision</dt><dd>Define ROAS once, show portfolio and campaign views together, and isolate loss-making scenarios.</dd></div>
+              <div><dt>Artifact</dt><dd>A fiscal dashboard with calculated-field logic, trend, pacing matrix, risk controls, and proposed actions.</dd></div>
+              <div><dt>Next step</dt><dd>Reconcile revenue and cost, confirm attribution windows, flag low volume, and require approval before shifts.</dd></div>
+            </dl>
+            <div class="case-story">
+              <section>
+                <h4>One calculated field</h4>
+                <p class="formula"><code>Actual ROAS (%) = (SUM(Conversion Value) / SUM(Cost)) × 100</code></p>
+                <p>The field is computed at campaign grain and then aggregated so the portfolio scorecard and campaign matrix use the same mathematical definition. A displayed result of 1,244.30% is equivalent to 12.44x: $12.44 in attributed conversion value for every $1 of modeled spend. Percentage format supports a finance reading, while the multiple can remain a secondary representation.</p>
+              </section>
+              <figure class="case-figure case-figure--wide">
+                <img src="assets/images/case-evidence/roas-pacing.webp" width="1492" height="1278" loading="lazy" decoding="async" alt="Looker Studio demonstration dashboard with KPI cards, spend and return trend, and campaign pacing table">
+                <figcaption>The dashboard moves from portfolio-level fiscal status to trend and then to campaign-level pacing and profitability.</figcaption>
+              </figure>
+              <section>
+                <h4>Reading and action thresholds</h4>
+                <p>In the model, two Search campaigns sit at 0.91x–0.92x while the strongest PMax example reaches 54.62x. A campaign sustained below 1.0x is returning less attributed value than spend before margin and other business costs; it becomes a freeze-and-review candidate rather than a routine optimization ticket.</p>
+                <div class="result-comparison" aria-label="Illustrative campaign return comparison">
+                  <div><span>Review threshold</span><strong>Below 1.0x for two consecutive months</strong></div>
+                  <div class="is-winner"><span>Modeled scaling candidate</span><strong>54.62x PMax example</strong></div>
+                </div>
+                <p>The comparison remains incomplete until attribution windows, conversion value quality, campaign volume, margin, incrementality, and brand cannibalization are checked. A high platform ROAS is a prioritization signal, not automatic permission to scale.</p>
+              </section>
+              <section>
+                <h4>Risk controls</h4>
+                <div class="risk-grid">
+                  <div><strong>PMax concentration</strong><span>Revenue share of top three campaigns</span></div>
+                  <div><strong>Brand cannibalization</strong><span>Brand vs. non-brand Search ROAS</span></div>
+                  <div><strong>Test dilution</strong><span>30-day blended ROAS trend</span></div>
+                  <div><strong>Budget creep</strong><span>Spend share below 1.0x</span></div>
+                  <div><strong>Seasonal pressure</strong><span>Q4 CPC and marginal return</span></div>
+                </div>
+              </section>
+              <section>
+                <h4>Budget governance roadmap</h4>
+                <ol class="process-list process-list--compact">
+                  <li><strong>Reallocate deliberately</strong><span>Freeze or reduce sustained sub-1.0x campaigns and submit a documented shift toward proven candidates for approval.</span></li>
+                  <li><strong>Use marginal rules</strong><span>Direct new budget to the strongest eligible structures until incremental ROAS shows diminishing return.</span></li>
+                  <li><strong>Audit underperformers</strong><span>Check query mix, brand adjacency, tracking, and landing experience before concluding the campaign itself is the problem.</span></li>
+                  <li><strong>Automate alerts</strong><span>Add month-over-month pacing thresholds so campaigns crossing into unprofitable territory are surfaced before the next manual review.</span></li>
+                </ol>
+              </section>
+            </div>
+          </article>
+
+          <article class="full-case" data-case-article data-module="reporting" data-case-id="funnel-attribution" data-card-title="Funnel attribution" data-card-summary="Explain traffic, device, and stacked event behavior without misreading rates above 100%.">
+            <header class="full-case__header">
+              <h3 tabindex="-1">Funnel attribution &amp; micro-conversion pathway</h3>
+              <p class="full-case__lede">A journey dashboard connecting traffic, devices, channels, macro outcomes, and stacked diagnostic events.</p>
+              <ul class="full-case__meta" aria-label="Case details">
+                <li><strong>Tool</strong>Looker Studio</li>
+                <li><strong>Audience</strong>Performance and measurement teams</li>
+                <li><strong>Window</strong>January 2020 to July 2024</li>
+              </ul>
+              <p class="evidence-notice"><strong>Portfolio demonstration — illustrative data.</strong> Channel, device, and event figures are modeled. Rates above 100% require an event-definition audit and must not be read as purchase conversion rate.</p>
+            </header>
+            <dl class="case-summary">
+              <div><dt>Question</dt><dd>How should a reviewer interpret a funnel when one click can produce multiple counted events?</dd></div>
+              <div><dt>Decision</dt><dd>Show macro and micro events together, label the calculation, and treat rates above 100% as a governance question.</dd></div>
+              <div><dt>Artifact</dt><dd>A funnel dashboard with macro status, channel and device comparison, event-density analysis, and controls.</dd></div>
+              <div><dt>Next step</dt><dd>Audit event definitions, deduplicate purchases, reconcile channels, and test mobile completion friction.</dd></div>
+            </dl>
+            <div class="case-story">
+              <section>
+                <h4>A dashboard shaped like the journey</h4>
+                <div class="report-layers">
+                  <div><strong>Macro scorecards</strong><p>Impressions, clicks, conversions, and the defined macro rate show the largest modeled drop.</p></div>
+                  <div><strong>Channel volume</strong><p>Clicks and counted events appear side by side so acquisition and event output are not confused.</p></div>
+                  <div><strong>Device completion</strong><p>Bottom-funnel event share identifies where the modeled journey finishes.</p></div>
+                  <div><strong>Pathway matrix</strong><p>Campaign rows reveal exactly where stacked events produce rates above 100%.</p></div>
+                </div>
+              </section>
+              <section>
+                <h4>Illustrative channel and device read</h4>
+                <div class="table-scroll" tabindex="0" role="region" aria-label="Illustrative channel clicks and counted conversion events">
+                  <table>
+                    <thead><tr><th>Channel</th><th>Clicks</th><th>Counted events</th><th>Interpretation</th></tr></thead>
+                    <tbody>
+                      <tr><td>Performance Max</td><td>304.9K</td><td>593.6K</td><td>Multiple counted events per click; audit event mix before comparing efficiency.</td></tr>
+                      <tr><td>Search</td><td>241.9K</td><td>142.5K</td><td>Lower event-to-click ratio than PMax in the modeled data.</td></tr>
+                      <tr><td>Display</td><td>152.7K</td><td>93.3K</td><td>Investigate traffic quality and completion friction.</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="metric-board" aria-label="Illustrative bottom-funnel event share by device">
+                  <div><span>Mobile</span><strong>70.6%</strong><progress max="100" value="70.6">70.6%</progress></div>
+                  <div><span>Computers</span><strong>18.1%</strong><progress max="100" value="18.1">18.1%</progress></div>
+                  <div><span>Tablets</span><strong>11.3%</strong><progress max="100" value="11.3">11.3%</progress></div>
+                </div>
+              </section>
+              <section>
+                <h4>What a rate above 100% means</h4>
+                <p>The pathway matrix models campaigns at 129.8% and 192.46% because the numerator includes multiple diagnostic events—such as cart additions, checkout starts, purchases, and post-purchase actions—against clicks. That can describe event density, but it is not a literal purchase success rate and cannot justify budget expansion on its own.</p>
+                <div class="callout-pair">
+                  <div><strong>Useful signal</strong><p>Which campaigns and sessions generate deeper measured interaction across the defined event set.</p></div>
+                  <div><strong>Required control</strong><p>Separate macro purchase outcomes from micro events, document the formula, deduplicate transaction IDs, and report both views.</p></div>
+                </div>
+              </section>
+              <section>
+                <h4>Risk and recommendations</h4>
+                <div class="risk-grid">
+                  <div><strong>Double counting</strong><span>Quarterly event-definition audit</span></div>
+                  <div><strong>Mobile friction</strong><span>Click-to-purchase drop-off</span></div>
+                  <div><strong>PMax concentration</strong><span>Macro outcome share, top three</span></div>
+                  <div><strong>Display waste</strong><span>Qualified outcome per click</span></div>
+                  <div><strong>Dormant channels</strong><span>Impression and click volume</span></div>
+                </div>
+                <ol class="process-list process-list--compact">
+                  <li><strong>Separate outcome types</strong><span>Report purchases and revenue independently from stacked diagnostic events before reallocating budget.</span></li>
+                  <li><strong>Audit mobile completion</strong><span>Prioritize page speed, checkout, and form friction where most modeled completion events occur.</span></li>
+                  <li><strong>Rebuild weak channels</strong><span>Fix creative and destination alignment before adding Display or Video budget.</span></li>
+                  <li><strong>Formalize governance</strong><span>Publish event definitions, calculation grain, deduplication rules, and a reconciliation owner.</span></li>
+                </ol>
+              </section>
+            </div>
+          </article>
         </template>
       </section>
 

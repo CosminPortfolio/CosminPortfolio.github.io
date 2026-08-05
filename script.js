@@ -42,7 +42,8 @@ tabs.forEach((tab, index) => {
     if (event.key === 'End') nextIndex = tabs.length - 1;
     if (event.key === 'ArrowRight' || event.key === 'ArrowDown') nextIndex = (index + 1) % tabs.length;
     if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') nextIndex = (index - 1 + tabs.length) % tabs.length;
-    selectCase(tabs[nextIndex].dataset.caseTab, true);
+    tabs[nextIndex].click();
+    tabs[nextIndex].focus();
   });
 });
 
