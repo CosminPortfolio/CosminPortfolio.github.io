@@ -11,8 +11,9 @@
     <meta property="og:image" content="assets/images/cosmin-profile.png">
     <title>Cosmin Pintilie — Performance Marketing & Analytics</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css?v=20260805a">
+    <link rel="stylesheet" href="styles.css?v=20260805b">
     <script src="script.js" defer></script>
+    <script src="case-workspace.js?v=20260805c" type="module"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
@@ -128,27 +129,29 @@
                   <p class="case-type">Portfolio scenario · Search architecture</p>
                   <h3>Apple omni-channel campaign architecture</h3>
                 </div>
-                <p>A five-part account structure that separates branded, product, competitor, professional, and automated demand.</p>
+                <div class="case-panel__intro">
+                  <p>A five-part account structure that separates branded, product, competitor, professional, and automated demand.</p>
+                  <a class="button button--primary case-panel__cta" href="case-strategy.html" data-open-workspace="strategy">View 5 campaign builds <span aria-hidden="true">→</span></a>
+                </div>
               </div>
               <div class="architecture" aria-label="Planning budget allocation: 25% Brand defense, 55% Mac B2B and Flagship driver, 10% Competitor conquesting, and 10% Performance Max">
                 <div class="architecture__heading"><strong>Planning budget split</strong><span>Initial allocation · 100%</span></div>
-                <div class="architecture__segment architecture__segment--brand"><strong>Brand defense</strong><b>25%</b><span>Protect core equity</span></div>
+                <button class="architecture__segment architecture__segment--brand" type="button" data-open-case="brand-defense"><strong>Brand defense</strong><b>25%</b><span>Protect core equity</span></button>
                 <div class="architecture__segment architecture__segment--growth">
                   <div class="architecture__group-label"><strong>Mac B2B + Flagship driver</strong><b>55%</b></div>
                   <div class="architecture__subsegments">
-                    <span><strong>Mac B2B &amp; pro creator</strong><small>High-value fleet</small></span>
-                    <span><strong>Flagship driver</strong><small>High-intent B2C</small></span>
+                    <button type="button" data-open-case="mac-b2b"><strong>Mac B2B &amp; pro creator</strong><small>High-value fleet</small></button>
+                    <button type="button" data-open-case="flagship-driver"><strong>Flagship driver</strong><small>High-intent B2C</small></button>
                   </div>
                 </div>
-                <div class="architecture__segment architecture__segment--conquest"><strong>Conquesting</strong><b>10%</b><span>Intercept switchers</span></div>
-                <div class="architecture__segment architecture__segment--pmax"><strong>Performance Max</strong><b>10%</b><span>Controlled scale</span></div>
+                <button class="architecture__segment architecture__segment--conquest" type="button" data-open-case="competitor-conquesting"><strong>Conquesting</strong><b>10%</b><span>Intercept switchers</span></button>
+                <button class="architecture__segment architecture__segment--pmax" type="button" data-open-case="performance-max"><strong>Performance Max</strong><b>10%</b><span>Controlled scale</span></button>
               </div>
               <div class="case-panel__notes">
                 <div><h4>Key decision</h4><p>Keep brand defense separate from discovery so automated traffic does not hide where demand started.</p></div>
                 <div><h4>How it is managed</h4><p>Give each layer its own intent, audience, budget logic, and success criteria.</p></div>
                 <div><h4>What to review</h4><p>Account structure, query routing, budget ownership, and the role assigned to each channel.</p></div>
               </div>
-              <a class="detail-link" href="case-strategy.html">Explore all five campaign builds <span aria-hidden="true">→</span></a>
             </article>
 
             <article id="panel-measurement" class="case-panel" role="tabpanel" aria-labelledby="tab-measurement" data-case-panel="measurement" hidden>
@@ -157,7 +160,10 @@
                   <p class="case-type">Technical blueprint · Measurement</p>
                   <h3>GA4 and GTM conversion architecture</h3>
                 </div>
-                <p>A tracking plan for consent states, e-commerce events, cross-domain journeys, and BigQuery exports.</p>
+                <div class="case-panel__intro">
+                  <p>A tracking plan for consent states, e-commerce events, cross-domain journeys, and BigQuery exports.</p>
+                  <a class="button button--primary case-panel__cta" href="case-measurement.html" data-open-workspace="measurement">View 5 technical cases <span aria-hidden="true">→</span></a>
+                </div>
               </div>
               <div class="pipeline" aria-label="Measurement pipeline">
                 <span>Consent Mode v2</span><i aria-hidden="true"></i><span>GTM data layer</span><i aria-hidden="true"></i><span>GA4 events</span><i aria-hidden="true"></i><span>BigQuery</span>
@@ -169,7 +175,6 @@
                 <div><h4>Custom definitions</h4><p>Event-scoped and user-scoped parameters designed for useful segmentation.</p></div>
                 <div><h4>Warehouse export</h4><p>Event-level BigQuery data supporting deeper attribution and SQL analysis.</p></div>
               </div>
-              <a class="detail-link" href="case-measurement.html">Explore all five technical documents <span aria-hidden="true">→</span></a>
             </article>
 
             <article id="panel-optimization" class="case-panel" role="tabpanel" aria-labelledby="tab-optimization" data-case-panel="optimization" hidden>
@@ -178,7 +183,10 @@
                   <p class="case-type">Portfolio scenario · Optimization</p>
                   <h3>Search-term audit and experiment plan</h3>
                 </div>
-                <p>A repeatable review for cutting irrelevant spend, testing ad messages, and responding to auction pressure.</p>
+                <div class="case-panel__intro">
+                  <p>A repeatable review for cutting irrelevant spend, testing ad messages, and responding to auction pressure.</p>
+                  <a class="button button--primary case-panel__cta" href="case-optimization.html" data-open-workspace="optimization">View 3 optimization deliverables <span aria-hidden="true">→</span></a>
+                </div>
               </div>
               <div class="audit-example">
                 <div><strong>1,200</strong><span>queries reviewed</span></div>
@@ -191,7 +199,6 @@
                 <div><h4>Auction response</h4><p>Translate impression-share movement into a focused bid, quality, and competitor-response memo.</p></div>
               </div>
               <p class="case-disclaimer">Figures in this module come from the supplied portfolio scenario and are presented as demonstration data, not résumé-verified employer results.</p>
-              <a class="detail-link" href="case-optimization.html">Explore all three optimization documents <span aria-hidden="true">→</span></a>
             </article>
 
             <article id="panel-reporting" class="case-panel" role="tabpanel" aria-labelledby="tab-reporting" data-case-panel="reporting" hidden>
@@ -200,7 +207,10 @@
                   <p class="case-type">Portfolio scenario · Business intelligence</p>
                   <h3>Looker Studio executive reporting suite</h3>
                 </div>
-                <p>Three dashboard views for executive performance, budget pacing, and funnel analysis.</p>
+                <div class="case-panel__intro">
+                  <p>Three dashboard views for executive performance, budget pacing, and funnel analysis.</p>
+                  <a class="button button--primary case-panel__cta" href="case-reporting.html" data-open-workspace="reporting">View 3 reporting cases <span aria-hidden="true">→</span></a>
+                </div>
               </div>
               <div class="dashboard-stack">
                 <div><span>Executive</span><h4>SEM Fleet Center</h4><p>A 60-second view of revenue direction, conversions, and device composition.</p></div>
@@ -213,10 +223,67 @@
                 <div><h4>Review output</h4><p>Each meeting closes with approved pacing changes, test priorities, and named next steps.</p></div>
               </div>
               <p class="case-disclaimer">The large-scale figures in the source portfolio are demonstration data and are not independently validated by the supplied résumé.</p>
-              <a class="detail-link" href="case-reporting.html">Explore all three dashboard cases <span aria-hidden="true">→</span></a>
             </article>
           </div>
         </div>
+
+        <template id="case-workspace-template">
+          <section class="case-workspace" aria-labelledby="case-workspace-title" data-case-workspace>
+            <header class="case-workspace__bar">
+              <div>
+                <button class="case-workspace__back" type="button" data-workspace-close><span aria-hidden="true">←</span> Back to overview</button>
+                <p data-workspace-module></p>
+              </div>
+              <span class="case-workspace__count" data-workspace-count></span>
+            </header>
+
+            <div class="case-selector" role="tablist" aria-label="Cases in this discipline" data-case-selector></div>
+
+            <article class="case-evidence" id="case-evidence-panel" role="tabpanel" aria-labelledby="case-workspace-title">
+              <header class="case-evidence__header">
+                <div class="case-evidence__copy">
+                  <p class="case-evidence__meta" data-case-meta></p>
+                  <h3 id="case-workspace-title" tabindex="-1" data-case-title></h3>
+                  <p data-case-synopsis></p>
+                  <p class="case-evidence__limit" data-case-limit></p>
+                </div>
+                <div class="case-evidence__actions">
+                  <button class="button button--primary" type="button" data-document-fullscreen>Open fullscreen</button>
+                  <a class="button button--secondary" target="_blank" rel="noopener" data-document-open>Open PDF <span aria-hidden="true">↗</span></a>
+                  <a class="case-evidence__download" download data-document-download>Download PDF <span aria-hidden="true">↓</span></a>
+                </div>
+              </header>
+
+              <div class="document-viewer" tabindex="0" aria-label="Case-study document viewer" data-document-viewer>
+                <div class="document-stage" data-document-stage>
+                  <p class="document-status" role="status" aria-live="polite" data-document-status>Preparing document…</p>
+                  <canvas role="img" data-document-canvas></canvas>
+                  <div class="document-error" data-document-error hidden>
+                    <strong>Preview unavailable</strong>
+                    <p>The original document is still available to open or download.</p>
+                  </div>
+                </div>
+                <div class="document-controls" aria-label="Document page controls">
+                  <button type="button" data-page-previous><span aria-hidden="true">←</span> Previous</button>
+                  <span data-page-indicator>Page 1 of 1</span>
+                  <button type="button" data-page-next>Next <span aria-hidden="true">→</span></button>
+                </div>
+                <div class="document-thumbnails" role="group" aria-label="Document pages" data-document-thumbnails></div>
+              </div>
+
+              <details class="case-rationale">
+                <summary>Case rationale and technical depth</summary>
+                <dl class="case-rationale__grid">
+                  <div><dt>Question</dt><dd data-case-question></dd></div>
+                  <div><dt>Decision</dt><dd data-case-decision></dd></div>
+                  <div><dt>Artifact</dt><dd data-case-artifact></dd></div>
+                  <div><dt>Next step</dt><dd data-case-next></dd></div>
+                </dl>
+                <a class="detail-link" data-case-standalone>Open the standalone case page <span aria-hidden="true">→</span></a>
+              </details>
+            </article>
+          </section>
+        </template>
       </section>
 
       <section class="toolkits" id="toolkits" aria-labelledby="toolkits-title">
