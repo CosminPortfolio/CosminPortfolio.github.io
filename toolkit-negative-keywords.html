@@ -6,9 +6,11 @@
     <meta name="description" content="A detailed negative-keyword architecture and match-type SOP by Cosmin Pintilie.">
     <meta name="theme-color" content="#09090b">
     <title>Negative Keyword Library — Cosmin Pintilie</title>
+    <link rel="canonical" href="https://cosminportfolio.github.io/cosminel2001.github.io/toolkit-negative-keywords.html">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css?v=20260805e">
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20260809d">
+    <script src="script.js?v=20260809b" defer></script>
+    <script src="negative-keywords.js?v=20260809a" defer></script>
   </head>
   <body class="detail-body">
     <a class="skip-link" href="#main">Skip to main content</a>
@@ -53,9 +55,15 @@
       </section>
 
       <section class="detail-section" aria-labelledby="library-title">
-        <h2 id="library-title">Published library status</h2>
-        <p>The supplied Notion page names a “Plug-and-Play Negative Keyword List,” but the public database contains no entries. No keywords have been invented to fill that gap.</p>
-        <div class="detail-callout"><strong>Content still needed for a populated library:</strong> approved categories, market and language, match types, ownership, last-review date, and exceptions.</div>
+        <h2 id="library-title">Plug-and-play keyword lists</h2>
+        <p>Sixteen source lists are published below with their original use cases. Treat them as reviewable starting points, not universal account defaults: confirm the offer, market, match type, and protected high-intent terms before applying any list.</p>
+        <div class="library-tools">
+          <label for="keyword-search">Search all published lists</label>
+          <input id="keyword-search" type="search" placeholder="Try jobs, repair, geography, B2B…" autocomplete="off">
+          <p id="keyword-status" class="library-status" aria-live="polite">Loading 16 lists…</p>
+        </div>
+        <div class="keyword-library" id="keyword-library"></div>
+        <noscript><p class="detail-callout">JavaScript is required to browse the published keyword inventory.</p></noscript>
       </section>
 
       <nav class="detail-footer-nav" aria-label="Toolkit navigation"><a href="index.html#case/reporting/fleet-executive">← Previous: Reporting case</a><a href="toolkit-ab-testing.html">Next: A/B testing →</a></nav>

@@ -78,4 +78,5 @@ const updateHeader = () => header?.setAttribute('data-scrolled', String(window.s
 updateHeader();
 window.addEventListener('scroll', updateHeader, { passive: true });
 
-document.querySelector('[data-year]').textContent = new Date().getFullYear();
+const year = document.querySelector('[data-year]');
+if (year) year.textContent = new Date().getFullYear();
