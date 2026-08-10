@@ -1,136 +1,219 @@
 const workSection = document.querySelector('#work');
 const template = document.querySelector('#case-content-template');
-const panels = Object.fromEntries(
-  [...document.querySelectorAll('[data-case-panel]')].map((panel) => [panel.dataset.casePanel, panel])
-);
+const panelHost = document.querySelector('.case-panels');
 const moduleTabs = [...document.querySelectorAll('[data-case-tab]')];
+const sourcePanels = [...document.querySelectorAll('[data-case-panel]')];
 const routeLinks = [...document.querySelectorAll('[data-route-case]')];
 
-if (!workSection || !template || !Object.keys(panels).length) {
-  throw new Error('Case-study gallery markup is incomplete.');
+if (!workSection || !template || !panelHost || !sourcePanels.length) {
+  throw new Error('Case-study workspace markup is incomplete.');
 }
 
-const articles = [...template.content.querySelectorAll('[data-case-article]')];
-const modules = {};
+const moduleOrder = ['strategy', 'measurement', 'optimization', 'reporting'];
+const moduleLabels = {
+  strategy: 'Strategy',
+  measurement: 'Measurement',
+  optimization: 'Optimization',
+  reporting: 'Reporting'
+};
+const moduleOverviews = Object.fromEntries(
+  sourcePanels.map((panel) => [panel.dataset.casePanel, [...panel.childNodes].map((node) => node.cloneNode(true))])
+);
 
-articles.forEach((article) => {
-  const moduleId = article.dataset.module;
-  modules[moduleId] ??= [];
-  modules[moduleId].push({
+const cases = [...template.content.querySelectorAll('[data-case-article]')].map((article, index) => {
+  const evidence = article.querySelector('img');
+  return {
+    article,
+    moduleId: article.dataset.module,
     caseId: article.dataset.caseId,
     title: article.dataset.cardTitle,
     summary: article.dataset.cardSummary,
-    article
-  });
+    number: String(index + 1).padStart(2, '0'),
+    evidenceSrc: evidence?.getAttribute('src') || '',
+    evidenceAlt: evidence?.getAttribute('alt') || ''
+  };
 });
 
-const surfaces = {};
+const casesByModule = Object.fromEntries(
+  moduleOrder.map((moduleId) => [moduleId, cases.filter((item) => item.moduleId === moduleId)])
+);
 
-Object.entries(panels).forEach(([moduleId, panel]) => {
-  const overview = document.createElement('div');
-  overview.className = 'case-panel__overview';
-  while (panel.firstChild) overview.append(panel.firstChild);
+const moduleBrief = document.createElement('section');
+moduleBrief.className = 'module-brief';
+moduleBrief.setAttribute('aria-live', 'polite');
 
-  const caseArea = document.createElement('section');
-  caseArea.className = 'case-area';
-  caseArea.setAttribute('aria-labelledby', `case-gallery-title-${moduleId}`);
+const workspace = document.createElement('div');
+workspace.className = 'proof-workspace';
 
-  const galleryHeader = document.createElement('header');
-  galleryHeader.className = 'case-area__header';
-  galleryHeader.innerHTML = `
-    <h4 id="case-gallery-title-${moduleId}">Choose a case</h4>
-    <p>${modules[moduleId].length} complete ${modules[moduleId].length === 1 ? 'case' : 'cases'} · one opens below</p>
+const indexPanel = document.createElement('section');
+indexPanel.className = 'proof-index-panel';
+indexPanel.setAttribute('aria-labelledby', 'proof-index-title');
+indexPanel.innerHTML = `
+  <header class="proof-index-header">
+    <h3 id="proof-index-title">Case proof index</h3>
+    <p>16 complete dossiers · select any proof</p>
+  </header>
+`;
+
+const caseIndex = document.createElement('div');
+caseIndex.className = 'proof-index';
+caseIndex.setAttribute('role', 'tablist');
+caseIndex.setAttribute('aria-label', 'All portfolio case studies');
+
+const reader = document.createElement('section');
+reader.className = 'case-reader';
+reader.id = 'case-reader';
+reader.setAttribute('role', 'tabpanel');
+reader.setAttribute('aria-live', 'polite');
+
+cases.forEach((item, index) => {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'proof-card';
+  button.dataset.caseSelect = item.caseId;
+  button.dataset.module = item.moduleId;
+  button.setAttribute('role', 'tab');
+  button.setAttribute('aria-selected', 'false');
+  button.setAttribute('aria-controls', reader.id);
+  button.tabIndex = index === 0 ? 0 : -1;
+  button.innerHTML = `
+    <span class="proof-card__number">${item.number}</span>
+    <span class="proof-card__image">${item.evidenceSrc ? `<img src="${item.evidenceSrc}" alt="" loading="lazy" decoding="async">` : '<i aria-hidden="true"></i>'}</span>
+    <strong>${item.title}</strong>
+    <small>${moduleLabels[item.moduleId]}</small>
   `;
+  caseIndex.append(button);
+});
 
-  const gallery = document.createElement('div');
-  gallery.className = 'case-gallery';
-  gallery.setAttribute('role', 'tablist');
-  gallery.setAttribute('aria-label', `Cases in ${moduleId}`);
+indexPanel.append(caseIndex);
+workspace.append(indexPanel, reader);
+panelHost.replaceChildren(moduleBrief, workspace);
 
-  const reader = document.createElement('div');
-  reader.className = 'case-reader';
-  reader.id = `case-reader-${moduleId}`;
-  reader.setAttribute('role', 'tabpanel');
-  reader.setAttribute('aria-live', 'polite');
-
-  modules[moduleId].forEach((item, index) => {
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'case-card';
-    button.dataset.caseSelect = item.caseId;
-    button.setAttribute('role', 'tab');
-    button.setAttribute('aria-selected', 'false');
-    button.setAttribute('aria-controls', reader.id);
-    button.tabIndex = index === 0 ? 0 : -1;
-    button.innerHTML = `
-      <strong>${item.title}</strong>
-      <span>${item.summary}</span>
-      <small>Read case <i aria-hidden="true">→</i></small>
-    `;
-    gallery.append(button);
-  });
-
-  caseArea.append(galleryHeader, gallery, reader);
-  panel.append(overview, caseArea);
-  surfaces[moduleId] = { panel, gallery, reader };
+moduleTabs.forEach((tab) => {
+  tab.setAttribute('aria-controls', reader.id);
+  const count = casesByModule[tab.dataset.caseTab]?.length || 0;
+  const countNode = document.createElement('b');
+  countNode.className = 'case-tab-count';
+  countNode.textContent = String(count).padStart(2, '0');
+  tab.prepend(countNode);
 });
 
 const state = {
   moduleId: 'strategy',
-  caseId: modules.strategy[0].caseId,
-  suppressModuleClick: false
-};
-
-const parseHash = () => {
-  const match = location.hash.match(/^#case\/([^/]+)(?:\/([^/]+))?$/);
-  if (!match) return null;
-  const moduleId = modules[match[1]] ? match[1] : 'strategy';
-  const requestedCase = modules[moduleId].find((item) => item.caseId === match[2]);
-  return {
-    moduleId,
-    caseId: requestedCase?.caseId || modules[moduleId][0].caseId,
-    canonical: Boolean(modules[match[1]]) && (!match[2] || Boolean(requestedCase))
-  };
+  caseId: casesByModule.strategy[0].caseId
 };
 
 const caseHash = (moduleId, caseId) => `#case/${moduleId}/${caseId}`;
 
-const selectModule = (moduleId) => {
-  const tab = moduleTabs.find((item) => item.dataset.caseTab === moduleId);
-  if (!tab || tab.getAttribute('aria-selected') === 'true') return;
-  state.suppressModuleClick = true;
-  tab.click();
-  state.suppressModuleClick = false;
+const parseHash = () => {
+  const match = location.hash.match(/^#case\/([^/]+)(?:\/([^/]+))?$/);
+  if (!match) return null;
+  const moduleId = casesByModule[match[1]] ? match[1] : 'strategy';
+  const requested = casesByModule[moduleId].find((item) => item.caseId === match[2]);
+  return {
+    moduleId,
+    caseId: requested?.caseId || casesByModule[moduleId][0].caseId,
+    canonical: Boolean(casesByModule[match[1]]) && Boolean(requested)
+  };
 };
 
-const updateGallery = (moduleId, caseId) => {
-  const buttons = [...surfaces[moduleId].gallery.querySelectorAll('[data-case-select]')];
-  buttons.forEach((button) => {
-    const selected = button.dataset.caseSelect === caseId;
-    button.setAttribute('aria-selected', String(selected));
-    button.tabIndex = selected ? 0 : -1;
+const renderModuleBrief = (moduleId) => {
+  moduleBrief.replaceChildren(...moduleOverviews[moduleId].map((node) => node.cloneNode(true)));
+  moduleBrief.dataset.module = moduleId;
+};
+
+const setModuleState = (moduleId) => {
+  moduleTabs.forEach((tab) => {
+    const selected = tab.dataset.caseTab === moduleId;
+    tab.setAttribute('aria-selected', String(selected));
+    tab.tabIndex = selected ? 0 : -1;
   });
+  renderModuleBrief(moduleId);
+};
+
+const buildWorkflow = (caseId) => {
+  const activeStep = {
+    'search-term-audit': 'Negative Keyword Governance',
+    'rsa-testing': 'Creative Experimentation',
+    'auction-memo': 'Competitive Response'
+  }[caseId];
+  if (!activeStep) return null;
+
+  const nav = document.createElement('nav');
+  nav.className = 'workflow-bar';
+  nav.setAttribute('aria-label', 'Optimization workflow');
+  ['Search Query Intelligence', 'Negative Keyword Governance', 'Creative Experimentation', 'Competitive Response', 'Performance Lift'].forEach((label) => {
+    const span = document.createElement('span');
+    span.textContent = label;
+    if (label === activeStep) {
+      span.className = 'is-active';
+      span.setAttribute('aria-current', 'step');
+    }
+    nav.append(span);
+  });
+  return nav;
+};
+
+const reportingMetrics = {
+  'fleet-executive': [['$7.6M', 'Total revenue'], ['838.4K', 'Conversions'], ['784.2K', 'Clicks'], ['67.62%', 'Conversion rate']],
+  'roas-pacing': [['$613.52K', 'Total spend'], ['$7.6M', 'Total revenue'], ['1,244.30%', 'Actual ROAS · 12.44x'], ['830.3K', 'Conversions']],
+  'funnel-attribution': [['66.6M', 'Impressions · TOF'], ['727.8K', 'Clicks · mid-funnel'], ['830.3K', 'Conversions · BOF'], ['70.2%', 'Macro conversion rate']]
+};
+
+const addReportingMetrics = (clone, caseId) => {
+  const metrics = reportingMetrics[caseId];
+  if (!metrics) return;
+  const board = document.createElement('div');
+  board.className = 'source-metric-strip';
+  board.setAttribute('aria-label', 'Source dashboard headline metrics');
+  metrics.forEach(([value, label]) => {
+    const item = document.createElement('div');
+    item.innerHTML = `<strong>${value}</strong><span>${label}</span>`;
+    board.append(item);
+  });
+  clone.querySelector('.full-case__header')?.append(board);
+};
+
+const addCaseNavigation = (clone, item) => {
+  const index = cases.indexOf(item);
+  const previous = cases[(index - 1 + cases.length) % cases.length];
+  const next = cases[(index + 1) % cases.length];
+  const nav = document.createElement('nav');
+  nav.className = 'case-dossier-nav';
+  nav.setAttribute('aria-label', 'Case study navigation');
+  nav.innerHTML = `
+    <a href="${caseHash(previous.moduleId, previous.caseId)}" data-case-jump="${previous.caseId}" data-module="${previous.moduleId}"><span>Previous proof</span><strong>${previous.number} · ${previous.title}</strong></a>
+    <a href="${caseHash(next.moduleId, next.caseId)}" data-case-jump="${next.caseId}" data-module="${next.moduleId}"><span>Next proof</span><strong>${next.number} · ${next.title}</strong></a>
+  `;
+  clone.append(nav);
 };
 
 const renderCase = (moduleId, caseId, { historyMode = null, focus = false } = {}) => {
-  const item = modules[moduleId]?.find((candidate) => candidate.caseId === caseId);
+  const item = cases.find((candidate) => candidate.moduleId === moduleId && candidate.caseId === caseId);
   if (!item) return;
 
-  selectModule(moduleId);
-  const surface = surfaces[moduleId];
   const clone = item.article.cloneNode(true);
   const heading = clone.querySelector('h3');
-
-  Object.entries(surfaces).forEach(([candidateModule, candidateSurface]) => {
-    if (candidateModule === moduleId) return;
-    candidateSurface.reader.replaceChildren();
-    candidateSurface.reader.removeAttribute('aria-labelledby');
-  });
-
   heading.id = `case-title-${moduleId}-${caseId}`;
-  surface.reader.setAttribute('aria-labelledby', heading.id);
-  surface.reader.replaceChildren(clone);
-  updateGallery(moduleId, caseId);
+  const proofId = document.createElement('p');
+  proofId.className = 'case-proof-id';
+  proofId.textContent = `Proof ${item.number} of ${cases.length} · ${moduleLabels[moduleId]}`;
+  clone.querySelector('.full-case__header')?.prepend(proofId);
+
+  const workflow = buildWorkflow(caseId);
+  if (workflow) clone.querySelector('.case-story')?.before(workflow);
+  addReportingMetrics(clone, caseId);
+  addCaseNavigation(clone, item);
+
+  reader.setAttribute('aria-labelledby', heading.id);
+  reader.replaceChildren(clone);
+  setModuleState(moduleId);
+
+  [...caseIndex.querySelectorAll('[data-case-select]')].forEach((button) => {
+    const selected = button.dataset.caseSelect === caseId && button.dataset.module === moduleId;
+    button.setAttribute('aria-selected', String(selected));
+    button.tabIndex = selected ? 0 : -1;
+  });
 
   state.moduleId = moduleId;
   state.caseId = caseId;
@@ -143,53 +226,65 @@ const renderCase = (moduleId, caseId, { historyMode = null, focus = false } = {}
   if (focus) {
     requestAnimationFrame(() => {
       heading.focus({ preventScroll: true });
-      const bounds = heading.getBoundingClientRect();
-      if (bounds.top < 88 || bounds.top > window.innerHeight * 0.82) {
-        window.scrollTo({
-          top: window.scrollY + bounds.top - 96,
-          behavior: 'auto'
-        });
-      }
+      reader.scrollIntoView({ block: 'start', behavior: 'smooth' });
     });
   }
 };
 
-Object.entries(surfaces).forEach(([moduleId, surface]) => {
-  surface.gallery.addEventListener('click', (event) => {
-    const button = event.target.closest('[data-case-select]');
-    if (!button) return;
-    renderCase(moduleId, button.dataset.caseSelect, { historyMode: 'push', focus: true });
-  });
+caseIndex.addEventListener('click', (event) => {
+  const button = event.target.closest('[data-case-select]');
+  if (!button) return;
+  renderCase(button.dataset.module, button.dataset.caseSelect, { historyMode: 'push', focus: true });
+});
 
-  surface.gallery.addEventListener('keydown', (event) => {
-    if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)) return;
-    event.preventDefault();
-    const buttons = [...surface.gallery.querySelectorAll('[data-case-select]')];
-    const current = buttons.indexOf(document.activeElement);
-    let next = current < 0 ? 0 : current;
-    if (event.key === 'Home') next = 0;
-    if (event.key === 'End') next = buttons.length - 1;
-    if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (next + 1) % buttons.length;
-    if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (next - 1 + buttons.length) % buttons.length;
-    buttons[next].focus();
-    renderCase(moduleId, buttons[next].dataset.caseSelect, { historyMode: 'push' });
-  });
+caseIndex.addEventListener('keydown', (event) => {
+  if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)) return;
+  event.preventDefault();
+  const buttons = [...caseIndex.querySelectorAll('[data-case-select]')];
+  const current = Math.max(0, buttons.indexOf(document.activeElement));
+  const columns = window.matchMedia('(min-width: 1120px)').matches ? 4 : window.matchMedia('(min-width: 760px)').matches ? 3 : 1;
+  let next = current;
+  if (event.key === 'Home') next = 0;
+  if (event.key === 'End') next = buttons.length - 1;
+  if (event.key === 'ArrowRight') next = (current + 1) % buttons.length;
+  if (event.key === 'ArrowLeft') next = (current - 1 + buttons.length) % buttons.length;
+  if (event.key === 'ArrowDown') next = Math.min(current + columns, buttons.length - 1);
+  if (event.key === 'ArrowUp') next = Math.max(current - columns, 0);
+  buttons[next].focus();
+});
+
+reader.addEventListener('click', (event) => {
+  const link = event.target.closest('[data-case-jump]');
+  if (!link) return;
+  event.preventDefault();
+  renderCase(link.dataset.module, link.dataset.caseJump, { historyMode: 'push', focus: true });
 });
 
 moduleTabs.forEach((tab) => {
-  tab.addEventListener('click', (event) => {
-    if (state.suppressModuleClick) return;
+  tab.addEventListener('click', () => {
     const moduleId = tab.dataset.caseTab;
-    const currentCase = state.moduleId === moduleId ? state.caseId : modules[moduleId][0].caseId;
-    const keepTabFocus = event.detail === 0 && document.activeElement === tab;
-    renderCase(moduleId, currentCase, { historyMode: 'push', focus: !keepTabFocus });
+    const caseId = state.moduleId === moduleId ? state.caseId : casesByModule[moduleId][0].caseId;
+    renderCase(moduleId, caseId, { historyMode: 'push', focus: true });
+  });
+
+  tab.addEventListener('keydown', (event) => {
+    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+    event.preventDefault();
+    const current = moduleTabs.indexOf(tab);
+    let next = current;
+    if (event.key === 'Home') next = 0;
+    if (event.key === 'End') next = moduleTabs.length - 1;
+    if (event.key === 'ArrowRight') next = (current + 1) % moduleTabs.length;
+    if (event.key === 'ArrowLeft') next = (current - 1 + moduleTabs.length) % moduleTabs.length;
+    moduleTabs[next].focus();
+    moduleTabs[next].click();
   });
 });
 
 routeLinks.forEach((link) => {
   link.addEventListener('click', () => {
     const moduleId = link.dataset.routeCase;
-    renderCase(moduleId, modules[moduleId][0].caseId, { historyMode: 'replace', focus: true });
+    renderCase(moduleId, casesByModule[moduleId][0].caseId, { historyMode: 'replace', focus: true });
   });
 });
 
@@ -207,13 +302,9 @@ window.addEventListener('hashchange', () => restoreFromLocation({ canonicalize: 
 
 const initialRoute = parseHash();
 if (initialRoute) {
-  renderCase(initialRoute.moduleId, initialRoute.caseId, { focus: true });
+  renderCase(initialRoute.moduleId, initialRoute.caseId);
   if (!initialRoute.canonical) {
-    history.replaceState(
-      { moduleId: initialRoute.moduleId, caseId: initialRoute.caseId },
-      '',
-      caseHash(initialRoute.moduleId, initialRoute.caseId)
-    );
+    history.replaceState({ moduleId: initialRoute.moduleId, caseId: initialRoute.caseId }, '', caseHash(initialRoute.moduleId, initialRoute.caseId));
   }
 } else {
   renderCase(state.moduleId, state.caseId);

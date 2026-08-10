@@ -21,7 +21,7 @@ if (library && search && status) {
           visibleKeywords += shown.length;
           const details = document.createElement('details');
           details.className = 'keyword-list';
-          details.open = Boolean(term);
+          details.open = Boolean(term) || library.childElementCount < 3;
           const summary = document.createElement('summary');
           const title = document.createElement('strong'); title.textContent = list.title;
           const count = document.createElement('span'); count.textContent = `${shown.length} terms`;
