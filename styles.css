@@ -1630,10 +1630,17 @@ footer {
   padding-block: clamp(2rem, 3vw, 2.5rem);
 }
 .case-story.case-story--flagship-driver > section {
+  grid-template-columns: minmax(23rem, 1fr) minmax(0, 1fr);
   row-gap: clamp(1rem, 1.6vw, 1.25rem);
   column-gap: clamp(1.5rem, 3vw, 3rem);
   padding-block: clamp(2rem, 3vw, 2.5rem);
 }
+.case-story--flagship-driver .case-stage-title {
+  max-width: none;
+  font-size: clamp(1.35rem, 1.8vw, 1.55rem);
+  line-height: 1.08;
+}
+.case-story--flagship-driver .case-stage-title > strong { text-wrap: balance; }
 .case-story--brand-defense > section > h5,
 .case-story--brand-defense > section > .strategy-decisions,
 .case-story--brand-defense > section > .case-inline-figure,
@@ -1655,13 +1662,15 @@ footer {
 .case-story--flagship-driver > section > .case-inline-figure,
 .case-story--flagship-driver > section > .case-evidence-explainer { grid-column: 1 / -1; }
 .case-story--flagship-driver > section > .case-stage-body {
-  display: grid;
-  align-self: start;
+  display: contents;
+}
+.case-story--flagship-driver .case-stage-body > .case-stage-intro {
   grid-row: 1;
   grid-column: 2;
-  gap: clamp(1rem, 1.6vw, 1.25rem);
+  max-width: none;
 }
-.case-stage-body > .case-stage-intro { max-width: none; }
+.case-story--flagship-driver .case-stage-body > .case-takeaway,
+.case-story--flagship-driver .case-stage-body > .case-budget-note { grid-column: 1 / -1; }
 .case-stage-body > .case-budget-note,
 .case-stage-body > .case-takeaway { margin-block: 0; }
 .case-story--flagship-driver > section > .case-source-note { max-width: none; }
@@ -2750,6 +2759,7 @@ footer { border-top: 0; }
   .case-story--flagship-driver > section > .case-stage-intro,
   .case-story--flagship-driver > section > :not(h4) { grid-column: 1; }
   .case-story--flagship-driver > section > .case-stage-body { grid-row: auto; grid-column: 1; }
+  .case-story--flagship-driver .case-stage-body > .case-stage-intro { grid-row: auto; grid-column: 1; }
   .case-story > section > h4 + * { grid-row: auto; }
   .case-evidence-explainer { grid-template-columns: 1fr; }
   .case-evidence-explainer__media { justify-self: center; }
