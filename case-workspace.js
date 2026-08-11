@@ -50,8 +50,8 @@ indexPanel.className = 'proof-index-panel';
 indexPanel.setAttribute('aria-labelledby', 'proof-index-title');
 indexPanel.innerHTML = `
   <header class="proof-index-header">
-    <h3 id="proof-index-title">Case proof index</h3>
-    <p>16 complete dossiers · select any proof</p>
+    <h3 id="proof-index-title">All case studies</h3>
+    <p>16 projects</p>
   </header>
 `;
 
@@ -182,8 +182,8 @@ const addCaseNavigation = (clone, item) => {
   nav.className = 'case-dossier-nav';
   nav.setAttribute('aria-label', 'Case study navigation');
   nav.innerHTML = `
-    <a href="${caseHash(previous.moduleId, previous.caseId)}" data-case-jump="${previous.caseId}" data-module="${previous.moduleId}"><span>Previous proof</span><strong>${previous.number} · ${previous.title}</strong></a>
-    <a href="${caseHash(next.moduleId, next.caseId)}" data-case-jump="${next.caseId}" data-module="${next.moduleId}"><span>Next proof</span><strong>${next.number} · ${next.title}</strong></a>
+    <a href="${caseHash(previous.moduleId, previous.caseId)}" data-case-jump="${previous.caseId}" data-module="${previous.moduleId}"><span>Previous case</span><strong>${previous.number} · ${previous.title}</strong></a>
+    <a href="${caseHash(next.moduleId, next.caseId)}" data-case-jump="${next.caseId}" data-module="${next.moduleId}"><span>Next case</span><strong>${next.number} · ${next.title}</strong></a>
   `;
   clone.append(nav);
 };
@@ -197,7 +197,7 @@ const renderCase = (moduleId, caseId, { historyMode = null, focus = false } = {}
   heading.id = `case-title-${moduleId}-${caseId}`;
   const proofId = document.createElement('p');
   proofId.className = 'case-proof-id';
-  proofId.textContent = `Proof ${item.number} of ${cases.length} · ${moduleLabels[moduleId]}`;
+  proofId.textContent = `Case ${item.number} of ${cases.length} · ${moduleLabels[moduleId]}`;
   clone.querySelector('.full-case__header')?.prepend(proofId);
 
   const workflow = buildWorkflow(caseId);
