@@ -13,9 +13,9 @@
     <title>Cosmin Pintilie — Performance Marketing &amp; Analytics</title>
     <link rel="canonical" href="https://cosminportfolio.github.io/">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css?v=20260811p">
+    <link rel="stylesheet" href="styles.css?v=20260811q">
     <script src="script.js?v=20260810a" defer></script>
-    <script src="case-workspace.js?v=20260811d" type="module"></script>
+    <script src="case-workspace.js?v=20260811e" type="module"></script>
   </head>
   <body>
     <!-- VISUAL DIRECTION: Proofing Contact Sheet. High-density editorial proof surface; optical white stock, black ink, cobalt decisions, safety-orange review marks; refined serif identity with operational sans-serif; hairline frames, registration marks, restrained annotations; no dark mode, gradients, glass, SaaS cards, or fabricated proof. -->
@@ -108,29 +108,29 @@
                 </div>
               </div>
               <div class="portfolio-map" aria-label="Five-layer Apple campaign architecture. Brand Defense protects core equity. Flagship Driver captures high-intent consumer volume, then connects to Competitor Conquesting, Mac B2B and Pro Creator, and Performance Max Portfolio Growth.">
-                <a class="portfolio-map__node portfolio-map__node--primary" href="#case/strategy/brand-defense" data-architecture-case="brand-defense">
+                <a class="portfolio-map__node portfolio-map__node--primary" href="#case/strategy/brand-defense" data-overview-case="brand-defense" data-overview-module="strategy">
                   <span>1</span>
                   <strong>Brand defense</strong>
                   <small>Protect core equity</small>
                 </a>
                 <span class="portfolio-map__flow" aria-hidden="true"></span>
-                <a class="portfolio-map__node portfolio-map__node--primary" href="#case/strategy/flagship-driver" data-architecture-case="flagship-driver">
+                <a class="portfolio-map__node portfolio-map__node--primary" href="#case/strategy/flagship-driver" data-overview-case="flagship-driver" data-overview-module="strategy">
                   <span>2</span>
                   <strong>Flagship driver</strong>
                   <small>Capture high-intent B2C volume</small>
                 </a>
                 <div class="portfolio-map__branch">
-                  <a class="portfolio-map__node" href="#case/strategy/competitor-conquesting" data-architecture-case="competitor-conquesting">
+                  <a class="portfolio-map__node" href="#case/strategy/competitor-conquesting" data-overview-case="competitor-conquesting" data-overview-module="strategy">
                     <span>3</span>
                     <strong>Competitor conquesting</strong>
                     <small>Intercept switchers</small>
                   </a>
-                  <a class="portfolio-map__node" href="#case/strategy/mac-b2b" data-architecture-case="mac-b2b">
+                  <a class="portfolio-map__node" href="#case/strategy/mac-b2b" data-overview-case="mac-b2b" data-overview-module="strategy">
                     <span>4</span>
                     <strong>Mac B2B &amp; pro creator</strong>
                     <small>Reach high-value fleets</small>
                   </a>
-                  <a class="portfolio-map__node" href="#case/strategy/performance-max" data-architecture-case="performance-max">
+                  <a class="portfolio-map__node" href="#case/strategy/performance-max" data-overview-case="performance-max" data-overview-module="strategy">
                     <span>5</span>
                     <strong>Performance Max portfolio growth</strong>
                     <small>Scale across channels</small>
@@ -147,24 +147,64 @@
             <article id="panel-measurement" class="case-panel" role="tabpanel" aria-labelledby="tab-measurement" data-case-panel="measurement" hidden>
               <div class="case-panel__headline">
                 <div>
-                  <p class="case-type">Measurement · Tracking design</p>
-                  <h3>GA4 and GTM measurement plan</h3>
+                  <p class="case-type">Technical setup · Conversion measurement</p>
+                  <h3>GA4 &amp; GTM conversion blueprint</h3>
                 </div>
                 <div class="case-panel__intro">
-                  <p>A measurement plan covering consent states, e-commerce events, cross-domain journeys, and BigQuery exports.</p>
-                  <p class="case-panel__prompt">The design connects implementation choices to reporting needs.</p>
+                  <p>An end-to-end implementation connecting web interaction signals to enterprise warehousing, with consent compliance, cross-domain stitching, accurate conversion schemas, and unsampled event streaming built in.</p>
+                  <p class="case-panel__prompt">Review the shared specification, then open each technical pillar to inspect its configuration and validation logic.</p>
                 </div>
               </div>
-              <div class="pipeline" aria-label="Measurement pipeline">
-                <span>Consent Mode v2</span><i aria-hidden="true"></i><span>GTM data layer</span><i aria-hidden="true"></i><span>GA4 events</span><i aria-hidden="true"></i><span>BigQuery</span>
-              </div>
-              <div class="case-panel__notes case-panel__notes--five">
-                <div><h4>Consent handling</h4><p>Default-denied consent states with dynamic updates and controlled trigger behavior.</p></div>
-                <div><h4>Stream architecture</h4><p>Cross-domain linker configuration, referral exclusions, and reliable parameter passing.</p></div>
-                <div><h4>Key events</h4><p><code>add_to_cart</code>, <code>begin_checkout</code>, and <code>purchase</code> mapped to consistent e-commerce payloads.</p></div>
-                <div><h4>Custom definitions</h4><p>Event-scoped and user-scoped parameters designed for useful segmentation.</p></div>
-                <div><h4>Warehouse export</h4><p>Event-level BigQuery data supporting deeper attribution and SQL analysis.</p></div>
-              </div>
+              <dl class="blueprint-specs" aria-label="GA4 and GTM implementation specification">
+                <div><dt>GTM container ID</dt><dd><code>GTM-52XPWJ5</code></dd></div>
+                <div><dt>GA4 measurement ID</dt><dd><code>G-X3R766JV6K</code></dd></div>
+                <div><dt>Core key events</dt><dd><code>add_to_cart</code> · <code>begin_checkout</code> · <code>purchase</code></dd></div>
+                <div><dt>Consent Mode</dt><dd>Google Consent Mode v2 · default denied → dynamic update</dd></div>
+                <div><dt>Data warehouse target</dt><dd>Google BigQuery · batch + intraday streaming</dd></div>
+              </dl>
+              <section class="blueprint-architecture" aria-labelledby="blueprint-pillars-title">
+                <div class="blueprint-architecture__heading">
+                  <h4 id="blueprint-pillars-title">Five implementation pillars</h4>
+                  <p>Select any pillar to open its technical blueprint and case evidence.</p>
+                </div>
+                <ol class="blueprint-pillars">
+                  <li>
+                    <a href="#case/measurement/gtm-consent" data-overview-case="gtm-consent" data-overview-module="measurement">
+                      <span>01</span>
+                      <h5>GTM architecture &amp; consent governance</h5>
+                      <p>Container hierarchy, firing rules, release controls, and Consent Mode v2 compliance.</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#case/measurement/cross-domain" data-overview-case="cross-domain" data-overview-module="measurement">
+                      <span>02</span>
+                      <h5>Stream architecture &amp; cross-domain linker</h5>
+                      <p>Web-stream configuration, <code>_gl</code> parameter passing, and referral exclusion logic.</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#case/measurement/events-validation" data-overview-case="events-validation" data-overview-module="measurement">
+                      <span>03</span>
+                      <h5>Key events, e-commerce models &amp; validation</h5>
+                      <p>Standard commerce payload mapping and real-time DebugView verification.</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#case/measurement/custom-definitions" data-overview-case="custom-definitions" data-overview-module="measurement">
+                      <span>04</span>
+                      <h5>Custom definitions, metrics &amp; user properties</h5>
+                      <p>Event-scoped <code>item_category</code> and user-scoped <code>customer_type</code> registration.</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#case/measurement/bigquery" data-overview-case="bigquery" data-overview-module="measurement">
+                      <span>05</span>
+                      <h5>BigQuery export &amp; cloud warehousing</h5>
+                      <p>Unsampled event-level exports for advanced SQL attribution modeling.</p>
+                    </a>
+                  </li>
+                </ol>
+              </section>
             </article>
 
             <article id="panel-optimization" class="case-panel" role="tabpanel" aria-labelledby="tab-optimization" data-case-panel="optimization" hidden>

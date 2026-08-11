@@ -150,10 +150,10 @@ const setModuleState = (moduleId) => {
 };
 
 moduleBriefHost.addEventListener('click', (event) => {
-  const link = event.target.closest('[data-architecture-case]');
+  const link = event.target.closest('[data-overview-case]');
   if (!link) return;
   event.preventDefault();
-  renderCase('strategy', link.dataset.architectureCase, { historyMode: 'push', focus: true });
+  renderCase(link.dataset.overviewModule, link.dataset.overviewCase, { historyMode: 'push', focus: true });
 });
 
 const buildWorkflow = (caseId) => {
