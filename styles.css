@@ -1732,10 +1732,57 @@ footer {
   border: 1px solid var(--line-dark);
 }
 .case-evidence-crop img { max-width: none; border: 0; }
-.case-evidence-portrait img {
-  width: min(100%, 29.6875rem);
-  margin-inline: auto;
-  border: 0;
+.case-evidence-explainer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 20rem);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: start;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid var(--line-dark);
+  background: var(--ground);
+}
+.case-evidence-explainer__copy > span {
+  display: block;
+  margin-bottom: .85rem;
+  color: var(--blue);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+.case-evidence-explainer__copy h5 {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: clamp(1.65rem, 2.7vw, 2.65rem);
+  font-weight: 500;
+  letter-spacing: -.025em;
+  line-height: 1.05;
+}
+.case-evidence-explainer__copy > p {
+  margin: 1rem 0 0;
+  color: var(--ink);
+  line-height: 1.62;
+}
+.case-evidence-explainer__copy dl { margin: 1.4rem 0 0; border-top: 1px solid var(--line-dark); }
+.case-evidence-explainer__copy dl > div { padding: .9rem 0; border-bottom: 1px solid var(--line); }
+.case-evidence-explainer__copy dt {
+  margin-bottom: .28rem;
+  color: var(--muted);
+  font-size: .66rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.case-evidence-explainer__copy dd { margin: 0; color: var(--ink); line-height: 1.48; }
+.case-evidence-explainer__media { width: min(100%, 20rem); justify-self: end; }
+.case-evidence-explainer__media img { width: 100%; border: 1px solid var(--line-dark); }
+.case-evidence-explainer figcaption {
+  grid-column: 1 / -1;
+  max-width: none;
+  margin-top: 0;
+  padding-top: .85rem;
+  border-top: 1px solid var(--line);
 }
 .case-evidence-crop--bidding { aspect-ratio: 680 / 250; }
 .case-evidence-crop--bidding img { width: 132.4%; }
@@ -2604,6 +2651,8 @@ footer { border-top: 0; }
   .case-story > section,
   .case-story > figure { grid-template-columns: 1fr; gap: 1.25rem; }
   .case-story > section > h4 + * { grid-row: auto; }
+  .case-evidence-explainer { grid-template-columns: 1fr; }
+  .case-evidence-explainer__media { justify-self: center; }
   .case-story > section > :not(h4),
   .case-figure img,
   .case-figure figcaption,
