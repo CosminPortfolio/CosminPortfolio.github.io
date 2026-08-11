@@ -1629,6 +1629,11 @@ footer {
   column-gap: clamp(1.5rem, 3vw, 3rem);
   padding-block: clamp(2rem, 3vw, 2.5rem);
 }
+.case-story.case-story--flagship-driver > section {
+  row-gap: clamp(1rem, 1.6vw, 1.25rem);
+  column-gap: clamp(1.5rem, 3vw, 3rem);
+  padding-block: clamp(2rem, 3vw, 2.5rem);
+}
 .case-story--brand-defense > section > h5,
 .case-story--brand-defense > section > .strategy-decisions,
 .case-story--brand-defense > section > .case-inline-figure,
@@ -1637,6 +1642,32 @@ footer {
 .case-story--brand-defense > section > .process-list,
 .case-story--brand-defense > section > .case-takeaway { margin-block: 0; }
 .case-story--brand-defense .case-evidence-stack { gap: 2rem; }
+.case-story--flagship-driver > section > h5,
+.case-story--flagship-driver > section > .case-inline-figure,
+.case-story--flagship-driver > section > .case-evidence-explainer,
+.case-story--flagship-driver > section > .negative-grid,
+.case-story--flagship-driver > section > .process-list,
+.case-story--flagship-driver > section > .table-scroll,
+.case-story--flagship-driver > section > .case-budget-note,
+.case-story--flagship-driver > section > .case-source-note,
+.case-story--flagship-driver > section > .case-takeaway { margin-block: 0; }
+.case-story--flagship-driver > section > .case-inline-figure,
+.case-story--flagship-driver > section > .case-evidence-explainer { grid-column: 1 / -1; }
+.case-inline-figure--native-900 > .case-evidence-link {
+  width: min(100%, 56.25rem);
+  margin-inline: auto;
+}
+.case-inline-figure--native-900 img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+}
+.case-inline-figure--native-900 figcaption {
+  width: min(100%, 56.25rem);
+  max-width: none;
+  margin-inline: auto;
+}
 .case-strategy-section { align-items: start; }
 .case-strategy-intro { max-width: 68ch; }
 .case-strategy-intro p { margin: 0; color: var(--ink); font-size: 1.02rem; line-height: 1.62; }
@@ -1766,9 +1797,16 @@ footer {
 .case-evidence-explainer__copy dd { margin: 0; color: var(--ink); line-height: 1.48; }
 .case-evidence-explainer__media { width: min(100%, 20rem); justify-self: end; }
 .case-evidence-explainer__media > .case-evidence-link { display: block; }
-.case-evidence-explainer__media img { width: 100%; border: 1px solid var(--line-dark); }
+.case-evidence-explainer__media img { width: 100%; height: auto; border: 1px solid var(--line-dark); }
 .case-evidence-explainer--bidding { grid-template-columns: minmax(0, 1fr) minmax(18rem, 22rem); align-items: center; }
 .case-evidence-explainer--validation { grid-template-columns: minmax(0, 1fr) minmax(20rem, 26.25rem); }
+.case-evidence-explainer--flagship-landscape {
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 20rem);
+  align-items: center;
+}
+.case-evidence-explainer--flagship-landscape .case-evidence-explainer__media { width: min(100%, 20rem); }
+.case-evidence-explainer--flagship-sitelinks { grid-template-columns: minmax(0, 1fr) minmax(14rem, 18rem); }
+.case-evidence-explainer--flagship-sitelinks .case-evidence-explainer__media { width: min(100%, 18rem); }
 .case-evidence-explainer__media--bidding { width: min(100%, 22rem); }
 .case-evidence-explainer__media--validation { width: min(100%, 26.25rem); }
 .case-native-crop {
@@ -1795,7 +1833,11 @@ footer {
   margin-top: 0;
   padding-top: .85rem;
   border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .72rem;
+  line-height: 1.5;
 }
+.case-evidence-explainer figcaption a { color: var(--blue); font-weight: 800; text-underline-offset: .18em; }
 .case-evidence-stack figcaption { max-width: 76ch; margin-top: .7rem; color: var(--muted); font-size: .72rem; line-height: 1.5; }
 .case-evidence-stack figcaption a { color: var(--blue); font-weight: 800; text-underline-offset: .18em; }
 .case-budget-note {
@@ -1805,6 +1847,15 @@ footer {
 }
 .case-budget-note strong { display: block; margin-bottom: .45rem; color: var(--blue); font-size: .68rem; letter-spacing: .07em; text-transform: uppercase; }
 .case-budget-note p { margin: 0; color: var(--ink); line-height: 1.58; }
+.case-source-note {
+  margin: 0;
+  padding-block: .8rem;
+  border-block: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .72rem;
+  line-height: 1.5;
+}
+.case-source-note strong { color: var(--ink); }
 
 .implementation-stages {
   display: grid;
@@ -1905,6 +1956,20 @@ footer {
 
 .process-list li { background: var(--ground); }
 .process-list li::before { color: var(--blue); }
+.process-list--weeks li > span {
+  position: relative;
+  margin-top: .55rem;
+  padding-left: 1rem;
+}
+.process-list--weeks li > span::before {
+  position: absolute;
+  top: .65em;
+  left: 0;
+  width: .28rem;
+  height: .28rem;
+  background: var(--blue);
+  content: "";
+}
 .operating-plan-intro { color: var(--ink); font-size: 1.02rem; line-height: 1.62; }
 .process-list--detailed li { padding-block: 1.5rem; }
 .process-list--detailed strong {
