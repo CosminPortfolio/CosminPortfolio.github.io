@@ -1829,17 +1829,17 @@ pre { color: #003f9e; }
   align-items: end;
   gap: clamp(3rem, 8vw, 8rem);
   margin-bottom: 0;
-  padding: clamp(4rem, 8vw, 7rem) 0;
-  border-top: 1px solid var(--line-dark);
-  border-bottom: 1px solid var(--line-dark);
-  background: transparent;
-  color: var(--ink);
+  padding: clamp(4rem, 8vw, 7rem) clamp(2rem, 4vw, 4rem);
+  border-top: 1px solid var(--blue);
+  border-bottom: 1px solid var(--blue);
+  background: var(--blue);
+  color: #fff;
 }
 
 .contact__statement h2 {
   max-width: 14ch;
   margin: 0;
-  color: var(--ink);
+  color: #fff;
   font-family: var(--display);
   font-size: clamp(3rem, 5vw, 5.4rem);
   font-weight: 500;
@@ -1851,7 +1851,7 @@ pre { color: #003f9e; }
 .contact__statement p {
   max-width: 58ch;
   margin: 1.5rem 0 0;
-  color: var(--muted);
+  color: #fff;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.55;
@@ -1907,7 +1907,7 @@ pre { color: #003f9e; }
 
 .contact__email:hover,
 .contact__email:focus-visible {
-  background: var(--blue);
+  background: var(--purple-bright);
   color: #fff;
 }
 
@@ -2016,6 +2016,13 @@ footer { border-top: 0; }
   .contact__email {
     min-height: 9rem;
     padding: 1.5rem;
+  }
+  .contact__email strong {
+    font-family: var(--body);
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: normal;
+    line-height: 1.35;
   }
   .contact__secondary { grid-template-columns: 1fr; }
   .contact__secondary a { min-height: 6rem; }
