@@ -1366,7 +1366,7 @@ footer {
 .case-evidence-grid img { width: 100%; max-height: 36rem; border: 1px solid var(--line-dark); background: #151515; object-fit: contain; }
 .case-inline-figure figcaption,
 .case-evidence-grid figcaption { max-width: 70ch; margin-top: .65rem; color: var(--muted); font-size: .72rem; line-height: 1.45; }
-.case-inline-figure figcaption a { color: var(--blue); font-weight: 800; text-underline-offset: .18em; }
+.case-inline-figure figcaption a { color: var(--blue); font-weight: 800; text-underline-offset: .18em; white-space: nowrap; }
 
 .case-evidence-grid {
   display: grid;
@@ -1651,8 +1651,8 @@ footer {
 .case-story--flagship-driver > section > .case-budget-note,
 .case-story--flagship-driver > section > .case-source-note,
 .case-story--flagship-driver > section > .case-takeaway { margin-block: 0; }
-.case-story--flagship-driver > section > .case-inline-figure,
-.case-story--flagship-driver > section > .case-evidence-explainer { grid-column: 1 / -1; }
+.case-story--flagship-driver > section > .case-stage-intro { grid-column: 2; }
+.case-story--flagship-driver > section > :not(h4):not(.case-stage-intro) { grid-column: 1 / -1; }
 .case-inline-figure--native-900 > .case-evidence-link {
   width: min(100%, 56.25rem);
   margin-inline: auto;
@@ -1766,6 +1766,7 @@ footer {
   grid-template-columns: minmax(0, 1fr) minmax(16rem, 20rem);
   gap: clamp(1.5rem, 4vw, 3.5rem);
   align-items: start;
+  margin: 0;
   padding: clamp(1.25rem, 3vw, 2rem);
   border: 1px solid var(--line-dark);
   background: var(--ground);
@@ -1801,10 +1802,18 @@ footer {
 .case-evidence-explainer--bidding { grid-template-columns: minmax(0, 1fr) minmax(18rem, 22rem); align-items: center; }
 .case-evidence-explainer--validation { grid-template-columns: minmax(0, 1fr) minmax(20rem, 26.25rem); }
 .case-evidence-explainer--flagship-landscape {
-  grid-template-columns: minmax(0, 1fr) minmax(16rem, 20rem);
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
 }
-.case-evidence-explainer--flagship-landscape .case-evidence-explainer__media { width: min(100%, 20rem); }
+.case-evidence-explainer--flagship-landscape .case-evidence-explainer__copy { max-width: 74ch; }
+.case-evidence-explainer--flagship-landscape .case-evidence-explainer__media {
+  width: min(100%, 56.25rem);
+  justify-self: center;
+}
+.case-evidence-explainer--flagship-landscape figcaption {
+  width: min(100%, 56.25rem);
+  justify-self: center;
+}
 .case-evidence-explainer--flagship-sitelinks { grid-template-columns: minmax(0, 1fr) minmax(14rem, 18rem); }
 .case-evidence-explainer--flagship-sitelinks .case-evidence-explainer__media { width: min(100%, 18rem); }
 .case-evidence-explainer__media--bidding { width: min(100%, 22rem); }
@@ -1837,7 +1846,7 @@ footer {
   font-size: .72rem;
   line-height: 1.5;
 }
-.case-evidence-explainer figcaption a { color: var(--blue); font-weight: 800; text-underline-offset: .18em; }
+.case-evidence-explainer figcaption a { color: var(--blue); font-weight: 800; text-underline-offset: .18em; white-space: nowrap; }
 .case-evidence-stack figcaption { max-width: 76ch; margin-top: .7rem; color: var(--muted); font-size: .72rem; line-height: 1.5; }
 .case-evidence-stack figcaption a { color: var(--blue); font-weight: 800; text-underline-offset: .18em; }
 .case-budget-note {
@@ -2721,6 +2730,9 @@ footer { border-top: 0; }
   .workflow-bar span { min-height: auto; }
   .case-story > section,
   .case-story > figure { grid-template-columns: 1fr; gap: 1.25rem; }
+  .case-story.case-story--flagship-driver > section { grid-template-columns: minmax(0, 1fr); }
+  .case-story--flagship-driver > section > .case-stage-intro,
+  .case-story--flagship-driver > section > :not(h4) { grid-column: 1; }
   .case-story > section > h4 + * { grid-row: auto; }
   .case-evidence-explainer { grid-template-columns: 1fr; }
   .case-evidence-explainer__media { justify-self: center; }
