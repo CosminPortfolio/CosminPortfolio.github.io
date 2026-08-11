@@ -1697,6 +1697,18 @@ footer {
   background: transparent;
   object-fit: fill;
 }
+.case-evidence-crop {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--line-dark);
+}
+.case-evidence-crop--sitelinks { aspect-ratio: 354 / 1200; }
+.case-evidence-crop--sitelinks img {
+  width: 160.7%;
+  max-width: none;
+  border: 0;
+  transform: translateX(-15.8%);
+}
 .case-evidence-stack figcaption { max-width: 76ch; margin-top: .7rem; color: var(--muted); font-size: .76rem; line-height: 1.5; }
 .case-budget-note {
   padding: 1.1rem 1.25rem;
