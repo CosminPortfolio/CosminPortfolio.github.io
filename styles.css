@@ -1624,6 +1624,19 @@ footer {
   padding-block: clamp(2rem, 3.5vw, 3.25rem);
 }
 .case-story.case-story--compact > section > h4 { position: static; }
+.case-story.case-story--brand-defense > section {
+  row-gap: clamp(1rem, 1.6vw, 1.25rem);
+  column-gap: clamp(1.5rem, 3vw, 3rem);
+  padding-block: clamp(2rem, 3vw, 2.5rem);
+}
+.case-story--brand-defense > section > h5,
+.case-story--brand-defense > section > .strategy-decisions,
+.case-story--brand-defense > section > .case-inline-figure,
+.case-story--brand-defense > section > .negative-grid,
+.case-story--brand-defense > section > .case-evidence-stack,
+.case-story--brand-defense > section > .process-list,
+.case-story--brand-defense > section > .case-takeaway { margin-block: 0; }
+.case-story--brand-defense .case-evidence-stack { gap: 2rem; }
 .case-strategy-section { align-items: start; }
 .case-strategy-intro { max-width: 68ch; }
 .case-strategy-intro p { margin: 0; color: var(--ink); font-size: 1.02rem; line-height: 1.62; }
