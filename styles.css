@@ -1866,11 +1866,11 @@ pre { color: #003f9e; }
 
 .contact__email {
   display: grid;
-  min-height: 10rem;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-content: space-between;
-  gap: 1rem;
-  padding: clamp(1.5rem, 3vw, 2.5rem);
+  min-height: 5.75rem;
+  grid-template-columns: 5.5rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: .75rem;
+  padding: 1.25rem 1.5rem;
   background: var(--panel);
   color: var(--ink);
   text-decoration: none;
@@ -1888,19 +1888,20 @@ pre { color: #003f9e; }
 }
 
 .contact__email strong {
-  align-self: end;
-  overflow-wrap: anywhere;
-  font-family: var(--display);
-  font-size: clamp(1.65rem, 2.7vw, 2.65rem);
-  font-weight: 500;
-  letter-spacing: -.025em;
-  line-height: 1.02;
+  min-width: 0;
+  overflow-wrap: normal;
+  font-family: var(--body);
+  font-size: 1.12rem;
+  font-weight: 800;
+  letter-spacing: normal;
+  line-height: 1.35;
+  white-space: nowrap;
 }
 
 .contact__arrow {
-  align-self: end;
+  align-self: center;
   color: var(--blue);
-  font-size: 1.65rem;
+  font-size: 1rem;
   line-height: 1;
   transition: transform .28s cubic-bezier(.16, 1, .3, 1);
 }
@@ -1921,7 +1922,7 @@ pre { color: #003f9e; }
 
 .contact__secondary {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 1px;
   border-top: 1px solid var(--line-dark);
   background: var(--line-dark);
@@ -1929,10 +1930,11 @@ pre { color: #003f9e; }
 
 .contact__secondary a {
   display: grid;
-  min-height: 7rem;
-  align-content: space-between;
-  gap: 1rem;
-  padding: 1.25rem clamp(1.25rem, 2vw, 1.75rem);
+  min-height: 5.75rem;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  align-items: center;
+  gap: .75rem;
+  padding: 1.25rem 1.5rem;
   background: var(--ground);
   color: var(--ink);
   text-decoration: none;
@@ -2014,18 +2016,30 @@ footer { border-top: 0; }
   }
   .language-strip dl div:first-child { padding-top: 0; border-top: 0; }
   .contact__email {
-    min-height: 9rem;
-    padding: 1.5rem;
+    min-height: 5.5rem;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+    gap: .25rem .75rem;
+    padding: 1.1rem 1.25rem;
   }
+  .contact__email > span:first-child { grid-column: 1; grid-row: 1; }
   .contact__email strong {
+    grid-column: 1;
+    grid-row: 2;
     font-family: var(--body);
     font-size: 1rem;
     font-weight: 800;
     letter-spacing: normal;
     line-height: 1.35;
   }
-  .contact__secondary { grid-template-columns: 1fr; }
-  .contact__secondary a { min-height: 6rem; }
+  .contact__arrow { grid-column: 2; grid-row: 1 / 3; }
+  .contact__secondary a {
+    min-height: 5.5rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: .25rem;
+    padding: 1.1rem 1.25rem;
+  }
 }
 
 @keyframes proof-reveal {
