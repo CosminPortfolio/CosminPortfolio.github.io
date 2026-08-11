@@ -920,107 +920,79 @@ footer {
 
 .hero__evidence {
   position: relative;
-  display: block;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 5.5rem;
+  gap: 1px;
   min-height: 34rem;
   align-self: stretch;
-  padding: 1.25rem 1.25rem 4.5rem;
   border: 1px solid var(--line-dark);
-  background: var(--ink);
+  background: var(--line-dark);
 }
 
 .hero__evidence::before {
   position: absolute;
-  z-index: 3;
-  top: 1.9rem;
-  left: -.65rem;
-  padding: .4rem .65rem;
-  background: var(--orange);
-  color: var(--ink);
-  content: "selected evidence";
-  font-family: var(--body);
-  font-size: .65rem;
-  font-style: normal;
-  font-weight: 850;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  transform: none;
+  z-index: 2;
+  top: -1rem;
+  right: 4.5rem;
+  color: var(--blue);
+  content: "CP";
+  font-family: var(--display);
+  font-size: 5rem;
+  font-weight: 500;
+  letter-spacing: -.04em;
+  line-height: 1;
 }
 
-.hero__artifact {
-  position: absolute;
-  inset: 1.25rem 1.25rem 4.5rem;
+.hero__portrait {
+  position: relative;
+  min-width: 0;
   margin: 0;
   overflow: hidden;
-  border: 1px solid var(--line);
-  background: var(--ink);
+  background: var(--blue);
 }
 
-.hero__artifact img {
+.hero__portrait img {
   width: 100%;
   height: 100%;
-  filter: grayscale(1) contrast(1.08);
+  min-height: 34rem;
   object-fit: cover;
-  object-position: 50% 16%;
-  opacity: .86;
+  object-position: center;
 }
 
-.hero__artifact figcaption {
+.hero__portrait figcaption {
   position: absolute;
-  z-index: 1;
-  right: 1rem;
-  bottom: 1rem;
+  right: 0;
+  bottom: 0;
   display: grid;
-  padding: .65rem .75rem;
-  background: var(--ink);
-  color: var(--panel);
-  text-align: right;
-}
-
-.hero__artifact figcaption span { color: var(--orange); font-size: .66rem; font-weight: 850; letter-spacing: .06em; text-transform: uppercase; }
-.hero__artifact figcaption strong { font-family: var(--display); font-size: 1.45rem; font-weight: 500; }
-
-.hero__evidence .portrait-wrap {
-  position: absolute;
-  z-index: 2;
-  left: -2rem;
-  bottom: 1.5rem;
-  display: grid;
-  width: 10.5rem;
-  grid-template-columns: 4.75rem 1fr;
-  align-items: end;
-  gap: .65rem;
-  padding: .65rem;
-  border: 1px solid var(--line-dark);
+  min-width: 13rem;
+  padding: .9rem 1rem;
   background: var(--ground);
+  color: var(--ink);
 }
 
-.hero__evidence .portrait-wrap img { border: 0; }
-.hero__evidence .portrait-wrap__caption { margin: 0; color: var(--ink); font-size: .56rem; line-height: 1.35; }
+.hero__portrait figcaption strong { font-family: var(--display); font-size: 1.25rem; font-weight: 500; line-height: 1; }
+.hero__portrait figcaption span { margin-top: .3rem; color: var(--subtle); font-size: .65rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; }
 
-.hero__evidence-note {
-  position: absolute;
-  right: 1.25rem;
-  bottom: 1.25rem;
+.hero__disciplines {
   display: flex;
-  align-items: baseline;
-  gap: .65rem;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1rem;
   margin: 0;
+  padding: 2rem 0;
+  background: var(--blue);
   color: var(--panel);
 }
 
-.hero__evidence-note strong { font-family: var(--display); font-size: 1.35rem; font-weight: 500; }
-.hero__evidence-note span { color: var(--line); font-size: .66rem; }
-
-.hero__evidence::after {
-  position: absolute;
-  right: -1rem;
-  bottom: 5.25rem;
-  color: var(--orange);
-  content: "built, checked, explained";
-  font-family: var(--display);
-  font-size: 1rem;
-  font-style: italic;
-  transform: rotate(-4deg);
+.hero__disciplines span {
+  font-size: .67rem;
+  font-weight: 850;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
 }
 
 .portrait-wrap {
@@ -1610,7 +1582,8 @@ pre { color: #003f9e; }
   main > section,
   footer { width: min(calc(100% - 2rem), var(--max)); }
   .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero__evidence { width: min(100%, 44rem); min-height: 31rem; margin-left: 2rem; }
+  .hero__evidence { width: min(100%, 44rem); min-height: 31rem; }
+  .hero__portrait img { min-height: 31rem; }
   .proof-workspace { grid-template-columns: 1fr; }
   .proof-index-panel { position: static; }
   .proof-index { grid-template-columns: repeat(8, minmax(0, 1fr)); }
@@ -1668,12 +1641,12 @@ pre { color: #003f9e; }
   .hero { padding-top: 3.5rem; }
   .hero__copy h1 { font-size: clamp(3.65rem, 18vw, 5rem); }
   .hero__strapline { font-size: 1.8rem; }
-  .hero__evidence { min-height: 26rem; margin-left: 1rem; padding: .75rem .75rem 4.25rem; }
-  .hero__artifact { inset: .75rem .75rem 4.25rem; }
-  .hero__evidence .portrait-wrap { left: -1rem; bottom: 1rem; }
-  .hero__evidence-note { right: .75rem; bottom: 1rem; }
-  .hero__evidence-note span { display: none; }
-  .hero__evidence::after { right: -.25rem; bottom: 4.65rem; }
+  .hero__evidence { min-height: 24rem; grid-template-columns: minmax(0, 1fr) 3.25rem; }
+  .hero__portrait img { min-height: 24rem; }
+  .hero__portrait figcaption { min-width: 11rem; padding: .75rem; }
+  .hero__evidence::before { top: -.7rem; right: 2.7rem; font-size: 3.5rem; }
+  .hero__disciplines { padding-block: 1rem; }
+  .hero__disciplines span { font-size: .58rem; }
   .positioning__steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .positioning__steps li:nth-child(2)::after { display: none; }
   .case-tabs { grid-template-columns: 1fr; }
