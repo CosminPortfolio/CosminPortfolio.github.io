@@ -83,6 +83,78 @@ reader.id = 'case-reader';
 reader.setAttribute('role', 'tabpanel');
 reader.setAttribute('aria-live', 'polite');
 
+const evidenceViewer = document.createElement('dialog');
+evidenceViewer.className = 'evidence-viewer';
+evidenceViewer.setAttribute('aria-labelledby', 'evidence-viewer-title');
+evidenceViewer.innerHTML = `
+  <div class="evidence-viewer__bar">
+    <div>
+      <strong id="evidence-viewer-title">Evidence detail</strong>
+      <span data-evidence-dimensions></span>
+    </div>
+    <div class="evidence-viewer__controls" aria-label="Evidence zoom controls">
+      <button type="button" data-evidence-zoom-out aria-label="Zoom out">−</button>
+      <output data-evidence-zoom-value aria-live="polite">100%</output>
+      <button type="button" data-evidence-zoom-in aria-label="Zoom in">+</button>
+      <button type="button" data-evidence-reset>Reset</button>
+      <a data-evidence-original target="_blank" rel="noopener">Open original file ↗</a>
+      <button type="button" data-evidence-close>Close</button>
+    </div>
+  </div>
+  <div class="evidence-viewer__canvas" data-evidence-canvas></div>
+`;
+document.body.append(evidenceViewer);
+
+const evidenceCanvas = evidenceViewer.querySelector('[data-evidence-canvas]');
+const evidenceImage = document.createElement('img');
+evidenceImage.alt = '';
+evidenceCanvas.append(evidenceImage);
+const evidenceZoomValue = evidenceViewer.querySelector('[data-evidence-zoom-value]');
+const evidenceZoomOut = evidenceViewer.querySelector('[data-evidence-zoom-out]');
+const evidenceZoomIn = evidenceViewer.querySelector('[data-evidence-zoom-in]');
+const evidenceDimensions = evidenceViewer.querySelector('[data-evidence-dimensions]');
+const evidenceOriginal = evidenceViewer.querySelector('[data-evidence-original]');
+let evidenceScale = 1;
+let evidenceTrigger = null;
+
+const setEvidenceScale = (nextScale) => {
+  evidenceScale = Math.min(4, Math.max(1, nextScale));
+  evidenceImage.style.width = `${Math.round(evidenceImage.naturalWidth * evidenceScale)}px`;
+  evidenceZoomValue.value = `${Math.round(evidenceScale * 100)}%`;
+  evidenceZoomOut.disabled = evidenceScale <= 1;
+  evidenceZoomIn.disabled = evidenceScale >= 4;
+};
+
+const openEvidenceViewer = (link) => {
+  const sourceImage = link.closest('figure')?.querySelector('img');
+  evidenceTrigger = link;
+  evidenceViewer.querySelector('#evidence-viewer-title').textContent = sourceImage?.alt || 'Evidence detail';
+  evidenceDimensions.textContent = 'Loading original…';
+  evidenceOriginal.href = link.href;
+  evidenceImage.alt = sourceImage?.alt || '';
+  evidenceImage.src = link.href;
+  evidenceImage.onload = () => {
+    const aspectRatio = evidenceImage.naturalWidth / evidenceImage.naturalHeight;
+    const initialScale = aspectRatio > 4 ? 3 : aspectRatio > 2 ? 2 : 1.25;
+    evidenceDimensions.textContent = `${evidenceImage.naturalWidth} × ${evidenceImage.naturalHeight} source pixels`;
+    setEvidenceScale(initialScale);
+    evidenceCanvas.scrollTo({ top: 0, left: 0 });
+  };
+  evidenceViewer.showModal();
+};
+
+evidenceZoomOut.addEventListener('click', () => setEvidenceScale(evidenceScale - .5));
+evidenceZoomIn.addEventListener('click', () => setEvidenceScale(evidenceScale + .5));
+evidenceViewer.querySelector('[data-evidence-reset]').addEventListener('click', () => setEvidenceScale(1));
+evidenceViewer.querySelector('[data-evidence-close]').addEventListener('click', () => evidenceViewer.close());
+evidenceViewer.addEventListener('click', (event) => {
+  if (event.target === evidenceViewer) evidenceViewer.close();
+});
+evidenceViewer.addEventListener('close', () => {
+  evidenceImage.removeAttribute('src');
+  evidenceTrigger?.focus();
+});
+
 cases.forEach((item, index) => {
   const button = document.createElement('button');
   button.type = 'button';
@@ -286,6 +358,12 @@ caseIndex.addEventListener('keydown', (event) => {
 });
 
 reader.addEventListener('click', (event) => {
+  const evidenceLink = event.target.closest('.case-story--flagship-driver figure a[href*="case-evidence"]');
+  if (evidenceLink && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) {
+    event.preventDefault();
+    openEvidenceViewer(evidenceLink);
+    return;
+  }
   const link = event.target.closest('[data-case-jump]');
   if (!link) return;
   event.preventDefault();
