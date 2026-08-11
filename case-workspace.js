@@ -16,7 +16,7 @@ const moduleLabels = {
   reporting: 'Reporting'
 };
 
-const cases = [...template.content.querySelectorAll('[data-case-article]')].map((article, index) => {
+const cases = [...template.content.querySelectorAll('[data-case-article]')].map((article) => {
   const evidence = article.querySelector('img');
   return {
     article,
@@ -24,7 +24,7 @@ const cases = [...template.content.querySelectorAll('[data-case-article]')].map(
     caseId: article.dataset.caseId,
     title: article.dataset.cardTitle,
     summary: article.dataset.cardSummary,
-    number: String(index + 1).padStart(2, '0'),
+    number: '',
     evidenceSrc: evidence?.getAttribute('src') || '',
     evidenceAlt: evidence?.getAttribute('alt') || ''
   };
@@ -33,6 +33,12 @@ const cases = [...template.content.querySelectorAll('[data-case-article]')].map(
 const casesByModule = Object.fromEntries(
   moduleOrder.map((moduleId) => [moduleId, cases.filter((item) => item.moduleId === moduleId)])
 );
+
+Object.values(casesByModule).forEach((moduleCases) => {
+  moduleCases.forEach((item, index) => {
+    item.number = String(index + 1).padStart(2, '0');
+  });
+});
 
 const moduleBriefs = Object.fromEntries(
   moduleOrder.map((moduleId) => {
@@ -223,7 +229,7 @@ const renderCase = (moduleId, caseId, { historyMode = null, focus = false } = {}
   heading.id = `case-title-${moduleId}-${caseId}`;
   const proofId = document.createElement('p');
   proofId.className = 'case-proof-id';
-  proofId.textContent = `Case ${item.number} of ${cases.length} · ${moduleLabels[moduleId]}`;
+  proofId.textContent = `Case ${item.number} of ${casesByModule[item.moduleId].length} · ${moduleLabels[moduleId]}`;
   clone.querySelector('.full-case__header')?.prepend(proofId);
 
   const workflow = buildWorkflow(caseId);
