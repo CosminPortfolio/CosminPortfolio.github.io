@@ -1732,10 +1732,10 @@ footer {
   border: 1px solid var(--line-dark);
 }
 .case-evidence-crop img { max-width: none; border: 0; }
-.case-evidence-crop--sitelinks { aspect-ratio: 354 / 1200; }
-.case-evidence-crop--sitelinks img {
-  width: 160.7%;
-  transform: translateX(-15.8%);
+.case-evidence-portrait img {
+  width: min(100%, 29.6875rem);
+  margin-inline: auto;
+  border: 0;
 }
 .case-evidence-crop--bidding { aspect-ratio: 680 / 250; }
 .case-evidence-crop--bidding img { width: 132.4%; }
