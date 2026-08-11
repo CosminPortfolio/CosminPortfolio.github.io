@@ -2,23 +2,19 @@ const workSection = document.querySelector('#work');
 const template = document.querySelector('#case-content-template');
 const panelHost = document.querySelector('.case-panels');
 const moduleTabs = [...document.querySelectorAll('[data-case-tab]')];
-const sourcePanels = [...document.querySelectorAll('[data-case-panel]')];
 const routeLinks = [...document.querySelectorAll('[data-route-case]')];
 
-if (!workSection || !template || !panelHost || !sourcePanels.length) {
+if (!workSection || !template || !panelHost || !moduleTabs.length) {
   throw new Error('Case-study workspace markup is incomplete.');
 }
 
 const moduleOrder = ['strategy', 'measurement', 'optimization', 'reporting'];
 const moduleLabels = {
-  strategy: 'Strategy',
+  strategy: 'Search strategy',
   measurement: 'Measurement',
   optimization: 'Optimization',
   reporting: 'Reporting'
 };
-const moduleOverviews = Object.fromEntries(
-  sourcePanels.map((panel) => [panel.dataset.casePanel, [...panel.childNodes].map((node) => node.cloneNode(true))])
-);
 
 const cases = [...template.content.querySelectorAll('[data-case-article]')].map((article, index) => {
   const evidence = article.querySelector('img');
@@ -38,10 +34,6 @@ const casesByModule = Object.fromEntries(
   moduleOrder.map((moduleId) => [moduleId, cases.filter((item) => item.moduleId === moduleId)])
 );
 
-const moduleBrief = document.createElement('section');
-moduleBrief.className = 'module-brief';
-moduleBrief.setAttribute('aria-live', 'polite');
-
 const workspace = document.createElement('div');
 workspace.className = 'proof-workspace';
 
@@ -50,15 +42,15 @@ indexPanel.className = 'proof-index-panel';
 indexPanel.setAttribute('aria-labelledby', 'proof-index-title');
 indexPanel.innerHTML = `
   <header class="proof-index-header">
-    <h3 id="proof-index-title">All case studies</h3>
-    <p>16 projects</p>
+    <h3 id="proof-index-title">Search strategy</h3>
+    <p>5 case studies</p>
   </header>
 `;
 
 const caseIndex = document.createElement('div');
 caseIndex.className = 'proof-index';
 caseIndex.setAttribute('role', 'tablist');
-caseIndex.setAttribute('aria-label', 'All portfolio case studies');
+caseIndex.setAttribute('aria-label', 'Case studies in the selected category');
 
 const reader = document.createElement('section');
 reader.className = 'case-reader';
@@ -80,22 +72,21 @@ cases.forEach((item, index) => {
     <span class="proof-card__number">${item.number}</span>
     <span class="proof-card__image">${item.evidenceSrc ? `<img src="${item.evidenceSrc}" alt="" loading="lazy" decoding="async">` : '<i aria-hidden="true"></i>'}</span>
     <strong>${item.title}</strong>
-    <small>${moduleLabels[item.moduleId]}</small>
+    <small>${item.summary}</small>
   `;
   caseIndex.append(button);
 });
 
 indexPanel.append(caseIndex);
 workspace.append(indexPanel, reader);
-panelHost.replaceChildren(moduleBrief, workspace);
+panelHost.replaceChildren(workspace);
+panelHost.hidden = false;
 
 moduleTabs.forEach((tab) => {
   tab.setAttribute('aria-controls', reader.id);
   const count = casesByModule[tab.dataset.caseTab]?.length || 0;
-  const countNode = document.createElement('b');
-  countNode.className = 'case-tab-count';
-  countNode.textContent = String(count).padStart(2, '0');
-  tab.prepend(countNode);
+  const detail = tab.querySelector('small');
+  if (detail) detail.textContent = `${count} case ${count === 1 ? 'study' : 'studies'}`;
 });
 
 const state = {
@@ -117,18 +108,21 @@ const parseHash = () => {
   };
 };
 
-const renderModuleBrief = (moduleId) => {
-  moduleBrief.replaceChildren(...moduleOverviews[moduleId].map((node) => node.cloneNode(true)));
-  moduleBrief.dataset.module = moduleId;
-};
-
 const setModuleState = (moduleId) => {
   moduleTabs.forEach((tab) => {
     const selected = tab.dataset.caseTab === moduleId;
     tab.setAttribute('aria-selected', String(selected));
     tab.tabIndex = selected ? 0 : -1;
   });
-  renderModuleBrief(moduleId);
+
+  const categoryCases = casesByModule[moduleId];
+  indexPanel.querySelector('h3').textContent = moduleLabels[moduleId];
+  indexPanel.querySelector('p').textContent = `${categoryCases.length} case ${categoryCases.length === 1 ? 'study' : 'studies'}`;
+  caseIndex.setAttribute('aria-label', `${moduleLabels[moduleId]} case studies`);
+
+  [...caseIndex.querySelectorAll('[data-case-select]')].forEach((button) => {
+    button.hidden = button.dataset.module !== moduleId;
+  });
 };
 
 const buildWorkflow = (caseId) => {
@@ -175,9 +169,10 @@ const addReportingMetrics = (clone, caseId) => {
 };
 
 const addCaseNavigation = (clone, item) => {
-  const index = cases.indexOf(item);
-  const previous = cases[(index - 1 + cases.length) % cases.length];
-  const next = cases[(index + 1) % cases.length];
+  const categoryCases = casesByModule[item.moduleId];
+  const index = categoryCases.indexOf(item);
+  const previous = categoryCases[(index - 1 + categoryCases.length) % categoryCases.length];
+  const next = categoryCases[(index + 1) % categoryCases.length];
   const nav = document.createElement('nav');
   nav.className = 'case-dossier-nav';
   nav.setAttribute('aria-label', 'Case study navigation');
@@ -240,7 +235,7 @@ caseIndex.addEventListener('click', (event) => {
 caseIndex.addEventListener('keydown', (event) => {
   if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)) return;
   event.preventDefault();
-  const buttons = [...caseIndex.querySelectorAll('[data-case-select]')];
+  const buttons = [...caseIndex.querySelectorAll('[data-case-select]:not([hidden])')];
   const current = Math.max(0, buttons.indexOf(document.activeElement));
   const columns = window.matchMedia('(min-width: 1120px)').matches ? 4 : window.matchMedia('(min-width: 760px)').matches ? 3 : 1;
   let next = current;
@@ -264,7 +259,7 @@ moduleTabs.forEach((tab) => {
   tab.addEventListener('click', () => {
     const moduleId = tab.dataset.caseTab;
     const caseId = state.moduleId === moduleId ? state.caseId : casesByModule[moduleId][0].caseId;
-    renderCase(moduleId, caseId, { historyMode: 'push', focus: true });
+    renderCase(moduleId, caseId, { historyMode: 'push' });
   });
 
   tab.addEventListener('keydown', (event) => {
