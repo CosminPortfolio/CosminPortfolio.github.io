@@ -34,6 +34,25 @@ const casesByModule = Object.fromEntries(
   moduleOrder.map((moduleId) => [moduleId, cases.filter((item) => item.moduleId === moduleId)])
 );
 
+const moduleBriefs = Object.fromEntries(
+  moduleOrder.map((moduleId) => {
+    const source = panelHost.querySelector(`[data-case-panel="${moduleId}"]`);
+    if (!source) return [moduleId, null];
+    const brief = source.cloneNode(true);
+    brief.removeAttribute('id');
+    brief.removeAttribute('role');
+    brief.removeAttribute('aria-labelledby');
+    brief.removeAttribute('data-case-panel');
+    brief.removeAttribute('hidden');
+    brief.className = 'module-brief';
+    return [moduleId, brief];
+  })
+);
+
+const moduleBriefHost = document.createElement('div');
+moduleBriefHost.className = 'module-brief-host';
+moduleBriefHost.setAttribute('aria-label', 'Search strategy overview');
+
 const workspace = document.createElement('div');
 workspace.className = 'proof-workspace';
 
@@ -79,11 +98,12 @@ cases.forEach((item, index) => {
 
 indexPanel.append(caseIndex);
 workspace.append(indexPanel, reader);
-panelHost.replaceChildren(workspace);
+panelHost.replaceChildren(moduleBriefHost, workspace);
 panelHost.hidden = false;
+panelHost.id = 'case-workspace-region';
 
 moduleTabs.forEach((tab) => {
-  tab.setAttribute('aria-controls', reader.id);
+  tab.setAttribute('aria-controls', panelHost.id);
   const count = casesByModule[tab.dataset.caseTab]?.length || 0;
   const detail = tab.querySelector('small');
   if (detail) detail.textContent = `${count} case ${count === 1 ? 'study' : 'studies'}`;
@@ -119,11 +139,22 @@ const setModuleState = (moduleId) => {
   indexPanel.querySelector('h3').textContent = moduleLabels[moduleId];
   indexPanel.querySelector('p').textContent = `${categoryCases.length} case ${categoryCases.length === 1 ? 'study' : 'studies'}`;
   caseIndex.setAttribute('aria-label', `${moduleLabels[moduleId]} case studies`);
+  moduleBriefHost.setAttribute('aria-label', `${moduleLabels[moduleId]} overview`);
+  const brief = moduleBriefs[moduleId];
+  if (brief) moduleBriefHost.replaceChildren(brief.cloneNode(true));
+  else moduleBriefHost.replaceChildren();
 
   [...caseIndex.querySelectorAll('[data-case-select]')].forEach((button) => {
     button.hidden = button.dataset.module !== moduleId;
   });
 };
+
+moduleBriefHost.addEventListener('click', (event) => {
+  const link = event.target.closest('[data-architecture-case]');
+  if (!link) return;
+  event.preventDefault();
+  renderCase('strategy', link.dataset.architectureCase, { historyMode: 'push', focus: true });
+});
 
 const buildWorkflow = (caseId) => {
   const activeStep = {

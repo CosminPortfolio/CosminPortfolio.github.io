@@ -1127,6 +1127,84 @@ footer {
 .module-brief .pipeline span { border-color: var(--line-dark); background: var(--ground); color: var(--ink); }
 .module-brief .pipeline i { background: var(--line-dark); }
 
+.module-brief-host { margin-top: 1rem; }
+
+.portfolio-map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border: 1px solid var(--line-dark);
+  background: var(--ground);
+}
+
+.portfolio-map__node {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  min-width: 0;
+  min-height: 7.5rem;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  align-content: center;
+  column-gap: .65rem;
+  padding: 1.15rem;
+  border: 1px solid var(--line-dark);
+  background: var(--panel);
+  color: var(--ink);
+  text-decoration: none;
+  transition: background-color .2s ease, color .2s ease;
+}
+
+.portfolio-map__node--primary { width: min(68%, 42rem); min-height: 6.25rem; }
+.portfolio-map__node:hover { background: var(--blue); color: #fff; }
+.portfolio-map__node > span { grid-column: 1; grid-row: 1 / 3; color: var(--blue); font-family: var(--display); font-size: 1.65rem; line-height: 1; }
+.portfolio-map__node:hover > span { color: inherit; }
+.portfolio-map__node strong { grid-column: 2; font-family: var(--display); font-size: clamp(1.12rem, 1.7vw, 1.65rem); font-weight: 500; line-height: 1.05; }
+.portfolio-map__node small { grid-column: 2; margin-top: .4rem; color: var(--muted); font-size: .68rem; font-weight: 800; letter-spacing: .05em; line-height: 1.35; text-transform: uppercase; }
+.portfolio-map__node:hover small { color: inherit; opacity: .8; }
+
+.portfolio-map__flow { width: 1px; height: 2.5rem; background: var(--line-dark); }
+
+.portfolio-map__branch {
+  position: relative;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 2.5rem);
+  margin-top: 3.5rem;
+}
+
+.portfolio-map__branch::before {
+  position: absolute;
+  top: -1.75rem;
+  right: calc((100% - 2 * clamp(1rem, 2.5vw, 2.5rem)) / 6);
+  left: calc((100% - 2 * clamp(1rem, 2.5vw, 2.5rem)) / 6);
+  height: 1px;
+  background: var(--line-dark);
+  content: "";
+}
+
+.portfolio-map__branch::after {
+  position: absolute;
+  top: -3.5rem;
+  left: 50%;
+  width: 1px;
+  height: 1.75rem;
+  background: var(--line-dark);
+  content: "";
+}
+
+.portfolio-map__branch .portfolio-map__node::before {
+  position: absolute;
+  top: -1.75rem;
+  left: 50%;
+  width: 1px;
+  height: 1.75rem;
+  background: var(--line-dark);
+  content: "";
+}
+
 .proof-workspace {
   display: grid;
   grid-template-columns: minmax(19rem, .54fr) minmax(0, 1.46fr);
@@ -2070,6 +2148,9 @@ footer { border-top: 0; }
   .positioning__body { gap: 1.5rem; }
   .case-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .module-brief .case-panel__headline { grid-template-columns: 1fr; gap: 1rem; }
+  .portfolio-map__node--primary { width: min(82%, 42rem); }
+  .portfolio-map__branch { gap: .75rem; }
+  .portfolio-map__node { padding: .9rem; }
   .proof-index { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .full-case__meta,
   .source-metric-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -2118,6 +2199,20 @@ footer { border-top: 0; }
   .positioning__steps li:nth-child(4)::after { display: none; }
   .positioning__steps li:last-child { grid-column: 1 / -1; min-height: 6rem; }
   .case-tabs { grid-template-columns: 1fr; }
+  .module-brief { padding: 1.25rem; }
+  .portfolio-map { align-items: stretch; padding: 1rem; }
+  .portfolio-map__node,
+  .portfolio-map__node--primary { width: 100%; min-height: 5.5rem; }
+  .portfolio-map__branch {
+    grid-template-columns: 1fr;
+    gap: .75rem;
+    margin-top: 2rem;
+    padding-left: 1rem;
+    border-left: 1px solid var(--line-dark);
+  }
+  .portfolio-map__branch::before,
+  .portfolio-map__branch::after,
+  .portfolio-map__branch .portfolio-map__node::before { display: none; }
   .proof-index-header { align-items: flex-start; flex-direction: column; }
   .proof-index { grid-template-columns: 1fr; }
   .full-case__header { padding: 1.5rem; }
