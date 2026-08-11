@@ -1652,7 +1652,8 @@ footer {
 .case-story--flagship-driver > section > .case-source-note,
 .case-story--flagship-driver > section > .case-takeaway { margin-block: 0; }
 .case-story--flagship-driver > section > .case-stage-intro { grid-column: 2; }
-.case-story--flagship-driver > section > :not(h4):not(.case-stage-intro):not(.case-stage-body) { grid-column: 1 / -1; }
+.case-story--flagship-driver > section > .case-inline-figure,
+.case-story--flagship-driver > section > .case-evidence-explainer { grid-column: 1 / -1; }
 .case-story--flagship-driver > section > .case-stage-body {
   display: grid;
   align-self: start;
@@ -1663,6 +1664,7 @@ footer {
 .case-stage-body > .case-stage-intro { max-width: none; }
 .case-stage-body > .case-budget-note,
 .case-stage-body > .case-takeaway { margin-block: 0; }
+.case-story--flagship-driver > section > .case-source-note { max-width: none; }
 .case-inline-figure--native-900 > .case-evidence-link {
   width: min(100%, 56.25rem);
   margin-inline: auto;
