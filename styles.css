@@ -1623,6 +1623,7 @@ footer {
   gap: clamp(1.5rem, 3vw, 3rem);
   padding-block: clamp(2rem, 3.5vw, 3.25rem);
 }
+.case-story.case-story--compact > section > h4 { position: static; }
 .case-strategy-section { align-items: start; }
 .case-strategy-intro { max-width: 68ch; }
 .case-strategy-intro p { margin: 0; color: var(--ink); font-size: 1.02rem; line-height: 1.62; }
@@ -1677,6 +1678,58 @@ footer {
   font-size: .68rem;
   letter-spacing: .06em;
   text-transform: uppercase;
+}
+
+.case-implementation-intro { max-width: 68ch; }
+.case-implementation-intro > p { margin: 0; color: var(--ink); font-size: 1.02rem; line-height: 1.62; }
+
+.implementation-stages {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 1.25rem 0 0;
+  padding: 0;
+  border-block: 1px solid var(--line-dark);
+  list-style: none;
+}
+
+.implementation-stages li {
+  min-width: 0;
+  padding: .85rem .75rem;
+  border-right: 1px solid var(--line-dark);
+  color: var(--ink);
+  font-size: .72rem;
+  font-weight: 750;
+  line-height: 1.35;
+}
+
+.implementation-stages li:last-child { border-right: 0; }
+.implementation-stages span {
+  display: block;
+  margin-bottom: .35rem;
+  color: var(--blue);
+  font-family: var(--display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.negative-grid--explained > div { padding: 1.15rem; }
+.negative-grid--explained > div > p { margin: .8rem 0 0; color: var(--muted); font-size: .82rem; line-height: 1.5; }
+.keyword-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin: .75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.keyword-pills li {
+  padding: .3rem .5rem;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: .72rem;
+  line-height: 1.25;
 }
 .case-story p,
 .case-story li { color: #34363a; }
@@ -2442,6 +2495,9 @@ footer { border-top: 0; }
   .case-opening { grid-template-columns: 1fr; }
   .case-opening > div { padding: 1rem 0; }
   .case-opening > div + div { padding-left: 0; border-top: 1px solid var(--line-dark); border-left: 0; }
+  .implementation-stages { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .implementation-stages li:nth-child(2) { border-right: 0; }
+  .implementation-stages li:nth-child(-n+2) { border-bottom: 1px solid var(--line-dark); }
   .full-case__meta li:nth-child(2),
   .source-metric-strip > div:nth-child(2) { border-right: 0; }
   .full-case__meta li:nth-child(-n+2),

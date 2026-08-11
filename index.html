@@ -13,7 +13,7 @@
     <title>Cosmin Pintilie — Performance Marketing &amp; Analytics</title>
     <link rel="canonical" href="https://cosminportfolio.github.io/">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260811ab">
+  <link rel="stylesheet" href="styles.css?v=20260811ac">
     <script src="script.js?v=20260810a" defer></script>
     <script src="case-workspace.js?v=20260811g" type="module"></script>
   </head>
@@ -391,20 +391,48 @@
                 </ol>
               </section>
 
-              <section>
-                <h4>Intent architecture &amp; exclusions</h4>
-                <p>Positive keywords define the searches the campaign should win; negatives define where a sales-focused brand budget should never be spent. The source build combines exact and phrase routing with a campaign-level exclusion layer.</p>
+              <section class="case-implementation-section">
+                <h4>Step-by-step implementation</h4>
+                <div class="case-implementation-intro">
+                  <p>The build followed a four-stage sequence: keyword architecture, ad creation and extensions, bidding and budget control, and final quality validation.</p>
+                  <ol class="implementation-stages" aria-label="Four-stage campaign implementation sequence">
+                    <li><span>01</span>Keyword architecture</li>
+                    <li><span>02</span>Ad creation &amp; extensions</li>
+                    <li><span>03</span>Bidding &amp; budget control</li>
+                    <li><span>04</span>Quality validation</li>
+                  </ol>
+                </div>
+                <h5>Stage 1 · Keyword architecture</h5>
+                <p>Brand and product-purchase intent terms were structured into exact and phrase match groups, isolating high-value, unambiguous branded queries from any broader, less qualified search traffic.</p>
                 <figure class="case-inline-figure case-inline-figure--wide">
                   <a class="case-evidence-link" href="assets/images/case-evidence/brand-defense-keywords-hd.png" target="_blank" rel="noopener" aria-label="Open the keyword architecture evidence at full resolution">
                     <img src="assets/images/case-evidence/brand-defense-keywords-hd.png" width="1249" height="1260" loading="lazy" decoding="async" alt="Google Ads keyword setup showing exact brand terms, phrase purchase terms, United States targeting, English language, audience observations, and Search inventory">
                   </a>
-                  <figcaption>Exact brand terms and phrase purchase-intent terms are enabled inside the Brand Protection ad group; location, language, audience, and network controls remain visible in the same build step. <a href="assets/images/case-evidence/brand-defense-keywords-hd.png" target="_blank" rel="noopener">Open full-resolution evidence ↗</a></figcaption>
+                  <figcaption>Fig. 1: Exact-match brand terms—<code>[apple store]</code>, <code>[apple.com]</code>, and <code>[apple website]</code>—and phrase-match purchase-intent terms—<code>“buy macbook online”</code> and <code>“buy iphone online”</code>—are enabled and scoped to the Brand Protection ad group. <a href="assets/images/case-evidence/brand-defense-keywords-hd.png" target="_blank" rel="noopener">Open full-resolution evidence ↗</a></figcaption>
                 </figure>
-                <div class="negative-grid">
-                  <div><strong>Job and career intent</strong><p><code>apple careers</code>, <code>apple jobs</code>, <code>apple internship</code></p></div>
-                  <div><strong>Repair and support intent</strong><p><code>apple repair</code>, <code>apple support number</code>, <code>genius bar appointment</code></p></div>
-                  <div><strong>Price-sensitive intent</strong><p><code>cheap iphone</code>, <code>used macbook</code>, <code>apple refurbished ebay</code></p></div>
-                  <div><strong>Marketplace intent</strong><p><code>iphone amazon</code>, <code>macbook best buy</code></p></div>
+                <h5>Negative keyword strategy</h5>
+                <p>Alongside the positive keyword list, a negative keyword layer was built at campaign level to further insulate spend. This layer works in tandem with the exact-and-phrase-only match strategy: positive keywords define what the campaign should win; negative keywords define what it should never be allowed to spend on.</p>
+                <div class="negative-grid negative-grid--explained">
+                  <div>
+                    <strong>Job &amp; career intent</strong>
+                    <ul class="keyword-pills" aria-label="Job and career negative keywords"><li>apple careers</li><li>apple jobs</li><li>apple internship</li></ul>
+                    <p>Prevents brand impressions from being wasted on recruitment searches.</p>
+                  </div>
+                  <div>
+                    <strong>Repair &amp; support intent</strong>
+                    <ul class="keyword-pills" aria-label="Repair and support negative keywords"><li>apple repair</li><li>apple support number</li><li>genius bar appointment</li></ul>
+                    <p>Routes existing-owner queries away from a sales-focused ad group.</p>
+                  </div>
+                  <div>
+                    <strong>Price-sensitive / bargain intent</strong>
+                    <ul class="keyword-pills" aria-label="Price-sensitive negative keywords"><li>cheap iphone</li><li>used macbook</li><li>apple refurbished ebay</li></ul>
+                    <p>Keeps the ad group aligned to official-channel intent, not resale hunting.</p>
+                  </div>
+                  <div>
+                    <strong>Competitor &amp; marketplace terms</strong>
+                    <ul class="keyword-pills" aria-label="Competitor and marketplace negative keywords"><li>iphone amazon</li><li>macbook best buy</li></ul>
+                    <p>Blocks spend defending brand terms on queries that already signal intent to buy elsewhere.</p>
+                  </div>
                 </div>
               </section>
 
