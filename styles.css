@@ -1358,10 +1358,15 @@ footer {
 }
 
 .case-inline-figure { margin: 1.25rem 0 0; }
+.case-story > section > .case-inline-figure--wide { grid-column: 1 / -1; }
+.case-inline-figure.case-inline-figure--wide img { height: auto; max-height: none; }
+.case-evidence-link { display: block; cursor: zoom-in; }
+.case-evidence-link:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
 .case-inline-figure img,
 .case-evidence-grid img { width: 100%; max-height: 36rem; border: 1px solid var(--line-dark); background: #151515; object-fit: contain; }
 .case-inline-figure figcaption,
 .case-evidence-grid figcaption { max-width: 70ch; margin-top: .65rem; color: var(--muted); font-size: .72rem; line-height: 1.45; }
+.case-inline-figure figcaption a { color: var(--blue); font-weight: 800; text-underline-offset: .18em; }
 
 .case-evidence-grid {
   display: grid;
