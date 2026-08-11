@@ -1009,7 +1009,7 @@ footer {
 
 .positioning__steps {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   margin: 0;
   padding: 0;
   border: 1px solid var(--line-dark);
@@ -1601,7 +1601,9 @@ pre { color: #003f9e; }
   .hero__strapline::before { margin-bottom: 1.4rem; }
   .hero__evidence { padding-top: 1.5rem; }
   .positioning__steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .positioning__steps li:nth-child(2)::after { display: none; }
+  .positioning__steps li:nth-child(2)::after,
+  .positioning__steps li:nth-child(4)::after { display: none; }
+  .positioning__steps li:last-child { grid-column: 1 / -1; min-height: 6rem; }
   .case-tabs { grid-template-columns: 1fr; }
   .module-brief { padding: 1.25rem; }
   .module-brief .architecture,
