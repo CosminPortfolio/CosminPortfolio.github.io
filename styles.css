@@ -1686,6 +1686,22 @@ footer {
 .case-stage-intro > p { margin: 0; color: var(--ink); font-size: 1.02rem; line-height: 1.62; }
 
 .case-build-stage > .case-evidence-stack { grid-column: 1 / -1; }
+.case-stage-title { display: grid; gap: .45rem; }
+.case-stage-title > span {
+  color: var(--blue);
+  font-family: var(--body);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .07em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+.case-stage-title > strong {
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+}
 .case-evidence-stack { display: grid; gap: clamp(2rem, 4vw, 3.5rem); margin-top: .25rem; }
 .case-evidence-stack figure { width: 100%; min-width: 0; margin: 0; }
 .case-evidence-stack img {
@@ -1702,12 +1718,18 @@ footer {
   overflow: hidden;
   border: 1px solid var(--line-dark);
 }
+.case-evidence-crop img { max-width: none; border: 0; }
 .case-evidence-crop--sitelinks { aspect-ratio: 354 / 1200; }
 .case-evidence-crop--sitelinks img {
   width: 160.7%;
-  max-width: none;
-  border: 0;
   transform: translateX(-15.8%);
+}
+.case-evidence-crop--bidding { aspect-ratio: 680 / 250; }
+.case-evidence-crop--bidding img { width: 132.4%; }
+.case-evidence-crop--validation { aspect-ratio: 530 / 850; }
+.case-evidence-crop--validation img {
+  width: 169.8%;
+  transform: translateX(-30.6%);
 }
 .case-evidence-stack figcaption { max-width: 76ch; margin-top: .7rem; color: var(--muted); font-size: .76rem; line-height: 1.5; }
 .case-budget-note {
