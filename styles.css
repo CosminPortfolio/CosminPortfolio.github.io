@@ -1682,6 +1682,29 @@ footer {
 
 .case-implementation-intro { max-width: 68ch; }
 .case-implementation-intro > p { margin: 0; color: var(--ink); font-size: 1.02rem; line-height: 1.62; }
+.case-stage-intro { max-width: 68ch; }
+.case-stage-intro > p { margin: 0; color: var(--ink); font-size: 1.02rem; line-height: 1.62; }
+
+.case-build-stage > .case-evidence-stack { grid-column: 1 / -1; }
+.case-evidence-stack { display: grid; gap: clamp(2rem, 4vw, 3.5rem); margin-top: .25rem; }
+.case-evidence-stack figure { min-width: 0; margin: 0; }
+.case-evidence-stack figure.is-narrow { width: min(100%, 35.5rem); justify-self: center; }
+.case-evidence-stack img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  border: 1px solid var(--line-dark);
+  background: #151515;
+}
+.case-evidence-stack figcaption { max-width: 76ch; margin-top: .7rem; color: var(--muted); font-size: .76rem; line-height: 1.5; }
+.case-budget-note {
+  padding: 1.1rem 1.25rem;
+  border-block: 1px solid var(--line-dark);
+  background: var(--ground);
+}
+.case-budget-note strong { display: block; margin-bottom: .45rem; color: var(--blue); font-size: .68rem; letter-spacing: .07em; text-transform: uppercase; }
+.case-budget-note p { margin: 0; color: var(--ink); line-height: 1.58; }
 
 .implementation-stages {
   display: grid;
