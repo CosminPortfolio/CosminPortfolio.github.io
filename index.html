@@ -13,7 +13,7 @@
     <title>Cosmin Pintilie — Performance Marketing &amp; Analytics</title>
     <link rel="canonical" href="https://cosminportfolio.github.io/">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css?v=20260812o">
+    <link rel="stylesheet" href="styles.css?v=20260812p">
     <script src="script.js?v=20260810a" defer></script>
     <script src="case-workspace.js?v=20260811i" type="module"></script>
   </head>
@@ -269,7 +269,7 @@
                   <h3>Looker Studio dashboard suite</h3>
                 </div>
                 <div class="case-panel__intro">
-                  <p>Three governed BI surfaces connecting Google Ads and GA4 data to executive fleet health, financial pacing, and full-funnel attribution decisions.</p>
+                  <p>Three source-supplied BI cases connecting Google Ads data to executive fleet health, financial pacing, and full-funnel measurement decisions.</p>
                   <p class="case-panel__prompt">Compare the suite by audience and objective, then open each dashboard case to inspect its metric and reading logic.</p>
                 </div>
               </div>
@@ -285,7 +285,7 @@
                   </tbody>
                 </table>
               </div>
-              <p class="case-disclaimer"><strong>Anonymized professional work.</strong> Client names and sensitive commercial figures have been withheld or selectively adjusted. The dashboard architecture, metric logic, and management decisions reflect the work performed.</p>
+              <p class="case-disclaimer"><strong>Source-supplied portfolio cases.</strong> The PDFs describe connector-driven Looker Studio reports and supply the figures reproduced here. The portfolio preserves their architecture and decision logic while treating commercial values as source-reported, not independently verified outcomes.</p>
               <section class="deliverable-overview" aria-labelledby="reporting-dashboards-title">
                 <div class="deliverable-overview__heading">
                   <h4 id="reporting-dashboards-title">Three reporting surfaces</h4>
@@ -296,21 +296,21 @@
                     <a href="#case/reporting/fleet-executive" data-overview-case="fleet-executive" data-overview-module="reporting">
                       <span>01</span>
                       <div><h5>SEM Fleet Executive Center</h5><small>Reader · C-suite command surface</small></div>
-                      <p>Consolidate the anonymized 2018–2024 Search and Performance Max history into four executive KPIs, a 30-day revenue trajectory, device mix, and campaign accountability matrix.</p>
+                      <p>Consolidate the source’s 2018–2024 Search and Performance Max history into four executive KPIs, a 30-day value trajectory, device mix, and campaign accountability matrix.</p>
                     </a>
                   </li>
                   <li>
                     <a href="#case/reporting/roas-pacing" data-overview-case="roas-pacing" data-overview-module="reporting">
                       <span>02</span>
                       <div><h5>Executive ROAS &amp; Budget Pacing Monitor</h5><small>Reader · Financial intelligence</small></div>
-                      <p>Translate anonymized spend and revenue into a governed <code>SUM(Conversion Value) / SUM(Cost)</code> definition, monthly trajectory, and campaign-level pacing view.</p>
+                      <p>Translate source-reported spend and conversion value into a governed <code>SUM(Conversion Value) / SUM(Cost)</code> definition, monthly trajectory, and campaign-level pacing view.</p>
                     </a>
                   </li>
                   <li>
                     <a href="#case/reporting/funnel-attribution" data-overview-case="funnel-attribution" data-overview-module="reporting">
                       <span>03</span>
                       <div><h5>Funnel Attribution &amp; Micro-Conversion Pathway</h5><small>Reader · Full-funnel intelligence</small></div>
-                      <p>Trace anonymized ToF impressions through clicks and stacked conversion events while explaining device mix and why event-based conversion rates can exceed 100%.</p>
+                      <p>Trace source-reported impressions through clicks and stacked conversion events while explaining device mix and why event-based rates can exceed 100%.</p>
                     </a>
                   </li>
                 </ol>
@@ -2126,189 +2126,319 @@ window.dataLayer.push({
 
           <article class="full-case" data-case-article data-module="reporting" data-case-id="fleet-executive" data-card-title="SEM fleet center" data-card-summary="Give leadership a 60-second path from status to trend, mix, and accountability.">
             <header class="full-case__header">
-              <h3 tabindex="-1">SEM fleet executive center</h3>
-              <p class="full-case__lede">A leadership reading path from portfolio status to historical trend, device composition, campaign accountability, risks, and owned actions.</p>
+              <h3 tabindex="-1">SEM Fleet Executive Center</h3>
+              <p class="full-case__subtitle">Executive Performance Case Study — Governed Fleet Health, Device Intelligence &amp; Campaign Accountability</p>
               <ul class="full-case__meta" aria-label="Case details">
-                <li><strong>Tool</strong>Looker Studio</li>
-                <li><strong>Audience</strong>Marketing leadership</li>
-                <li><strong>Window</strong>January 2018 to July 2024</li>
+                <li><strong>Platform</strong>Google Looker Studio</li>
+                <li><strong>Data source</strong>Google Ads Connector</li>
+                <li><strong>Window</strong>January 2018 – July 2024</li>
+                <li><strong>Reader</strong>Executive leadership</li>
               </ul>
-              <p class="evidence-notice"><strong>Anonymized professional case.</strong> Client names and sensitive revenue, conversion, and campaign figures have been withheld or selectively adjusted. The dashboard architecture and executive reading logic reflect the work performed.</p>
+              <p class="evidence-notice"><strong>Source-supplied portfolio case.</strong> The PDF describes a connector-driven dashboard and provides a public report URL. The figures below reproduce the case-study source; they do not establish Apple account access, independently verified commercial results, or causality.</p>
             </header>
-            <div class="case-story">
-              <section>
-                <h4>Four layers, four questions</h4>
-                <div class="report-layers">
-                  <div><strong>Status</strong><p>Revenue, conversions, clicks, and conversion rate answer whether the fleet is healthy now.</p></div>
-                  <div><strong>Trend</strong><p>Revenue and traffic on the same timeline show whether volume and value are moving together.</p></div>
-                  <div><strong>Composition</strong><p>Device revenue makes the operating mix visible and informs experience investment.</p></div>
-                  <div><strong>Accountability</strong><p>A campaign matrix exposes where spend, clicks, conversions, and revenue are concentrated.</p></div>
+            <div class="case-story case-story--reporting-source">
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 1</span><strong>Executive Summary &amp; Strategic Objectives</strong></h4>
+                <div class="case-stage-intro"><p>A governed 60-second read of fleet health.</p></div>
+                <p>The source positions the Executive Center as a single analytical surface for fragmented Search and Performance Max data. It is designed to replace static exports with a shared view that moves from headline status to historical context, device composition, and campaign-level accountability.</p>
+                <div class="source-metric-strip" aria-label="Source-reported fleet metrics">
+                  <div><strong>$7.6M</strong><span>Total conversion value</span></div>
+                  <div><strong>838.4K</strong><span>Total conversions</span></div>
+                  <div><strong>784.2K</strong><span>Total clicks</span></div>
+                  <div><strong>67.62%</strong><span>Reported conversion rate</span></div>
                 </div>
-                <p>The sequence moves from “How are we doing?” to “Where does the result come from?” before anyone changes a campaign. Limiting the first layer to four metrics protects the executive view from becoming another analyst dashboard.</p>
+                <dl class="case-control-list case-control-list--stacked">
+                  <div><dt>Executive glanceability</dt><dd>Limit the opening layer to revenue, conversions, clicks, and conversion rate so a non-technical reader can establish status in under one minute.</dd></div>
+                  <div><dt>Historical scaling context</dt><dd>Place multi-year traffic and conversion value on one timeline to distinguish durable movement from short-term volatility.</dd></div>
+                  <div><dt>Channel and device intelligence</dt><dd>Expose where source-reported value is concentrated so creative, landing-page, and bidding work can follow the operating mix.</dd></div>
+                  <div><dt>Campaign accountability</dt><dd>Use a color-density matrix to identify top- and bottom-decile structures without waiting for a separate analyst export.</dd></div>
+                </dl>
+                <p class="case-source-note"><strong>Metric-governance note.</strong> The source reports 838.4K conversions, 784.2K clicks, and a 67.62% conversion rate. Those headline totals do not reconcile through simple division, so the rate should be treated as source-defined until its aggregation grain and conversion-event scope are documented.</p>
               </section>
-              <section>
-                <h4>Anonymized dashboard read</h4>
-                <figure class="case-figure case-figure--wide">
-                  <img src="assets/images/case-evidence/fleet-executive.webp" width="965" height="594" loading="lazy" decoding="async" alt="Looker Studio executive dashboard showing revenue, conversions, clicks, conversion rate, a 30-day trajectory, and revenue share by device">
-                  <figcaption>The executive control surface keeps the four top-line KPIs, time-series movement, and device composition visible together before the reader enters the campaign accountability matrix.</figcaption>
-                </figure>
-                <div class="metric-board" aria-label="Anonymized device revenue composition">
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 2</span><strong>Dashboard Architecture &amp; Executive Reading Path</strong></h4>
+                <div class="case-stage-intro"><p>Four layers answer four progressively narrower questions.</p></div>
+                <div class="report-layers">
+                  <div><strong>KPI layer</strong><p>Is the fleet healthy now?</p></div>
+                  <div><strong>Performance trend</strong><p>Are traffic and value scaling together?</p></div>
+                  <div><strong>Device intelligence</strong><p>Where does the reported value originate?</p></div>
+                  <div><strong>Campaign matrix</strong><p>Which structures carry or dilute the result?</p></div>
+                </div>
+                <div class="case-evidence-stack">
+                  <figure class="case-inline-figure case-inline-figure--native-1500">
+                    <p class="case-source-locator"><code>lookerstudio.google.com · executive-center</code></p>
+                    <a class="case-evidence-link" href="assets/images/case-evidence/fleet-executive.webp?v=20260812a" target="_blank" rel="noopener" aria-label="Open SEM Fleet Executive Center dashboard evidence">
+                      <img src="assets/images/case-evidence/fleet-executive.webp?v=20260812a" width="1495" height="1307" loading="lazy" decoding="async" alt="Looker Studio executive dashboard with four KPI scorecards, a revenue and clicks trend, device revenue composition, and campaign performance matrix">
+                    </a>
+                    <figcaption>Fig. 1 — The source dashboard keeps status, trend, device mix, and campaign detail on one executive surface. Open the image for its native-resolution evidence view.</figcaption>
+                  </figure>
+                </div>
+              </section>
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 3</span><strong>Performance Insights &amp; Decision Logic</strong></h4>
+                <div class="case-stage-intro"><p>Source observations translated into governed working hypotheses.</p></div>
+                <div class="table-scroll" tabindex="0" role="region" aria-label="Fleet performance insight matrix">
+                  <table>
+                    <thead><tr><th>Signal</th><th>Source observation</th><th>Governed interpretation</th></tr></thead>
+                    <tbody>
+                      <tr><td>Revenue trajectory</td><td>Low, largely flat volume through Q3 2020; expansion from Q4 2020; reported monthly value above $900K in late 2023.</td><td>Use the post-2020 period as a more relevant planning comparison, but validate tracking, attribution, and seasonality before forecasting.</td></tr>
+                      <tr><td>Device mix</td><td>Mobile 64.0%; desktop/computers 29.9%; tablet 6.1% of reported value.</td><td>Sequence CRO and creative testing mobile-first while retaining desktop as a material secondary surface.</td></tr>
+                      <tr><td>PMax concentration</td><td>Top source-modeled PMax campaigns contribute approximately $1.8M–$2.0M each.</td><td>Treat concentration as a candidate scaling signal, then test marginal return and incrementality before reallocating.</td></tr>
+                      <tr><td>Search role</td><td>Secondary contributor relative to PMax in the source matrix.</td><td>Retain deliberate brand defense and high-intent query control rather than judging Search on volume alone.</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="metric-board" aria-label="Source-reported value composition by device">
                   <div><span>Mobile</span><strong>64.0%</strong><progress max="100" value="64">64%</progress></div>
                   <div><span>Desktop</span><strong>29.9%</strong><progress max="100" value="29.9">29.9%</progress></div>
                   <div><span>Tablet</span><strong>6.1%</strong><progress max="100" value="6.1">6.1%</progress></div>
                 </div>
-                <p>The anonymized trend is relatively flat through most of 2020, then shows revenue and clicks rising together and reaching peak monthly revenue above $900K in late 2023. The dashboard treats the post-2020 period as the more relevant operating baseline while still requiring the team to explain seasonality, attribution changes, and tracking incidents before forecasting from it.</p>
+                <p class="case-source-note"><strong>Decision boundary.</strong> Correlated traffic and conversion-value growth does not establish that increased traffic caused the value gain. Budget decisions require campaign-level marginal ROAS, incrementality, attribution stability, and data-quality checks.</p>
               </section>
-              <section>
-                <h4>Campaign interpretation</h4>
-                <div class="table-scroll" tabindex="0" role="region" aria-label="Anonymized campaign structure interpretation">
-                  <table>
-                    <thead><tr><th>Signal</th><th>Observation</th><th>Working implication</th></tr></thead>
-                    <tbody>
-                      <tr><td>Top PMax value</td><td>$1.8M–$2.0M per campaign</td><td>Investigate whether proven structures can absorb incremental budget.</td></tr>
-                      <tr><td>Heatmap concentration</td><td>High-density cells cluster around PMax and hybrid structures</td><td>Review PMax as a scaling candidate, subject to incrementality and marginal return.</td></tr>
-                      <tr><td>Search role</td><td>Secondary contributor in the model</td><td>Retain deliberate brand and high-intent query control.</td></tr>
-                    </tbody>
-                  </table>
-                </div>
-                <p>Concentration alone does not prove causality. The working response is to improve the inputs automation depends on—first-party signals, creative depth, feed quality, and offline outcomes—while testing marginal return instead of fragmenting spend into more campaigns.</p>
-              </section>
-              <section>
-                <h4>Risk and executive roadmap</h4>
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 4</span><strong>Forecast Outlook &amp; Risk Monitoring</strong></h4>
+                <div class="case-stage-intro"><p>Turn the historical view into a monitored planning input.</p></div>
                 <div class="risk-grid">
                   <div><strong>Mobile CPC inflation</strong><span>Monitor mobile CPA</span></div>
-                  <div><strong>PMax concentration</strong><span>Monitor revenue share by campaign</span></div>
-                  <div><strong>Impression-share loss</strong><span>Separate rank from budget</span></div>
+                  <div><strong>PMax overconcentration</strong><span>Monitor value share by campaign</span></div>
+                  <div><strong>Impression-share loss</strong><span>Monitor lost impression share (budget)</span></div>
                   <div><strong>Creative fatigue</strong><span>Monitor CTR trend</span></div>
                   <div><strong>Budget saturation</strong><span>Monitor marginal ROAS</span></div>
                 </div>
+                <p>The source outlook proposes incremental quarterly investment in the strongest PMax structures if current efficiency persists. The governance condition is more important than the direction: marginal return must be monitored as spend increases, and forecast assumptions must be revisited when auction pressure or measurement definitions change.</p>
+              </section>
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 5</span><strong>Executive Scaling Roadmap</strong></h4>
+                <div class="case-stage-intro"><p>Three objectives, each with the two actions retained from the source.</p></div>
                 <ol class="process-list process-list--compact">
-                  <li><strong>Revenue acceleration</strong><span>Test incremental budget in top-decile structures and deepen the asset groups and signals supporting them.</span></li>
-                  <li><strong>Mobile efficiency</strong><span>Prioritize page speed, checkout, and mobile creative while maintaining desktop coverage and reviewing tablet priority.</span></li>
-                  <li><strong>Reporting governance</strong><span>Use the dashboard as the standing review layer and add efficiency-normalized metrics to the campaign matrix.</span></li>
+                  <li><strong>Revenue acceleration · reallocate carefully</strong><span>Test incremental budget in top-decile PMax structures rather than moving spend solely on historical concentration.</span></li>
+                  <li><strong>Revenue acceleration · deepen inputs</strong><span>Expand first-party audience signals and creative asset diversity supporting the strongest structures.</span></li>
+                  <li><strong>Mobile efficiency · audit completion</strong><span>Prioritize mobile page speed, checkout flow, and creative review because mobile carries 64% of source-reported value.</span></li>
+                  <li><strong>Mobile efficiency · rebalance devices</strong><span>Maintain meaningful desktop coverage while reviewing tablet-specific bid priority against its 6.1% share.</span></li>
+                  <li><strong>Reporting governance · establish cadence</strong><span>Use the Executive Center as the standing review layer, with named metric owners and reconciliation controls.</span></li>
+                  <li><strong>Reporting governance · normalize efficiency</strong><span>Add ROAS and cost per conversion to the matrix so campaign scale is not mistaken for campaign efficiency.</span></li>
                 </ol>
+                <p class="case-source-note"><strong>Source status.</strong> The architecture, figures, trends, and recommendations above are reproduced and carefully qualified from the supplied case-study PDF. No rollout, incremental lift, or independently verified commercial outcome is documented.</p>
               </section>
             </div>
           </article>
 
           <article class="full-case" data-case-article data-module="reporting" data-case-id="roas-pacing" data-card-title="ROAS &amp; budget pacing" data-card-summary="Unify finance and marketing around one return definition and campaign-level action view.">
             <header class="full-case__header">
-              <h3 tabindex="-1">ROAS &amp; budget pacing monitor</h3>
-              <p class="full-case__lede">A financial control view joining spend, revenue, calculated return, pacing, campaign profitability, risks, and approval-ready reallocations.</p>
+              <h3 tabindex="-1">Executive ROAS &amp; Budget Pacing Monitor</h3>
+              <p class="full-case__subtitle">Financial Intelligence Case Study — Calculated Return, Campaign Pacing &amp; Budget Governance</p>
               <ul class="full-case__meta" aria-label="Case details">
-                <li><strong>Tool</strong>Looker Studio</li>
-                <li><strong>Audience</strong>Finance and marketing</li>
-                <li><strong>Metric</strong>Actual ROAS at campaign grain</li>
+                <li><strong>Platform</strong>Google Looker Studio</li>
+                <li><strong>Data source</strong>Google Ads Connector</li>
+                <li><strong>Window</strong>January 2020 – July 2024</li>
+                <li><strong>Reader</strong>Finance &amp; marketing leadership</li>
               </ul>
-              <p class="evidence-notice"><strong>Anonymized professional case.</strong> Client names and sensitive spend, revenue, and profitability figures have been withheld or selectively adjusted. The pacing logic and budget decisions reflect the work performed.</p>
+              <p class="evidence-notice"><strong>Source-supplied portfolio case.</strong> The PDF describes a connector-driven dashboard and provides a public report URL. Spend, value, return, and campaign figures are source-reported case-study values, not independently verified financial results.</p>
             </header>
-            <div class="case-story">
-              <section>
-                <h4>One calculated field</h4>
-                <p class="formula"><code>Actual ROAS (%) = (SUM(Conversion Value) / SUM(Cost)) × 100</code></p>
-                <p>The field is computed at campaign grain and then aggregated so the portfolio scorecard and campaign matrix use the same mathematical definition. A displayed result of 1,244.30% is equivalent to 12.44x: $12.44 in attributed conversion value for every $1 of anonymized spend. Percentage format supports a finance reading, while the multiple can remain a secondary representation.</p>
-              </section>
-              <figure class="case-figure case-figure--wide">
-                <img src="assets/images/case-evidence/roas-pacing.webp" width="1492" height="1278" loading="lazy" decoding="async" alt="Anonymized Looker Studio dashboard with KPI cards, spend and return trend, and campaign pacing table">
-                <figcaption>The dashboard moves from portfolio-level fiscal status to trend and then to campaign-level pacing and profitability.</figcaption>
-              </figure>
-              <section>
-                <h4>Reading and action thresholds</h4>
-                <p>In the model, two Search campaigns sit at 0.91x–0.92x while the strongest PMax example reaches 54.62x. A campaign sustained below 1.0x is returning less attributed value than spend before margin and other business costs; it becomes a freeze-and-review candidate rather than a routine optimization ticket.</p>
-                <div class="result-comparison" aria-label="Anonymized campaign return comparison">
-                  <div><span>Review threshold</span><strong>Below 1.0x for two consecutive months</strong></div>
-                  <div class="is-winner"><span>Anonymized scaling candidate</span><strong>54.62x PMax example</strong></div>
+            <div class="case-story case-story--reporting-source">
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 1</span><strong>Executive Summary &amp; Financial Objectives</strong></h4>
+                <div class="case-stage-intro"><p>A shared fiscal view of burn, return, and campaign accountability.</p></div>
+                <p>The source monitor translates Google Ads spend and attributed conversion value into a compact fiscal scorecard, a monthly spend-versus-return trajectory, and a campaign heatmap. Its operating purpose is to give finance and marketing one governed definition before they discuss pacing or reallocation.</p>
+                <div class="source-metric-strip" aria-label="Source-reported financial metrics">
+                  <div><strong>$613.52K</strong><span>Total spend</span></div>
+                  <div><strong>$7.6M</strong><span>Total conversion value</span></div>
+                  <div><strong>1,244.30%</strong><span>Actual ROAS · 12.44x</span></div>
+                  <div><strong>830.3K</strong><span>Total conversions</span></div>
                 </div>
-                <p>The comparison remains incomplete until attribution windows, conversion value quality, campaign volume, margin, incrementality, and brand cannibalization are checked. A high platform ROAS is a prioritization signal, not automatic permission to scale.</p>
+                <dl class="case-control-list case-control-list--stacked">
+                  <div><dt>Fiscal glanceability</dt><dd>Keep spend, conversion value, actual ROAS, and conversions in one view for time-constrained reviews.</dd></div>
+                  <div><dt>Profitability trending</dt><dd>Compare monthly spend with the same governed ROAS field to distinguish healthy scaling from return dilution.</dd></div>
+                  <div><dt>Budget pacing control</dt><dd>Create a shared read of burn rate against attributed return rather than reconciling separate exports.</dd></div>
+                  <div><dt>Campaign accountability</dt><dd>Isolate structures that compound return and those that require investigation or constraint.</dd></div>
+                </dl>
               </section>
-              <section>
-                <h4>Risk controls</h4>
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 2</span><strong>Calculated Metric Methodology</strong></h4>
+                <div class="case-stage-intro"><p>One formula governs both the scorecard and the campaign matrix.</p></div>
+                <p class="formula"><code>Actual ROAS (%) = ( SUM(Conversion Value) / SUM(Cost) ) × 100</code></p>
+                <p>The source specifies campaign-grain calculation followed by portfolio aggregation. A displayed 1,244.30% equals 12.44x: $12.44 of attributed conversion value for every $1.00 of spend. Percentage format supports the finance-facing read; the multiple communicates the same ratio to marketing stakeholders.</p>
+                <p class="case-source-note"><strong>Metric-governance note.</strong> Platform ROAS is not profit. Margin, returns, tax, fulfillment, incrementality, attribution windows, and conversion-value quality remain outside this formula and must be evaluated before a budget decision.</p>
+              </section>
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 3</span><strong>Dashboard Architecture &amp; Visual Engineering</strong></h4>
+                <div class="case-stage-intro"><p>Fiscal status → profitability trajectory → campaign pacing.</p></div>
+                <div class="report-layers">
+                  <div><strong>Fiscal KPI layer</strong><p>Spend, value, ROAS, and conversions establish portfolio status.</p></div>
+                  <div><strong>Monthly trend</strong><p>Spend and ROAS expose direction and pacing pressure.</p></div>
+                  <div><strong>ROAS field</strong><p>One definition holds across summary and detail.</p></div>
+                  <div><strong>Pacing matrix</strong><p>Campaign cells isolate return dispersion and spend concentration.</p></div>
+                </div>
+                <div class="case-evidence-stack">
+                  <figure class="case-inline-figure case-inline-figure--native-1500">
+                    <p class="case-source-locator"><code>lookerstudio.google.com · roas-pacing-monitor</code></p>
+                    <a class="case-evidence-link" href="assets/images/case-evidence/roas-pacing.webp" target="_blank" rel="noopener" aria-label="Open Executive ROAS and Budget Pacing dashboard evidence">
+                      <img src="assets/images/case-evidence/roas-pacing.webp" width="1492" height="1278" loading="lazy" decoding="async" alt="Looker Studio financial dashboard showing KPI scorecards, monthly spend and actual ROAS trend, and a campaign-level ROAS and pacing heatmap">
+                    </a>
+                    <figcaption>Fig. 1 — The source dashboard moves from the shared fiscal scorecard through monthly trajectory to the campaign-level allocation matrix.</figcaption>
+                  </figure>
+                </div>
+              </section>
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 4</span><strong>Financial Findings &amp; Campaign Pacing Analysis</strong></h4>
+                <div class="case-stage-intro"><p>Portfolio averages separated from campaign-level dispersion.</p></div>
+                <div class="table-scroll" tabindex="0" role="region" aria-label="Source-reported ROAS finding matrix">
+                  <table>
+                    <thead><tr><th>Signal</th><th>Source observation</th><th>Governed interpretation</th></tr></thead>
+                    <tbody>
+                      <tr><td>Blended return</td><td>1,244.30% / 12.44x on $613.52K source-reported spend.</td><td>Use as a portfolio average, not a minimum campaign expectation or a profit measure.</td></tr>
+                      <tr><td>Top PMax example</td><td>54.62x from $2.06M attributed value on $37.7K spend.</td><td>Prioritize for marginal-return testing; do not grant automatic scaling permission.</td></tr>
+                      <tr><td>Search tail</td><td>Two standard Search examples at 0.91x–0.92x.</td><td>Trigger a freeze-and-review workflow covering tracking, query mix, margin, brand adjacency, and landing experience.</td></tr>
+                      <tr><td>Recent pacing</td><td>Cost trends upward while ROAS moderates from a source-reported Q3 peak.</td><td>Monitor rolling return and campaign spend share before incremental Q4 allocation.</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="result-comparison" aria-label="Campaign return decision gates">
+                  <div><span>Review gate</span><strong>Below 1.0x for two consecutive months</strong></div>
+                  <div class="is-winner"><span>Source-modeled scaling candidate</span><strong>54.62x PMax example</strong></div>
+                </div>
+                <p class="case-source-note"><strong>Decision boundary.</strong> A sub-1.0x platform ratio signals less attributed value than spend before other costs; it does not by itself prove the campaign is economically unprofitable. Likewise, an exceptional platform ratio can be distorted by brand demand, attribution, low volume, or conversion-value quality.</p>
+              </section>
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 5</span><strong>Risk Monitoring &amp; Pacing Controls</strong></h4>
+                <div class="case-stage-intro"><p>Signals that keep the scorecard from becoming a false sense of certainty.</p></div>
                 <div class="risk-grid">
-                  <div><strong>PMax concentration</strong><span>Revenue share of top three campaigns</span></div>
-                  <div><strong>Brand cannibalization</strong><span>Brand vs. non-brand Search ROAS</span></div>
-                  <div><strong>Test dilution</strong><span>30-day blended ROAS trend</span></div>
-                  <div><strong>Budget creep</strong><span>Spend share below 1.0x</span></div>
-                  <div><strong>Seasonal pressure</strong><span>Q4 CPC and marginal return</span></div>
+                  <div><strong>PMax value concentration</strong><span>Value share · top three campaigns</span></div>
+                  <div><strong>Search brand cannibalization</strong><span>Brand vs. non-brand Search ROAS</span></div>
+                  <div><strong>Blended return dilution</strong><span>Portfolio ROAS · 30-day rolling</span></div>
+                  <div><strong>Underperformer budget creep</strong><span>Spend share below 1.0x</span></div>
+                  <div><strong>Seasonal auction pressure</strong><span>CPC trend · November–December</span></div>
                 </div>
               </section>
-              <section>
-                <h4>Budget governance roadmap</h4>
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 6</span><strong>Budget Reallocation &amp; Governance Roadmap</strong></h4>
+                <div class="case-stage-intro"><p>Three financial objectives, each retaining the source’s two actions.</p></div>
                 <ol class="process-list process-list--compact">
-                  <li><strong>Reallocate deliberately</strong><span>Freeze or reduce sustained sub-1.0x campaigns and submit a documented shift toward proven candidates for approval.</span></li>
-                  <li><strong>Use marginal rules</strong><span>Direct new budget to the strongest eligible structures until incremental ROAS shows diminishing return.</span></li>
-                  <li><strong>Audit underperformers</strong><span>Check query mix, brand adjacency, tracking, and landing experience before concluding the campaign itself is the problem.</span></li>
-                  <li><strong>Automate alerts</strong><span>Add month-over-month pacing thresholds so campaigns crossing into unprofitable territory are surfaced before the next manual review.</span></li>
+                  <li><strong>Reallocation · review the sub-1.0x tail</strong><span>Freeze or reduce only after validating measurement, economics, and traffic quality; document the released budget.</span></li>
+                  <li><strong>Reallocation · use a marginal rule</strong><span>Test incremental PMax budget until campaign-level return shows diminishing efficiency rather than distributing spend evenly.</span></li>
+                  <li><strong>Efficiency · formalize the review gate</strong><span>Two consecutive months below 1.0x opens a mandatory review; it does not bypass the diagnostic checklist.</span></li>
+                  <li><strong>Efficiency · audit Search overlap</strong><span>Determine whether weak Search structures capture brand-adjacent demand that other campaigns would otherwise convert.</span></li>
+                  <li><strong>Governance · establish one pacing review</strong><span>Use the monitor as the shared finance and marketing surface with named data and decision owners.</span></li>
+                  <li><strong>Governance · add delta alerts</strong><span>Flag month-over-month deterioration and campaigns crossing review thresholds before the next manual cycle.</span></li>
                 </ol>
+                <p class="case-source-note"><strong>Source status.</strong> The formula, figures, campaign examples, risks, and roadmap above are reproduced and carefully qualified from the supplied case-study PDF. No budget change, sustained lift, or independently verified financial outcome is documented.</p>
               </section>
             </div>
           </article>
 
           <article class="full-case" data-case-article data-module="reporting" data-case-id="funnel-attribution" data-card-title="Funnel attribution" data-card-summary="Explain traffic, device, and stacked event behavior without misreading rates above 100%.">
             <header class="full-case__header">
-              <h3 tabindex="-1">Funnel attribution &amp; micro-conversion pathway</h3>
-              <p class="full-case__lede">A journey dashboard connecting traffic, devices, channels, macro outcomes, and stacked diagnostic events.</p>
+              <h3 tabindex="-1">Funnel Attribution &amp; Micro-Conversion Pathway</h3>
+              <p class="full-case__subtitle">Executive Performance Case Study — Full-Funnel Visibility, Device Completion &amp; Event Governance</p>
               <ul class="full-case__meta" aria-label="Case details">
-                <li><strong>Tool</strong>Looker Studio</li>
-                <li><strong>Audience</strong>Performance and measurement teams</li>
-                <li><strong>Window</strong>January 2020 to July 2024</li>
+                <li><strong>Platform</strong>Google Looker Studio</li>
+                <li><strong>Data source</strong>Google Ads Connector</li>
+                <li><strong>Window</strong>January 2020 – July 2024</li>
+                <li><strong>Reader</strong>Performance &amp; measurement teams</li>
               </ul>
-              <p class="evidence-notice"><strong>Anonymized professional case.</strong> Client names and sensitive channel, device, and event figures have been withheld or selectively adjusted. The attribution model and QA logic reflect the work performed; rates above 100% still require an event-definition audit.</p>
+              <p class="evidence-notice"><strong>Source-supplied portfolio case.</strong> The PDF describes a connector-driven dashboard and provides a public report URL. Funnel figures are source-reported event totals; rates above 100% are not purchase conversion rates and require explicit event-definition governance.</p>
             </header>
-            <div class="case-story">
-              <section>
-                <h4>A dashboard shaped like the journey</h4>
+            <div class="case-story case-story--reporting-source">
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 1</span><strong>Executive Summary &amp; Funnel Governance Problem</strong></h4>
+                <div class="case-stage-intro"><p>Unify acquisition, device completion, and campaign-level event density.</p></div>
+                <p>The source dashboard joins top-of-funnel impressions, mid-funnel clicks, bottom-funnel counted events, device composition, and campaign detail on one reading surface. Its core governance challenge is semantic: the reported “conversion” total combines multiple event types, so volume and event density cannot be treated as unique purchases.</p>
+                <div class="source-metric-strip" aria-label="Source-reported funnel metrics">
+                  <div><strong>66.6M</strong><span>Top-funnel impressions</span></div>
+                  <div><strong>727.8K</strong><span>Mid-funnel clicks</span></div>
+                  <div><strong>830.3K</strong><span>Counted conversion events</span></div>
+                  <div><strong>70.2%</strong><span>Source-reported macro rate</span></div>
+                </div>
+                <dl class="case-control-list case-control-list--stacked">
+                  <div><dt>Full-funnel visibility</dt><dd>Place impressions, clicks, counted events, and source-defined rates together so each stage is visible without a separate export.</dd></div>
+                  <div><dt>Channel-level accountability</dt><dd>Compare click volume against counted events by channel without assuming every event represents a unique customer outcome.</dd></div>
+                  <div><dt>Device-aware attribution</dt><dd>Identify where bottom-funnel events complete so experience work can follow the measured completion mix.</dd></div>
+                  <div><dt>Micro-conversion transparency</dt><dd>Trace rates above 100% back to campaign rows and the event set in the numerator.</dd></div>
+                </dl>
+                <p class="case-source-note"><strong>Metric-governance note.</strong> The source reports 66.6M impressions, 727.8K clicks, 830.3K counted events, and a 70.2% macro conversion rate. The rate cannot be reproduced from those displayed totals alone, so its numerator, denominator, filters, and aggregation grain must be documented before executive use.</p>
+              </section>
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 2</span><strong>Dashboard Architecture &amp; Funnel Reading Path</strong></h4>
+                <div class="case-stage-intro"><p>Macro status → channel volume → device completion → pathway matrix.</p></div>
                 <div class="report-layers">
-                  <div><strong>Macro scorecards</strong><p>Impressions, clicks, conversions, and the defined macro rate show the largest anonymized drop.</p></div>
-                  <div><strong>Channel volume</strong><p>Clicks and counted events appear side by side so acquisition and event output are not confused.</p></div>
-                  <div><strong>Device completion</strong><p>Bottom-funnel event share identifies where the anonymized journey finishes.</p></div>
-                  <div><strong>Pathway matrix</strong><p>Campaign rows reveal exactly where stacked events produce rates above 100%.</p></div>
+                  <div><strong>Macro scorecards</strong><p>Impressions, clicks, counted events, and the source-defined rate establish scale.</p></div>
+                  <div><strong>Channel volume</strong><p>Clicks and counted events sit side by side without implying equivalence.</p></div>
+                  <div><strong>Device attribution</strong><p>Completion-event share identifies the measured finish surface.</p></div>
+                  <div><strong>Pathway matrix</strong><p>Campaign rows trace rates back to their underlying event density.</p></div>
+                </div>
+                <div class="case-evidence-stack">
+                  <figure class="case-inline-figure case-inline-figure--native-1500">
+                    <p class="case-source-locator"><code>lookerstudio.google.com · funnel-pathway</code></p>
+                    <a class="case-evidence-link" href="assets/images/case-evidence/funnel-attribution.webp?v=20260812a" target="_blank" rel="noopener" aria-label="Open Funnel Attribution and Micro-Conversion Pathway dashboard evidence">
+                      <img src="assets/images/case-evidence/funnel-attribution.webp?v=20260812a" width="1502" height="1317" loading="lazy" decoding="async" alt="Looker Studio funnel dashboard with macro KPI cards, channel clicks and counted events, device completion composition, and campaign pathway matrix">
+                    </a>
+                    <figcaption>Fig. 1 — The source dashboard follows the funnel’s reading order and keeps campaign-level event-density evidence beneath the macro scorecards.</figcaption>
+                  </figure>
                 </div>
               </section>
-              <figure class="case-figure case-figure--wide">
-                <img src="assets/images/case-evidence/funnel-attribution.webp" width="1280" height="720" loading="lazy" decoding="async" alt="Looker Studio funnel dashboard showing channel clicks versus counted events, device attribution, and a campaign conversion-pathway matrix">
-                <figcaption>The source dashboard keeps the channel comparison, device completion mix, and campaign-level pathway matrix together so rates above 100% can be traced to the underlying counted-event definition.</figcaption>
-              </figure>
-              <section>
-                <h4>Anonymized channel and device read</h4>
-                <div class="table-scroll" tabindex="0" role="region" aria-label="Anonymized channel clicks and counted conversion events">
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 3</span><strong>Channel Efficiency &amp; Device Completion</strong></h4>
+                <div class="case-stage-intro"><p>Source volumes interpreted without conflating events and customers.</p></div>
+                <div class="table-scroll" tabindex="0" role="region" aria-label="Source-reported channel clicks and counted events">
                   <table>
-                    <thead><tr><th>Channel</th><th>Clicks</th><th>Counted events</th><th>Interpretation</th></tr></thead>
+                    <thead><tr><th>Channel</th><th>Clicks</th><th>Counted events</th><th>Governed interpretation</th></tr></thead>
                     <tbody>
-                      <tr><td>Performance Max</td><td>304.9K</td><td>593.6K</td><td>Multiple counted events per click; audit event mix before comparing efficiency.</td></tr>
-                      <tr><td>Search</td><td>241.9K</td><td>142.5K</td><td>Lower event-to-click ratio than PMax in the anonymized data.</td></tr>
-                      <tr><td>Display</td><td>152.7K</td><td>93.3K</td><td>Investigate traffic quality and completion friction.</td></tr>
+                      <tr><td>Performance Max</td><td>304.9K</td><td>593.6K</td><td>Multiple counted events per click; inspect event mix, deduplication, attribution, and unique outcomes before comparing efficiency.</td></tr>
+                      <tr><td>Search</td><td>241.9K</td><td>142.5K</td><td>Lower event-to-click density than PMax in the source; retain intent and query context before reallocating.</td></tr>
+                      <tr><td>Display</td><td>152.7K</td><td>93.3K</td><td>Investigate traffic quality and completion friction rather than assuming a reach problem.</td></tr>
                     </tbody>
                   </table>
                 </div>
-                <div class="metric-board" aria-label="Anonymized bottom-funnel event share by device">
+                <div class="metric-board" aria-label="Source-reported bottom-funnel event share by device">
                   <div><span>Mobile</span><strong>70.6%</strong><progress max="100" value="70.6">70.6%</progress></div>
                   <div><span>Computers</span><strong>18.1%</strong><progress max="100" value="18.1">18.1%</progress></div>
                   <div><span>Tablets</span><strong>11.3%</strong><progress max="100" value="11.3">11.3%</progress></div>
                 </div>
+                <p>Mobile carries 70.6% of source-reported bottom-funnel events. That makes mobile completion flows—page speed, checkout, form length, and payment friction—the first diagnostic surface, while still requiring unique-purchase and revenue validation before calling it the highest-value device.</p>
               </section>
-              <section>
-                <h4>What a rate above 100% means</h4>
-                <p>The pathway matrix models campaigns at 129.8% and 192.46% because the numerator includes multiple diagnostic events—such as cart additions, checkout starts, purchases, and post-purchase actions—against clicks. That can describe event density, but it is not a literal purchase success rate and cannot justify budget expansion on its own.</p>
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 4</span><strong>Micro-Conversion Anomalies &amp; Calculation Control</strong></h4>
+                <div class="case-stage-intro"><p>Rates above 100% describe stacked event density, not literal purchase success.</p></div>
+                <p class="formula"><code>Conv. Rate (%) = ( SUM(Conversions) / SUM(Clicks) ) × 100</code></p>
+                <div class="table-scroll" tabindex="0" role="region" aria-label="Source-reported campaign event-density signals">
+                  <table>
+                    <thead><tr><th>Campaign signal</th><th>Source observation</th><th>Required control</th></tr></thead>
+                    <tbody>
+                      <tr><td>Top PMax rate</td><td>129.8% · 197.8K counted events on 95.9K clicks</td><td>Separate purchases from micro events and validate unique transaction IDs.</td></tr>
+                      <tr><td>Second PMax structure</td><td>192.46% source-reported rate</td><td>Audit event firing, counting method, attribution, and duplicate post-purchase actions.</td></tr>
+                      <tr><td>Display rate</td><td>61.13%, below the source-defined account average</td><td>Compare qualified macro outcomes per click before diagnosing reach or creative.</td></tr>
+                    </tbody>
+                  </table>
+                </div>
                 <div class="callout-pair">
-                  <div><strong>Useful signal</strong><p>Which campaigns and sessions generate deeper measured interaction across the defined event set.</p></div>
-                  <div><strong>Required control</strong><p>Separate macro purchase outcomes from micro events, document the formula, deduplicate transaction IDs, and report both views.</p></div>
+                  <div><strong>What the metric can show</strong><p>Which campaign sessions generate more measured interactions across the configured event set.</p></div>
+                  <div><strong>What it cannot show alone</strong><p>Unique customers, purchase probability, profit, or permission to scale budget.</p></div>
+                </div>
+                <p class="case-source-note"><strong>Interpretation correction.</strong> The supplied PDF calls rates above 100% “not data errors.” They may be legitimate under an intentional multi-event numerator, but they still require an event-definition and implementation audit before that conclusion is safe.</p>
+              </section>
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 5</span><strong>Risk Monitoring &amp; Measurement QA</strong></h4>
+                <div class="case-stage-intro"><p>Controls that protect budget decisions from event-model ambiguity.</p></div>
+                <div class="risk-grid">
+                  <div><strong>Micro-event double counting</strong><span>Quarterly event-definition audit</span></div>
+                  <div><strong>Mobile completion friction</strong><span>Click-to-unique-purchase drop-off</span></div>
+                  <div><strong>PMax event concentration</strong><span>Unique macro-outcome share · top three</span></div>
+                  <div><strong>Search &amp; Display waste</strong><span>Qualified outcome per click</span></div>
+                  <div><strong>Dormant channels</strong><span>Impression and click volume · monthly</span></div>
                 </div>
               </section>
-              <section>
-                <h4>Risk and recommendations</h4>
-                <div class="risk-grid">
-                  <div><strong>Double counting</strong><span>Quarterly event-definition audit</span></div>
-                  <div><strong>Mobile friction</strong><span>Click-to-purchase drop-off</span></div>
-                  <div><strong>PMax concentration</strong><span>Macro outcome share, top three</span></div>
-                  <div><strong>Display waste</strong><span>Qualified outcome per click</span></div>
-                  <div><strong>Dormant channels</strong><span>Impression and click volume</span></div>
-                </div>
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 6</span><strong>Strategic Recommendations &amp; Data Governance</strong></h4>
+                <div class="case-stage-intro"><p>Preserve the source direction while adding the controls required to act safely.</p></div>
                 <ol class="process-list process-list--compact">
-                  <li><strong>Separate outcome types</strong><span>Report purchases and revenue independently from stacked diagnostic events before reallocating budget.</span></li>
-                  <li><strong>Audit mobile completion</strong><span>Prioritize page speed, checkout, and form friction where most anonymized completion events occur.</span></li>
-                  <li><strong>Rebuild weak channels</strong><span>Fix creative and destination alignment before adding Display or Video budget.</span></li>
-                  <li><strong>Formalize governance</strong><span>Publish event definitions, calculation grain, deduplication rules, and a reconciliation owner.</span></li>
+                  <li><strong>Separate outcome types</strong><span>Report purchases and conversion value independently from stacked diagnostic events before channel reallocation.</span></li>
+                  <li><strong>Test PMax incrementally</strong><span>If unique macro outcomes validate the pattern, run a bounded marginal-budget test instead of scaling from event density alone.</span></li>
+                  <li><strong>Rebuild around mobile completion</strong><span>Prioritize mobile-first creative and destination improvements before adding Display or Video budget.</span></li>
+                  <li><strong>Audit weak channels</strong><span>Diagnose traffic quality, intent, creative alignment, and landing friction against qualified outcomes per click.</span></li>
+                  <li><strong>Publish the data contract</strong><span>Document every event, counting method, calculation grain, attribution window, deduplication rule, and metric owner.</span></li>
+                  <li><strong>Reconcile macro and diagnostic views</strong><span>Maintain separate executive purchase/revenue reporting and analyst-facing micro-event density, with a scheduled QA cadence.</span></li>
                 </ol>
+                <p class="case-source-note"><strong>Source status.</strong> The funnel totals, channel volumes, device mix, campaign examples, formula, and recommendations above are reproduced and carefully qualified from the supplied case-study PDF. No budget rollout or independently verified funnel improvement is documented.</p>
               </section>
             </div>
           </article>
