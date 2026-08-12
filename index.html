@@ -1765,35 +1765,62 @@ window.dataLayer.push({
 
           <article class="full-case" data-case-article data-module="measurement" data-case-id="custom-definitions" data-card-title="Custom definitions" data-card-summary="Register raw parameters at the correct scope for reporting and audience use.">
             <header class="full-case__header">
-              <h3 tabindex="-1">Custom definitions, metrics &amp; user properties</h3>
-              <p class="full-case__lede">A registration map connecting raw commerce parameters to useful event-scoped and user-scoped analysis.</p>
+              <h3 tabindex="-1">Custom definitions &amp; user properties</h3>
+              <p class="full-case__lede">Event-scoped dimensions and user-scoped properties for reporting and audience activation in the Apple Omni-Channel Store.</p>
               <ul class="full-case__meta" aria-label="Case details">
-                <li><strong>Tool</strong>GA4 schema governance</li>
-                <li><strong>Event scope</strong><code>item_category</code></li>
-                <li><strong>User scope</strong><code>customer_type</code></li>
+                <li><strong>Property</strong>Apple Omni-Channel Store</li>
+                <li><strong>Measurement ID</strong><code>G-X3R766JV6K</code></li>
+                <li><strong>Event-scoped dimension</strong>Product Category (<code>item_category</code>)</li>
+                <li><strong>User-scoped property</strong>Customer Status (<code>customer_type</code>)</li>
               </ul>
-              <p class="evidence-notice"><strong>Anonymized professional implementation.</strong> Property identifiers, customer attributes, and business data have been removed or substituted. The definition strategy and activation paths reflect the work performed.</p>
+              <p class="evidence-notice"><strong>Source-faithful implementation record.</strong> The schema and activation paths below are reconstructed from Pillar 4. Claims are bounded to what the supplied source and unchanged GA4 evidence actually show.</p>
             </header>
-            <div class="case-story">
-              <section>
-                <h4>Registration makes parameters reportable</h4>
-                <p>Raw payload keys can arrive in the GA4 event stream without becoming available as useful breakdowns. Registration is the governance step that turns a collected value into a dimension or metric. Scope must match what the value describes: a product category belongs to an individual event, while a customer type describes the person across sessions until updated.</p>
+            <div class="case-story case-story--measurement-source">
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 1</span><strong>Context &amp; Scope</strong></h4>
+                <div class="case-stage-intro"><p>The narrative.</p></div>
+                <p class="case-takeaway"><strong>Why registration is required.</strong> Raw parameters sent from Google Tag Manager arrive in GA4's event stream, but they stay invisible to reports and Explorations until they're explicitly registered as Custom Definitions. Registration is the step that turns a raw payload key into a reportable dimension or metric.</p>
+                <p>The governance distinction that matters here is scope. An Event-Scoped Dimension describes something true about a single hit, like which product category a click belonged to, and resets with every new event. A User-Scoped Property describes something true about the person across their entire relationship with the property, like whether they're a guest, a registered account holder, or a VIP, and persists across sessions until it's explicitly overwritten. Registering a parameter under the wrong scope quietly breaks the reporting it was meant to enable, so this distinction is enforced deliberately rather than left to whichever scope GTM defaults to.</p>
               </section>
-              <section>
-                <h4>Two definitions, two jobs</h4>
-                <div class="comparison-grid">
-                  <div><h5>Product category</h5><p><strong>Event-scoped · <code>item_category</code></strong></p><p>Breaks commerce interactions and revenue down by catalog family such as smartphones, laptops, and wearables.</p></div>
-                  <div><h5>Customer status</h5><p><strong>User-scoped · <code>customer_type</code></strong></p><p>Persists a classification such as guest, registered, or VIP for cohort analysis and consent-aware audience building.</p></div>
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 2</span><strong>Custom Definition Architecture &amp; Schema</strong></h4>
+                <div class="case-stage-intro"><p>The two registered definitions.</p></div>
+                <dl class="case-control-list case-control-list--stacked">
+                  <div><dt>Product Category <span>Event-scoped · item_category</span></dt><dd>A hit-level dimension attached to individual e-commerce events, used to break down sales and interaction volume by catalog line—Smartphones, Laptops, Wearables—without needing a separate report per product family.</dd></div>
+                  <div><dt>Customer Status <span>User-scoped · customer_type</span></dt><dd>A persistent, cross-session trait (Guest, Registered, VIP) that survives across the customer's full relationship with the property, used for cohort analysis and building high-value remarketing segments.</dd></div>
+                </dl>
+                <div class="table-scroll" tabindex="0" role="region" aria-label="Registered custom definitions">
+                  <table>
+                    <thead><tr><th>Custom definition</th><th>Scope</th><th>User property / parameter</th><th>Last changed</th></tr></thead>
+                    <tbody>
+                      <tr><td>Customer Status</td><td>User</td><td><code>customer_type</code></td><td>Jul 26, 2026</td></tr>
+                      <tr><td>Product Category</td><td>Event</td><td><code>item_category</code></td><td>Jul 26, 2026</td></tr>
+                    </tbody>
+                  </table>
                 </div>
-                <p>The registered dimensions support custom Exploration tables such as revenue by product category and engagement by customer tier. A user-scoped property can also support audience activation, subject to consent, policy, and data-quality requirements.</p>
               </section>
-              <figure class="case-figure case-figure--wide">
-                <img src="assets/images/case-evidence/custom-definitions.webp" width="1600" height="827" loading="lazy" decoding="async" alt="Anonymized GA4 custom-definitions table showing product category at event scope and customer status at user scope">
-                <figcaption>The administration table confirms the two custom definitions are registered at their intended scopes.</figcaption>
-              </figure>
-              <section>
-                <h4>Validation</h4>
-                <p>Inspect raw parameter values first, confirm that naming and case are consistent, then wait for processing before testing report availability. Audience activation should only follow after value coverage, consent eligibility, membership logic, and refresh behavior have been verified.</p>
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 3</span><strong>Reporting &amp; Audience Activation</strong></h4>
+                <div class="case-stage-intro"><p>What registration actually unlocks.</p></div>
+                <dl class="case-control-list case-control-list--stacked">
+                  <div><dt>Custom Breakdown Tables <span>GA4 Explorations</span></dt><dd>Both registered dimensions become available as row or column breakdowns inside free-form Explorations, enabling ad hoc tables like revenue by product category, or engagement by customer tier, without waiting on a custom report build.</dd></div>
+                  <div><dt>Dynamic Audience Building <span>Ad targeting</span></dt><dd>The user-scoped Customer Status property feeds directly into GA4's Audience Builder, making it possible to construct a segment like “VIP customers” and push it to Google Ads for high-value remarketing—something an event-scoped dimension alone can't support.</dd></div>
+                </dl>
+              </section>
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 4</span><strong>Implementation Proof</strong></h4>
+                <div class="case-stage-intro"><p>Visual asset from the live property.</p></div>
+                <div class="case-evidence-stack">
+                  <figure class="case-inline-figure case-inline-figure--native-1600">
+                    <p class="case-source-locator"><code>analytics.google.com/analytics/web/#/p000000/admin/custom-definitions</code></p>
+                    <a class="case-evidence-link" href="assets/images/case-evidence/ga4-custom-definitions-table.png" target="_blank" rel="noopener" aria-label="Open the high-resolution GA4 Custom Definitions Table evidence">
+                      <img src="assets/images/case-evidence/ga4-custom-definitions-table.png" width="1600" height="827" loading="lazy" decoding="async" alt="GA4 Custom Definitions table showing Customer Status at user scope with customer_type and Product Category at event scope with item_category, both last changed Jul 26, 2026">
+                    </a>
+                    <figcaption>Fig. 5: GA4 Custom Definitions Table — shows the active Event-Scoped (Product Category) and User-Scoped (Customer Status) dimensions registered in the Admin console, both created on Jul 26, 2026, confirming the schema documented in Section 2 is live. <a href="assets/images/case-evidence/ga4-custom-definitions-table.png" target="_blank" rel="noopener">Open high-resolution evidence ↗</a></figcaption>
+                  </figure>
+                </div>
+                <p class="case-source-note"><strong>Evidence-state caveat.</strong> The unchanged screenshot confirms both registrations, their scopes, parameter names, descriptions, and last-changed date. It does not show that either dimension was used in an Exploration, an audience, or a delivered Google Ads activation.</p>
+                <p class="case-source-note"><strong>Source status.</strong> The PDF labels the Apple Store Measurement Program “Confidential,” identifies this as Pillar 4 of 6, and associates it with Measurement ID <code>G-X3R766JV6K</code>. No commercial outcome is documented. Four unrelated Search-campaign pages appended to the supplied PDF were excluded from this Measurement case.</p>
               </section>
             </div>
           </article>
