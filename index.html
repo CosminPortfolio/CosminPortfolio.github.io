@@ -1827,41 +1827,58 @@ window.dataLayer.push({
 
           <article class="full-case" data-case-article data-module="measurement" data-case-id="bigquery" data-card-title="BigQuery export" data-card-summary="Define raw-event export modes, residency, ownership, cost, and downstream questions.">
             <header class="full-case__header">
-              <h3 tabindex="-1">BigQuery export &amp; cloud warehousing</h3>
-              <p class="full-case__lede">An event-level export design covering daily and streaming modes, data residency, warehouse ownership, and analytical use.</p>
+              <h3 tabindex="-1">BigQuery data export &amp; cloud warehousing</h3>
+              <p class="full-case__lede">Raw telemetry streaming, GCP export configuration, and enterprise SQL warehousing for the Apple Omni-Channel Store.</p>
               <ul class="full-case__meta" aria-label="Case details">
-                <li><strong>Source</strong>GA4</li>
-                <li><strong>Destination</strong>Google BigQuery</li>
-                <li><strong>Modes</strong>Daily and streaming</li>
+                <li><strong>Property</strong>Apple Omni-Channel Store</li>
+                <li><strong>Measurement ID</strong><code>G-X3R766JV6K</code></li>
+                <li><strong>Integration target</strong>Google BigQuery (GCP)</li>
+                <li><strong>Export modes</strong>Daily batch + intraday streaming</li>
               </ul>
-              <p class="evidence-notice"><strong>Anonymized professional implementation.</strong> Property IDs, cloud project details, and warehouse data have been removed or substituted. The export architecture and governance logic reflect the work performed.</p>
+              <p class="evidence-notice"><strong>Source-faithful architecture record.</strong> The warehouse design below is reconstructed from Pillar 5. The supplied GA4 screenshot shows the setup surface before a BigQuery link was created, so no live export is claimed.</p>
             </header>
-            <div class="case-story">
-              <section>
-                <h4>Why leave the reporting interface</h4>
-                <p>The GA4 interface is built for fast product reporting, not arbitrary event-level analysis over an unrestricted history. A BigQuery export exposes collected events, parameters, user properties, and item arrays for SQL modeling, custom retention, CRM joins, and reproducible transformation logic. The warehouse does not improve poor collection; it makes the collected structure available for deeper inspection.</p>
+            <div class="case-story case-story--measurement-source">
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 1</span><strong>Context &amp; Scope</strong></h4>
+                <div class="case-stage-intro"><p>The narrative.</p></div>
+                <p class="case-takeaway"><strong>Why leave the GA4 web UI.</strong> The source frames the standard interface as subject to sampling on large explorations, thresholding on small audiences, cardinality limits on high-variety dimensions, and a fixed retention window—constraints addressed by exporting raw event logs to BigQuery.</p>
+                <p>The GA4 UI is built for fast, approximate answers at the interface level, not for arbitrary long-horizon SQL analysis. Piping raw, unsampled event logs into BigQuery hands that constraint back to engineering: every event, every parameter, and every user property is queryable exactly as collected, with no rounding, no suppressed low-volume rows, and no 14-month ceiling on how far back a query can reach.</p>
               </section>
-              <section>
-                <h4>Export choices</h4>
-                <div class="comparison-grid">
-                  <div><h5>Daily export</h5><p><strong>Cost-conscious historical pipeline</strong></p><p>One partitioned table per day supports scheduled reporting, long-horizon analysis, and models that do not need same-hour data.</p></div>
-                  <div><h5>Streaming export</h5><p><strong>Low-latency operational pipeline</strong></p><p>Streaming export supports fresher dashboards, anomaly detection, and operational use cases that cannot wait for the next daily partition.</p></div>
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 2</span><strong>Warehouse &amp; Export Configuration Specs</strong></h4>
+                <div class="case-stage-intro"><p>Batch vs. streaming, and where the data lives.</p></div>
+                <dl class="case-control-list case-control-list--stacked">
+                  <div><dt>Daily Export <span>Batch · cost-effective</span></dt><dd>Delivers one partitioned table per day, ideal for scheduled analysis, historical modeling, and cost-sensitive pipelines that don't need same-hour visibility into new events.</dd></div>
+                  <div><dt>Streaming Export <span>Intraday · low-latency</span></dt><dd>Delivers events into an intraday table within minutes of collection, supporting operational dashboards and fraud or anomaly detection that can't wait for the next daily partition to land.</dd></div>
+                </dl>
+                <p>Both modes are configured under GA4 Admin → Product Links → BigQuery Links, where the property is linked to a specific Google Cloud project and dataset location is chosen explicitly—EU or US—since GA4 does not move data across that boundary automatically. That regionalization choice is a data-privacy decision as much as a technical one: it determines which jurisdiction's data-residency rules govern the exported tables from day one, and it can't be changed retroactively without re-exporting.</p>
+              </section>
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 3</span><strong>Advanced Enterprise Capabilities &amp; SQL Use Cases</strong></h4>
+                <div class="case-stage-intro"><p>What raw export actually unlocks downstream.</p></div>
+                <dl class="case-control-list case-control-list--stacked">
+                  <div><dt>Multi-Touch Attribution <span>Unnested JSON event params</span></dt><dd>Flatten touchpoints and item arrays into explicit, reproducible attribution logic.</dd></div>
+                  <div><dt>Customer LTV Modeling <span>SQL cohort &amp; revenue models</span></dt><dd>Build customer cohorts and revenue histories over a governed warehouse horizon.</dd></div>
+                  <div><dt>CRM Data Joining <span>Cross-channel identity joins</span></dt><dd>Join approved identifiers to consented downstream records under defined privacy controls.</dd></div>
+                  <div><dt>Looker Studio / Power BI <span>Direct BI tool integration</span></dt><dd>Serve curated warehouse models to reporting tools without relying on interface-only extracts.</dd></div>
+                  <div><dt>Vertex AI Readiness <span>ML pipeline &amp; feature store input</span></dt><dd>Prepare governed features for machine-learning workflows after quality, cost, and privacy controls are established.</dd></div>
+                </dl>
+                <p>The unnested, repeated JSON structure BigQuery preserves for event parameters and item arrays is what makes multi-touch attribution and LTV modeling tractable in SQL: a single query can flatten every touchpoint and every line item across the full customer history, then join that against CRM records by hashed email or Client ID for a genuinely cross-channel view—something the aggregated GA4 UI reports were never designed to expose.</p>
+              </section>
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 4</span><strong>Implementation Proof</strong></h4>
+                <div class="case-stage-intro"><p>Visual asset from the live property.</p></div>
+                <div class="case-evidence-stack">
+                  <figure class="case-inline-figure case-inline-figure--native-1600">
+                    <p class="case-source-locator"><code>analytics.google.com/analytics/web/#/p000000/admin/bigquery-links</code></p>
+                    <a class="case-evidence-link" href="assets/images/case-evidence/ga4-bigquery-links-configuration.png" target="_blank" rel="noopener" aria-label="Open the high-resolution GA4 BigQuery Links configuration evidence">
+                      <img src="assets/images/case-evidence/ga4-bigquery-links-configuration.png" width="1600" height="824" loading="lazy" decoding="async" alt="GA4 BigQuery Links configuration table for Apple Omni-Channel Store showing no links yet and an invitation to click Link to create one">
+                    </a>
+                    <figcaption>Fig. 6: GA4 BigQuery Links Configuration — confirms the BigQuery Links panel under Product Links is configured and ready, the exact integration surface documented in Section 2 for connecting this property to a Google Cloud project. No link has been created yet in this demo environment, which is expected: the panel shown is the setup surface itself, not a live production connection. <a href="assets/images/case-evidence/ga4-bigquery-links-configuration.png" target="_blank" rel="noopener">Open high-resolution evidence ↗</a></figcaption>
+                  </figure>
                 </div>
-                <p>The Google Cloud project, dataset region, access roles, retention, query-cost controls, and downstream owner must be defined before linking. Dataset residency is a governance choice because it cannot be changed retroactively without creating a new export path.</p>
-              </section>
-              <figure class="case-figure case-figure--wide">
-                <img src="assets/images/case-evidence/bigquery-export.webp" width="1600" height="824" loading="lazy" decoding="async" alt="Anonymized GA4 BigQuery Links administration surface ready for property configuration">
-                <figcaption>The anonymized integration surface documents the export configuration without exposing the production property or cloud project.</figcaption>
-              </figure>
-              <section>
-                <h4>Downstream capabilities</h4>
-                <ul class="feature-list">
-                  <li><strong>Attribution:</strong> flatten event parameters and item arrays to model touchpoints with explicit SQL logic.</li>
-                  <li><strong>Lifetime value:</strong> build cohorts and revenue histories beyond interface-level reports.</li>
-                  <li><strong>CRM joining:</strong> connect consented identifiers to downstream customer records under defined governance.</li>
-                  <li><strong>Business intelligence:</strong> publish approved, anonymized tables to Looker Studio or Power BI.</li>
-                  <li><strong>Machine learning readiness:</strong> prepare governed features for Vertex AI only after data quality, cost, and privacy controls are in place.</li>
-                </ul>
+                <p class="case-source-note"><strong>Evidence-state caveat.</strong> The unchanged screenshot explicitly says “No links yet.” It proves access to the BigQuery Links setup surface only; it does not demonstrate a linked Google Cloud project, selected region, daily or streaming export, dataset delivery, or any downstream SQL use case.</p>
+                <p class="case-source-note"><strong>Source status.</strong> The PDF labels the Apple Store Measurement Program “Confidential,” identifies this as Pillar 5 of 6, and associates it with Measurement ID <code>G-X3R766JV6K</code>. No commercial outcome is documented. Five unrelated Search-campaign pages appended to the supplied PDF were excluded from this Measurement case.</p>
               </section>
             </div>
           </article>
