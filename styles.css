@@ -1639,8 +1639,6 @@ footer {
 .case-story--flagship-driver .case-stage-title,
 .case-story--mac-b2b .case-stage-title {
   max-width: none;
-  font-size: clamp(1.35rem, 1.8vw, 1.55rem);
-  line-height: 1.08;
 }
 .case-story--flagship-driver .case-stage-title > strong,
 .case-story--mac-b2b .case-stage-title > strong { text-wrap: balance; }
