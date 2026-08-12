@@ -408,7 +408,7 @@ main > section, footer {
 
 .case-story { padding: 0 clamp(1.5rem, 5vw, 4rem) 4rem; }
 .case-story > section { display: grid; grid-template-columns: minmax(11rem, .35fr) minmax(0, 1fr); column-gap: clamp(2.5rem, 6vw, 6rem); padding-block: clamp(3.5rem, 7vw, 5.5rem); border-bottom: 1px solid var(--line); }
-.case-story > section > h4 { position: sticky; top: 6rem; grid-column: 1; grid-row: 1 / span 40; align-self: start; max-width: 12ch; margin: 0; font-size: clamp(1.7rem, 3vw, 2.7rem); line-height: 1; letter-spacing: -.035em; text-wrap: balance; }
+.case-story > section > h4 { position: static; grid-column: 1; grid-row: 1 / span 40; align-self: start; max-width: 12ch; margin: 0; font-size: clamp(1.7rem, 3vw, 2.7rem); line-height: 1; letter-spacing: -.035em; text-wrap: balance; }
 .case-story > section > :not(h4) { grid-column: 2; }
 .case-story > section.case-section--wide { display: block; }
 .case-story > section.case-section--wide > h4 { position: static; max-width: 18ch; margin-bottom: 2rem; }
