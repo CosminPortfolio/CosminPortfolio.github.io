@@ -1638,16 +1638,21 @@ footer {
   column-gap: clamp(1.5rem, 3vw, 3rem);
   padding-block: clamp(2rem, 3vw, 2.5rem);
 }
+.case-story.case-story--measurement-source > section {
+  grid-template-columns: minmax(23rem, .72fr) minmax(0, .28fr);
+}
 .case-story--flagship-driver .case-stage-title,
 .case-story--mac-b2b .case-stage-title,
 .case-story--competitor-conquesting .case-stage-title,
-.case-story--performance-max .case-stage-title {
+.case-story--performance-max .case-stage-title,
+.case-story--measurement-source .case-stage-title {
   max-width: none;
 }
 .case-story--flagship-driver .case-stage-title > strong,
 .case-story--mac-b2b .case-stage-title > strong,
 .case-story--competitor-conquesting .case-stage-title > strong,
-.case-story--performance-max .case-stage-title > strong { text-wrap: balance; }
+.case-story--performance-max .case-stage-title > strong,
+.case-story--measurement-source .case-stage-title > strong { text-wrap: balance; }
 .case-story--brand-defense > section > h5,
 .case-story--brand-defense > section > .strategy-decisions,
 .case-story--brand-defense > section > .case-inline-figure,
@@ -2991,7 +2996,8 @@ footer { border-top: 0; }
   .case-story.case-story--flagship-driver > section,
   .case-story.case-story--mac-b2b > section,
   .case-story.case-story--competitor-conquesting > section,
-  .case-story.case-story--performance-max > section { grid-template-columns: minmax(0, 1fr); }
+  .case-story.case-story--performance-max > section,
+  .case-story.case-story--measurement-source > section { grid-template-columns: minmax(0, 1fr); }
   .case-story--flagship-driver > section > .case-stage-intro,
   .case-story--flagship-driver > section > :not(h4),
   .case-story--mac-b2b > section > .case-stage-intro,
@@ -3000,6 +3006,8 @@ footer { border-top: 0; }
   .case-story--competitor-conquesting > section > :not(h4),
   .case-story--performance-max > section > .case-stage-intro,
   .case-story--performance-max > section > :not(h4),
+  .case-story--measurement-source > section > .case-stage-intro,
+  .case-story--measurement-source > section > :not(h4),
   .case-story--gtm-governance > section > .case-stage-intro,
   .case-story--gtm-governance > section > :not(h4),
   .case-story--cross-domain > section > .case-stage-intro,
