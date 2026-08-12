@@ -1641,18 +1641,23 @@ footer {
 .case-story.case-story--measurement-source > section {
   grid-template-columns: minmax(23rem, .72fr) minmax(0, .28fr);
 }
+.case-story.case-story--optimization-source > section {
+  grid-template-columns: minmax(25rem, .72fr) minmax(0, .28fr);
+}
 .case-story--flagship-driver .case-stage-title,
 .case-story--mac-b2b .case-stage-title,
 .case-story--competitor-conquesting .case-stage-title,
 .case-story--performance-max .case-stage-title,
-.case-story--measurement-source .case-stage-title {
+.case-story--measurement-source .case-stage-title,
+.case-story--optimization-source .case-stage-title {
   max-width: none;
 }
 .case-story--flagship-driver .case-stage-title > strong,
 .case-story--mac-b2b .case-stage-title > strong,
 .case-story--competitor-conquesting .case-stage-title > strong,
 .case-story--performance-max .case-stage-title > strong,
-.case-story--measurement-source .case-stage-title > strong { text-wrap: balance; }
+.case-story--measurement-source .case-stage-title > strong,
+.case-story--optimization-source .case-stage-title > strong { text-wrap: balance; }
 .case-story--brand-defense > section > h5,
 .case-story--brand-defense > section > .strategy-decisions,
 .case-story--brand-defense > section > .case-inline-figure,
@@ -1751,7 +1756,8 @@ footer {
 .case-story--performance-max > section > h5 + p { grid-column: 1 / -1; max-width: 84ch; }
 .case-story--gtm-governance > section > .case-stage-intro,
 .case-story--cross-domain > section > .case-stage-intro,
-.case-story--measurement-source > section > .case-stage-intro { grid-column: 2; }
+.case-story--measurement-source > section > .case-stage-intro,
+.case-story--optimization-source > section > .case-stage-intro { grid-column: 2; }
 .case-story--gtm-governance > section > p,
 .case-story--gtm-governance > section > .case-control-list,
 .case-story--gtm-governance > section > .case-evidence-stack,
@@ -1770,25 +1776,41 @@ footer {
 .case-story--measurement-source > section > .case-control-list,
 .case-story--measurement-source > section > .case-evidence-stack,
 .case-story--measurement-source > section > .case-source-note,
-.case-story--measurement-source > section > .case-takeaway { grid-column: 1 / -1; margin-block: 0; }
+.case-story--measurement-source > section > .case-takeaway,
+.case-story--optimization-source > section > p,
+.case-story--optimization-source > section > .source-metric-strip,
+.case-story--optimization-source > section > .table-scroll,
+.case-story--optimization-source > section > .governance-tree,
+.case-story--optimization-source > section > .case-control-list,
+.case-story--optimization-source > section > .case-evidence-stack,
+.case-story--optimization-source > section > .decision-list,
+.case-story--optimization-source > section > .result-comparison,
+.case-story--optimization-source > section > .process-list,
+.case-story--optimization-source > section > .feature-list,
+.case-story--optimization-source > section > .case-source-note { grid-column: 1 / -1; margin-block: 0; }
 .case-story--gtm-governance > section > .case-stage-intro + .case-takeaway,
 .case-story--gtm-governance > section > .case-stage-intro + p,
 .case-story--cross-domain > section > .case-stage-intro + .case-takeaway,
 .case-story--cross-domain > section > .case-stage-intro + p,
 .case-story--measurement-source > section > .case-stage-intro + .case-takeaway,
-.case-story--measurement-source > section > .case-stage-intro + p { margin-top: .25rem; }
+.case-story--measurement-source > section > .case-stage-intro + p,
+.case-story--optimization-source > section > .case-stage-intro + p { margin-top: .25rem; }
 .case-story--gtm-governance .case-control-list--stacked,
 .case-story--cross-domain .case-control-list--stacked,
-.case-story--measurement-source .case-control-list--stacked { grid-template-columns: 1fr; }
+.case-story--measurement-source .case-control-list--stacked,
+.case-story--optimization-source .case-control-list--stacked { grid-template-columns: 1fr; }
 .case-story--gtm-governance .case-control-list--stacked > div,
 .case-story--cross-domain .case-control-list--stacked > div,
-.case-story--measurement-source .case-control-list--stacked > div { padding: 1.25rem 0; }
+.case-story--measurement-source .case-control-list--stacked > div,
+.case-story--optimization-source .case-control-list--stacked > div { padding: 1.25rem 0; }
 .case-story--gtm-governance .case-control-list--stacked > div:nth-child(even),
 .case-story--cross-domain .case-control-list--stacked > div:nth-child(even),
-.case-story--measurement-source .case-control-list--stacked > div:nth-child(even) { padding-left: 0; border-left: 0; }
+.case-story--measurement-source .case-control-list--stacked > div:nth-child(even),
+.case-story--optimization-source .case-control-list--stacked > div:nth-child(even) { padding-left: 0; border-left: 0; }
 .case-story--gtm-governance .case-control-list--stacked dt,
 .case-story--cross-domain .case-control-list--stacked dt,
-.case-story--measurement-source .case-control-list--stacked dt {
+.case-story--measurement-source .case-control-list--stacked dt,
+.case-story--optimization-source .case-control-list--stacked dt {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
@@ -1796,7 +1818,8 @@ footer {
 }
 .case-story--gtm-governance .case-control-list--stacked dt span,
 .case-story--cross-domain .case-control-list--stacked dt span,
-.case-story--measurement-source .case-control-list--stacked dt span {
+.case-story--measurement-source .case-control-list--stacked dt span,
+.case-story--optimization-source .case-control-list--stacked dt span {
   color: var(--muted);
   font-family: var(--body);
   font-size: .65rem;
@@ -1806,7 +1829,22 @@ footer {
 }
 .case-story--gtm-governance .case-control-list--stacked dd + dd,
 .case-story--cross-domain .case-control-list--stacked dd + dd,
-.case-story--measurement-source .case-control-list--stacked dd + dd { margin-top: .65rem; }
+.case-story--measurement-source .case-control-list--stacked dd + dd,
+.case-story--optimization-source .case-control-list--stacked dd + dd { margin-top: .65rem; }
+.case-inline-figure--native-2000 > .case-evidence-link {
+  display: block;
+  width: min(100%, 125rem);
+  margin-inline: auto;
+}
+.case-inline-figure--native-2000 img { display: block; width: 100%; height: auto; max-height: none; }
+.case-inline-figure--native-2000 figcaption { width: min(100%, 125rem); max-width: none; margin-inline: auto; }
+.case-inline-figure--native-1500 > .case-evidence-link {
+  display: block;
+  width: min(100%, 93.75rem);
+  margin-inline: auto;
+}
+.case-inline-figure--native-1500 img { display: block; width: 100%; height: auto; max-height: none; }
+.case-inline-figure--native-1500 figcaption { width: min(100%, 93.75rem); max-width: none; margin-inline: auto; }
 .case-inline-figure--native-1600 > .case-evidence-link {
   display: block;
   width: min(100%, 100rem);
@@ -2997,7 +3035,8 @@ footer { border-top: 0; }
   .case-story.case-story--mac-b2b > section,
   .case-story.case-story--competitor-conquesting > section,
   .case-story.case-story--performance-max > section,
-  .case-story.case-story--measurement-source > section { grid-template-columns: minmax(0, 1fr); }
+  .case-story.case-story--measurement-source > section,
+  .case-story.case-story--optimization-source > section { grid-template-columns: minmax(0, 1fr); }
   .case-story--flagship-driver > section > .case-stage-intro,
   .case-story--flagship-driver > section > :not(h4),
   .case-story--mac-b2b > section > .case-stage-intro,
@@ -3008,6 +3047,8 @@ footer { border-top: 0; }
   .case-story--performance-max > section > :not(h4),
   .case-story--measurement-source > section > .case-stage-intro,
   .case-story--measurement-source > section > :not(h4),
+  .case-story--optimization-source > section > .case-stage-intro,
+  .case-story--optimization-source > section > :not(h4),
   .case-story--gtm-governance > section > .case-stage-intro,
   .case-story--gtm-governance > section > :not(h4),
   .case-story--cross-domain > section > .case-stage-intro,
