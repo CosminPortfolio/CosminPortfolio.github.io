@@ -13,7 +13,7 @@
     <title>Cosmin Pintilie — Performance Marketing &amp; Analytics</title>
     <link rel="canonical" href="https://cosminportfolio.github.io/">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css?v=20260812j">
+    <link rel="stylesheet" href="styles.css?v=20260812k">
     <script src="script.js?v=20260810a" defer></script>
     <script src="case-workspace.js?v=20260811i" type="module"></script>
   </head>
@@ -1697,50 +1697,68 @@ window.dataLayer.push({
 
           <article class="full-case" data-case-article data-module="measurement" data-case-id="events-validation" data-card-title="Key events &amp; validation" data-card-summary="Define commerce milestones, parameter contracts, counting rules, and end-to-end QA.">
             <header class="full-case__header">
-              <h3 tabindex="-1">Key events, e-commerce models &amp; validation</h3>
-              <p class="full-case__lede">A commerce-event contract joining funnel definitions, required item parameters, counting rules, and real-time evidence.</p>
+              <h3 tabindex="-1">Key events &amp; e-commerce data models</h3>
+              <p class="full-case__lede">Full-funnel conversion tracking, data-schema standards, and real-time validation workflows for the Apple Omni-Channel Store.</p>
               <ul class="full-case__meta" aria-label="Case details">
-                <li><strong>Tool</strong>GA4 e-commerce</li>
-                <li><strong>Core events</strong><code>add_to_cart</code>, <code>begin_checkout</code>, <code>purchase</code></li>
-                <li><strong>Counting</strong>Once per event</li>
+                <li><strong>Property</strong>Apple Omni-Channel Store</li>
+                <li><strong>Measurement ID</strong><code>G-X3R766JV6K</code></li>
+                <li><strong>Core key events</strong><code>add_to_cart</code> · <code>begin_checkout</code> · <code>purchase</code></li>
+                <li><strong>Counting method</strong>Once per event</li>
               </ul>
-              <p class="evidence-notice"><strong>Anonymized professional implementation.</strong> Property identifiers, transaction data, and customer details have been removed or substituted. The event schema and QA method reflect the work performed.</p>
+              <p class="evidence-notice"><strong>Source-faithful implementation record.</strong> The architecture and validation workflow below are reconstructed from Pillar 3. Claims are bounded to what the supplied source and unchanged GA4 evidence actually show.</p>
             </header>
-            <div class="case-story">
-              <section>
-                <h4>Measure business milestones, not every interaction equally</h4>
-                <p>The event model promotes three standard commerce milestones to key events: cart addition, checkout start, and purchase. They anchor the buying funnel and give downstream reporting and bidding systems a smaller, more meaningful signal set than raw clicks, scroll depth, and page views.</p>
+            <div class="case-story case-story--measurement-source">
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 1</span><strong>Context &amp; Scope</strong></h4>
+                <div class="case-stage-intro"><p>The technical narrative.</p></div>
+                <p class="case-takeaway"><strong>Strategic shift.</strong> Move measurement focus from raw interaction logging—clicks, pageviews, scroll depth—toward a small set of business-critical Key Events that anchor attribution modeling and paid campaign optimization.</p>
+                <p>Not every event deserves equal weight. Designating <code>add_to_cart</code>, <code>begin_checkout</code>, and <code>purchase</code> as Key Events tells GA4, and every downstream system that reads from it, which moments in the customer journey actually represent business value. Those three milestones anchor the full purchase funnel end to end, giving Smart Bidding and attribution models a clean, unambiguous signal to optimize toward instead of a noisy mix of low-intent interactions.</p>
                 <div class="funnel-route" aria-label="Commerce funnel"><span>add_to_cart</span><i aria-hidden="true"></i><span>begin_checkout</span><i aria-hidden="true"></i><span>purchase</span></div>
               </section>
-              <section>
-                <h4>Shared payload contract</h4>
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 2</span><strong>GA4 E-Commerce Data Schema &amp; Funnel Pipeline</strong></h4>
+                <div class="case-stage-intro"><p>Required parameters and counting rules.</p></div>
                 <div class="table-scroll" tabindex="0" role="region" aria-label="Required e-commerce parameters">
                   <table>
                     <thead><tr><th>Parameter</th><th>Type</th><th>Purpose</th></tr></thead>
                     <tbody>
-                      <tr><td><code>item_id</code></td><td>String</td><td>Stable SKU across all funnel events</td></tr>
-                      <tr><td><code>item_name</code></td><td>String</td><td>Readable product label in reporting</td></tr>
-                      <tr><td><code>price</code></td><td>Number</td><td>Per-unit price at interaction time</td></tr>
-                      <tr><td><code>quantity</code></td><td>Integer</td><td>Units represented by the action</td></tr>
-                      <tr><td><code>currency</code></td><td>ISO 4217 string</td><td>Reliable multi-currency rollups</td></tr>
-                      <tr><td><code>value</code></td><td>Number</td><td>Total commercial value for reporting and bidding</td></tr>
+                      <tr><td><code>item_id</code></td><td>String</td><td>Unique SKU identification across all three funnel events</td></tr>
+                      <tr><td><code>item_name</code></td><td>String</td><td>Human-readable product label in reporting</td></tr>
+                      <tr><td><code>price</code></td><td>Number</td><td>Per-unit price at time of interaction</td></tr>
+                      <tr><td><code>quantity</code></td><td>Integer</td><td>Units of this item in the action</td></tr>
+                      <tr><td><code>currency</code></td><td>String (ISO 4217)</td><td>Correct multi-currency revenue rollups</td></tr>
+                      <tr><td><code>value</code></td><td>Number</td><td>Total transaction or line-item value for bidding</td></tr>
                     </tbody>
                   </table>
                 </div>
-                <p>E-commerce milestones count once per event so separate item actions remain visible. Engagement-style goals may instead use once-per-session counting where repeat actions would inflate the intended outcome. Default lead-event placeholders can remain documented and unused rather than being mistaken for active commerce events.</p>
+                <dl class="case-control-list case-control-list--stacked">
+                  <div><dt>Once Per Event <span>E-commerce milestones</span></dt><dd>Enforced across <code>add_to_cart</code>, <code>begin_checkout</code>, and <code>purchase</code>, so every occurrence counts toward volume and value. A visitor adding three separate items registers three distinct events, preserving true e-commerce volume and revenue accuracy.</dd></div>
+                  <div><dt>Once Per Session <span>Lead-form style events</span></dt><dd>The more appropriate rule for engagement-style key events, where only the first occurrence per session should count, preventing a single visitor from inflating a conversion total by repeating the same low-friction action.</dd></div>
+                </dl>
+                <p>GA4 also auto-provisions a handful of default lead-generation placeholders at the account level, including <code>close_convert_lead</code> and <code>qualify_lead</code>. Since this property is e-commerce, not lead-gen, those placeholders are left visible but unused rather than deleted: governance here means documenting why they exist and confirming they carry zero data, not scrubbing every default Google ships.</p>
               </section>
-              <figure class="case-figure case-figure--wide">
-                <img src="assets/images/case-evidence/events-validation.webp" width="1600" height="829" loading="lazy" decoding="async" alt="Anonymized GA4 key-events registry showing commerce events and unused lead-event placeholders">
-                <figcaption>The registry distinguishes the intended commerce events from unused default lead-generation placeholders.</figcaption>
-              </figure>
-              <section>
-                <h4>End-to-end QA</h4>
-                <ol class="process-list process-list--compact">
-                  <li><strong>Pre-production</strong><span>Inspect the data-layer payload and tag sequence in GTM Preview before publishing.</span></li>
-                  <li><strong>Real time</strong><span>Use DebugView to confirm event order, trigger timing, and every required parameter.</span></li>
-                  <li><strong>Processed reports</strong><span>Confirm registered events and revenue appear after normal processing.</span></li>
-                  <li><strong>Source reconciliation</strong><span>Match transaction identifiers, orders, currency, value, and refunds against the commerce backend.</span></li>
-                </ol>
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 3</span><strong>Validation &amp; Real-Time Testing Methodology</strong></h4>
+                <div class="case-stage-intro"><p>Catching schema errors before they reach production.</p></div>
+                <dl class="case-control-list case-control-list--stacked">
+                  <div><dt>Code-Based Event Pre-Configuration <span>Pre-production</span></dt><dd>GTM event payloads are inspected in a pre-production preview mode before the corresponding tag is submitted live, so a malformed <code>dataLayer</code> push gets caught at the workspace stage rather than silently corrupting production reporting.</dd></div>
+                  <div><dt>GA4 DebugView Inspection <span>Real-time QA</span></dt><dd>Once a tag is live in preview, DebugView provides a real-time, event-by-event trace confirming that parameter passing, payload schema, and trigger timing all match the specification defined in Section 2, item by item.</dd></div>
+                </dl>
+              </section>
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 4</span><strong>Implementation Proof</strong></h4>
+                <div class="case-stage-intro"><p>Visual asset from the live property.</p></div>
+                <div class="case-evidence-stack">
+                  <figure class="case-inline-figure case-inline-figure--native-1600">
+                    <p class="case-source-locator"><code>analytics.google.com/analytics/web/#/p000000/admin/events</code></p>
+                    <a class="case-evidence-link" href="assets/images/case-evidence/ga4-key-events-registry.png" target="_blank" rel="noopener" aria-label="Open the high-resolution GA4 Key Events Registry evidence">
+                      <img src="assets/images/case-evidence/ga4-key-events-registry.png" width="1600" height="829" loading="lazy" decoding="async" alt="GA4 Events registry for Apple Omni-Channel Store showing add_to_cart, begin_checkout, purchase, close_convert_lead, and qualify_lead, each with no stream data detected, plus an event-created confirmation">
+                    </a>
+                    <figcaption>Fig. 4: GA4 Key Events Registry — displays the active key events, <code>add_to_cart</code>, <code>begin_checkout</code>, and <code>purchase</code>, registered in the Admin console, alongside the default <code>close_convert_lead</code> and <code>qualify_lead</code> placeholders Google provisions automatically for lead-generation properties. <a href="assets/images/case-evidence/ga4-key-events-registry.png" target="_blank" rel="noopener">Open high-resolution evidence ↗</a></figcaption>
+                  </figure>
+                </div>
+                <p class="case-source-note"><strong>Evidence-state caveat.</strong> The unchanged screenshot confirms the five event names in the registry, but every row shows “No stream data detected.” It does not prove that the three commerce events were active, that the lead placeholders carried zero historical data, or that the documented payload and DebugView validation passed end to end.</p>
+                <p class="case-source-note"><strong>Source status.</strong> The PDF labels the Apple Store Measurement Program “Confidential,” identifies this as Pillar 3 of 6, and associates it with Measurement ID <code>G-X3R766JV6K</code>. No commercial outcome is documented. Four unrelated Search-campaign pages appended to the supplied PDF were excluded from this Measurement case.</p>
               </section>
             </div>
           </article>

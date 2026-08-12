@@ -1745,7 +1745,8 @@ footer {
 }
 .case-story--performance-max > section > h5 + p { grid-column: 1 / -1; max-width: 84ch; }
 .case-story--gtm-governance > section > .case-stage-intro,
-.case-story--cross-domain > section > .case-stage-intro { grid-column: 2; }
+.case-story--cross-domain > section > .case-stage-intro,
+.case-story--measurement-source > section > .case-stage-intro { grid-column: 2; }
 .case-story--gtm-governance > section > p,
 .case-story--gtm-governance > section > .case-control-list,
 .case-story--gtm-governance > section > .case-evidence-stack,
@@ -1757,26 +1758,40 @@ footer {
 .case-story--cross-domain > section > .case-control-list,
 .case-story--cross-domain > section > .case-evidence-stack,
 .case-story--cross-domain > section > .case-source-note,
-.case-story--cross-domain > section > .case-takeaway { grid-column: 1 / -1; margin-block: 0; }
+.case-story--cross-domain > section > .case-takeaway,
+.case-story--measurement-source > section > p,
+.case-story--measurement-source > section > .funnel-route,
+.case-story--measurement-source > section > .table-scroll,
+.case-story--measurement-source > section > .case-control-list,
+.case-story--measurement-source > section > .case-evidence-stack,
+.case-story--measurement-source > section > .case-source-note,
+.case-story--measurement-source > section > .case-takeaway { grid-column: 1 / -1; margin-block: 0; }
 .case-story--gtm-governance > section > .case-stage-intro + .case-takeaway,
 .case-story--gtm-governance > section > .case-stage-intro + p,
 .case-story--cross-domain > section > .case-stage-intro + .case-takeaway,
-.case-story--cross-domain > section > .case-stage-intro + p { margin-top: .25rem; }
+.case-story--cross-domain > section > .case-stage-intro + p,
+.case-story--measurement-source > section > .case-stage-intro + .case-takeaway,
+.case-story--measurement-source > section > .case-stage-intro + p { margin-top: .25rem; }
 .case-story--gtm-governance .case-control-list--stacked,
-.case-story--cross-domain .case-control-list--stacked { grid-template-columns: 1fr; }
+.case-story--cross-domain .case-control-list--stacked,
+.case-story--measurement-source .case-control-list--stacked { grid-template-columns: 1fr; }
 .case-story--gtm-governance .case-control-list--stacked > div,
-.case-story--cross-domain .case-control-list--stacked > div { padding: 1.25rem 0; }
+.case-story--cross-domain .case-control-list--stacked > div,
+.case-story--measurement-source .case-control-list--stacked > div { padding: 1.25rem 0; }
 .case-story--gtm-governance .case-control-list--stacked > div:nth-child(even),
-.case-story--cross-domain .case-control-list--stacked > div:nth-child(even) { padding-left: 0; border-left: 0; }
+.case-story--cross-domain .case-control-list--stacked > div:nth-child(even),
+.case-story--measurement-source .case-control-list--stacked > div:nth-child(even) { padding-left: 0; border-left: 0; }
 .case-story--gtm-governance .case-control-list--stacked dt,
-.case-story--cross-domain .case-control-list--stacked dt {
+.case-story--cross-domain .case-control-list--stacked dt,
+.case-story--measurement-source .case-control-list--stacked dt {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 1rem;
 }
 .case-story--gtm-governance .case-control-list--stacked dt span,
-.case-story--cross-domain .case-control-list--stacked dt span {
+.case-story--cross-domain .case-control-list--stacked dt span,
+.case-story--measurement-source .case-control-list--stacked dt span {
   color: var(--muted);
   font-family: var(--body);
   font-size: .65rem;
@@ -1785,7 +1800,8 @@ footer {
   text-transform: uppercase;
 }
 .case-story--gtm-governance .case-control-list--stacked dd + dd,
-.case-story--cross-domain .case-control-list--stacked dd + dd { margin-top: .65rem; }
+.case-story--cross-domain .case-control-list--stacked dd + dd,
+.case-story--measurement-source .case-control-list--stacked dd + dd { margin-top: .65rem; }
 .case-inline-figure--native-1600 > .case-evidence-link {
   display: block;
   width: min(100%, 100rem);
