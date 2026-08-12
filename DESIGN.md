@@ -29,7 +29,13 @@ typography:
     letterSpacing: "-0.04em"
   dossier:
     fontFamily: "Iowan Old Style, Baskerville, Times New Roman, serif"
-    fontSize: "clamp(3rem, 5vw, 5.4rem)"
+    fontSize: "clamp(2.75rem, 4vw, 4.4rem)"
+    fontWeight: 500
+    lineHeight: 0.92
+    letterSpacing: "-0.04em"
+  dossier-compact:
+    fontFamily: "Iowan Old Style, Baskerville, Times New Roman, serif"
+    fontSize: "clamp(2.75rem, 11vw, 3rem)"
     fontWeight: 500
     lineHeight: 0.92
     letterSpacing: "-0.04em"
