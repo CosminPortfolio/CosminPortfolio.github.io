@@ -1839,6 +1839,19 @@ footer {
 .case-evidence-explainer--flagship-sitelinks .case-evidence-explainer__media { width: min(100%, 18rem); }
 .case-evidence-explainer--transcript { grid-template-columns: minmax(0, 1fr); }
 .case-evidence-explainer--transcript .case-evidence-explainer__copy { width: min(100%, 74ch); }
+.case-evidence-explainer--transcript .case-evidence-explainer__media--hd {
+  width: 100%;
+  justify-self: stretch;
+}
+.case-evidence-explainer__media--hd img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  background: var(--ink);
+  object-fit: contain;
+}
+.case-evidence-explainer__media--portrait > .case-evidence-link { width: min(100%, 48rem); margin-inline: auto; }
 .case-evidence-status { color: var(--blue); }
 .case-evidence-explainer__media--bidding { width: min(100%, 22rem); }
 .case-evidence-explainer__media--validation { width: min(100%, 26.25rem); }
