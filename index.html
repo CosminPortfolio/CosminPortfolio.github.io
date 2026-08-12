@@ -13,7 +13,7 @@
     <title>Cosmin Pintilie — Performance Marketing &amp; Analytics</title>
     <link rel="canonical" href="https://cosminportfolio.github.io/">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css?v=20260812h">
+    <link rel="stylesheet" href="styles.css?v=20260812i">
     <script src="script.js?v=20260810a" defer></script>
     <script src="case-workspace.js?v=20260811i" type="module"></script>
   </head>
@@ -1499,55 +1499,111 @@
             </div>
           </article>
 
-          <article class="full-case" data-case-article data-module="measurement" data-case-id="gtm-consent" data-card-title="GTM architecture &amp; consent" data-card-summary="Separate tag responsibilities, event triggers, release governance, and consent states.">
+          <article class="full-case" data-case-article data-module="measurement" data-case-id="gtm-consent" data-card-title="GTM architecture &amp; version governance" data-card-summary="Organize container responsibilities, decouple commerce triggers, and govern releases through an attributable version history." data-card-image="assets/images/case-evidence/gtm-container-tag-architecture.png">
             <header class="full-case__header">
-              <h3 tabindex="-1">GTM architecture &amp; consent governance</h3>
-              <p class="full-case__lede">A governed container, event-trigger, release, and Consent Mode architecture with an engineering-ready commerce payload.</p>
-              <ul class="full-case__meta" aria-label="Case details">
-                <li><strong>Tools</strong>Google Tag Manager and GA4</li>
-                <li><strong>Pattern</strong>Event-driven data layer</li>
-                <li><strong>Status</strong>Anonymized implementation</li>
-              </ul>
-              <p class="evidence-notice"><strong>Anonymized professional implementation.</strong> Property IDs, container IDs, domains, and business data have been removed or substituted. The architecture and consent-governance approach reflect the work performed.</p>
-            </header>
-            <div class="case-story">
-              <section>
-                <h4>A decoupled measurement layer</h4>
-                <p>Business-significant interactions are pushed into a structured <code>dataLayer</code> and consumed asynchronously by the container. This avoids brittle listeners tied to CSS selectors or DOM structure, so a front-end redesign does not silently break the measurement contract. GTM owns container and trigger orchestration, GA4 owns event and e-commerce reporting, and the Conversion Linker persists eligible first-party click identifiers.</p>
-              </section>
-              <section>
-                <h4>Container responsibilities</h4>
-                <div class="decision-list">
-                  <div><strong>Google tag</strong><p>Fires on <code>Initialization – All Pages</code> so the measurement identity and session context exist before event-scoped tags.</p></div>
-                  <div><strong>Conversion Linker</strong><p>Also runs at initialization to preserve eligible advertising click identifiers in first-party context.</p></div>
-                  <div><strong>Commerce events</strong><p>Listen for named data-layer events such as <code>add_to_cart</code>, not presentation-layer clicks or class names.</p></div>
-                  <div><strong>Consent governance</strong><p>Begin from denied storage states where required, then update state from the consent-management platform before eligible tags act.</p></div>
+              <h3 tabindex="-1">GTM Architecture &amp; Version Governance</h3>
+              <p class="full-case__subtitle">Container Taxonomy, Event Triggering &amp; Deployment Lifecycle | Apple Store Measurement Setup</p>
+              <p class="full-case__lede">An enterprise-level, privacy-compliant tracking architecture for an e-commerce demonstration platform, built to support accurate attribution and product-level revenue reporting at scale.</p>
+              <div class="case-opening" aria-label="Case objective and coverage">
+                <div>
+                  <strong>Project objective</strong>
+                  <p>Design an enterprise-level, privacy-compliant tracking architecture for an e-commerce platform (Apple Store Demo), capable of supporting accurate attribution and product-level revenue reporting at scale.</p>
                 </div>
+                <div>
+                  <strong>What this case covers</strong>
+                  <p>Context and scope, the complete three-tag container taxonomy, two implementation-proof figures, and the exact <code>add_to_cart</code> data-layer contract handed to front-end engineering.</p>
+                </div>
+              </div>
+              <ul class="full-case__meta" aria-label="Case details">
+                <li><strong>Container name</strong><code>apple-store-container</code></li>
+                <li><strong>Public ID</strong><code>GTM-K8K5N7RK</code></li>
+                <li><strong>Target analytics engine</strong>GA4 · <code>G-X3R766JV6K</code></li>
+                <li><strong>Deployment status</strong>Live (v2.0)</li>
+              </ul>
+              <p class="evidence-notice"><strong>Source framing and limitation.</strong> The canonical PDF identifies this as an Apple Store Demo measurement setup and labels its implementation proof as a live container; it does not establish Apple client access or report a commercial outcome. The cover records “Live (v2.0),” while the interface captured in Fig. 2 displays “Version 4 is Live.” Both source states are preserved rather than reconciled by inference.</p>
+            </header>
+            <div class="case-story case-story--compact case-story--gtm-governance">
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 1</span><strong>Context &amp; Scope</strong></h4>
+                <div class="case-stage-intro"><p>The executive narrative.</p></div>
+                <div class="case-takeaway"><strong>Project objective</strong><p>Design an enterprise-level, privacy-compliant tracking architecture for an e-commerce platform (Apple Store Demo), capable of supporting accurate attribution and product-level revenue reporting at scale.</p></div>
+                <p>The measurement layer for this program was built on a decoupled, event-driven foundation rather than brittle DOM listeners. Every user interaction of business significance, beginning with <code>add_to_cart</code>, is pushed into a structured <code>dataLayer</code> object and consumed asynchronously by the container. This removes the tracking logic’s dependency on specific CSS selectors or DOM structure, so front-end redesigns don’t silently break measurement.</p>
+                <dl class="case-control-list" aria-label="Measurement platform responsibilities">
+                  <div><dt>Google Tag Manager</dt><dd>Container and trigger orchestration</dd></div>
+                  <div><dt>Google Analytics 4</dt><dd>Event and ecommerce reporting</dd></div>
+                  <div><dt>Google Ads Conversion Linker</dt><dd>First-party click ID persistence</dd></div>
+                </dl>
               </section>
-              <figure class="case-figure case-figure--wide">
-                <img src="assets/images/case-evidence/gtm-consent.webp" width="1600" height="917" loading="lazy" decoding="async" alt="Anonymized Google Tag Manager workspace showing a base Google tag and an add-to-cart event tag with named triggers">
-                <figcaption>The container uses self-documenting tags and explicit triggers rather than opaque click listeners.</figcaption>
-              </figure>
-              <section>
-                <h4>Engineering data contract</h4>
-                <p>The payload clears stale e-commerce state before sending a new item array. Currency, value, SKU, name, price, quantity, and category are typed consistently so the same event can support GA4 reporting and downstream advertising use.</p>
-                <pre class="code-sample"><code>window.dataLayer = window.dataLayer || [];
-window.dataLayer.push({ ecommerce: null });
+
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 2</span><strong>Container Architecture &amp; Tag Taxonomy</strong></h4>
+                <div class="case-stage-intro"><p>How the container is organized, and why each tag fires where it does.</p></div>
+                <dl class="case-control-list case-control-list--stacked" aria-label="Container tag taxonomy and firing rules">
+                  <div>
+                    <dt>GA4 - Base Configuration <span>Google tag</span></dt>
+                    <dd>Deployed on the <strong>Initialization - All Pages</strong> hook, ahead of every other tag in the container, to establish the persistent user session and measurement ID before any event-scoped tag can fire.</dd>
+                    <dd><strong>Fires on</strong> <code>Initialization - All Pages</code></dd>
+                  </div>
+                  <div>
+                    <dt>Conversion Linker <span>Google Ads</span></dt>
+                    <dd>Also deployed at initialization, this tag persists click identifiers (<code>gclid</code>) into first-party cookie context, preserving attribution integrity under Safari ITP and Firefox ETP constraints without relying on third-party storage.</dd>
+                    <dd><strong>Fires on</strong> <code>Initialization - All Pages</code></dd>
+                  </div>
+                  <div>
+                    <dt>GA4 Event - add_to_cart <span>Decoupled trigger</span></dt>
+                    <dd>A custom event listener bound directly to the <code>add_to_cart</code> <code>dataLayer</code> push described in Section 4, rather than to a button click or CSS class. The trigger fires purely on the presence of the event in the data layer, independent of front-end markup.</dd>
+                    <dd><strong>Fires on</strong> <code>Custom Event - add_to_cart</code></dd>
+                  </div>
+                </dl>
+              </section>
+
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 3</span><strong>Implementation Proof</strong></h4>
+                <div class="case-stage-intro"><p>Visual assets from the live container.</p></div>
+                <div class="case-evidence-stack">
+                  <figure class="case-inline-figure case-inline-figure--native-1600">
+                    <p class="case-source-locator"><code>tagmanager.google.com/#/container/GTM-K8K5N7RK/workspace/tags</code></p>
+                    <a class="case-evidence-link" href="assets/images/case-evidence/gtm-container-tag-architecture.png" target="_blank" rel="noopener" aria-label="Open the high-resolution GTM container tag architecture evidence">
+                      <img src="assets/images/case-evidence/gtm-container-tag-architecture.png" width="1600" height="917" loading="lazy" decoding="async" alt="Google Tag Manager tags workspace for apple-store-container showing GA4 Base Configuration firing on Initialization - All Pages and GA4 Event add_to_cart firing on Custom Event - add_to_cart">
+                    </a>
+                    <figcaption>Fig. 1: Container Tag Architecture - demonstrates custom event tagging (GA4 Event - <code>add_to_cart</code>), the base configuration tag, and clean, self-documenting naming conventions across the workspace. <a href="assets/images/case-evidence/gtm-container-tag-architecture.png" target="_blank" rel="noopener">Open high-resolution evidence ↗</a></figcaption>
+                  </figure>
+                  <figure class="case-inline-figure case-inline-figure--native-1600">
+                    <p class="case-source-locator"><code>tagmanager.google.com/#/container/GTM-K8K5N7RK/versions</code></p>
+                    <a class="case-evidence-link" href="assets/images/case-evidence/gtm-container-version-governance.png" target="_blank" rel="noopener" aria-label="Open the high-resolution GTM container version governance evidence">
+                      <img src="assets/images/case-evidence/gtm-container-version-governance.png" width="1600" height="918" loading="lazy" decoding="async" alt="Google Tag Manager versions view for apple-store-container showing Version 4 live and a three-entry version history including the v2.0 add_to_cart release and the v1.0 initial configuration">
+                    </a>
+                    <figcaption>Fig. 2: Container Version Governance - shows disciplined release management across v1.0 and v2.0, with a full audit history and controlled, attributable deployment at every step. <a href="assets/images/case-evidence/gtm-container-version-governance.png" target="_blank" rel="noopener">Open high-resolution evidence ↗</a></figcaption>
+                  </figure>
+                </div>
+                <p class="case-source-note"><strong>Source discrepancy.</strong> The Fig. 2 caption describes governance across v1.0 and v2.0, and those named releases appear in the version history. The captured interface itself shows “Version 4 is Live,” while the cover metadata states “Live (v2.0).” The screenshot is presented unchanged.</p>
+              </section>
+
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 4</span><strong>The Technical Data Layer Spec</strong></h4>
+                <div class="case-stage-intro"><p>Front-end schema handed to engineering for implementation.</p></div>
+                <p>The snippet below is the exact contract shared with front-end engineering: the precise shape, keys, and types the <code>dataLayer</code> push must match for the <code>add_to_cart</code> event to be picked up correctly by the trigger defined in Section 2.</p>
+                <div class="case-code-header" aria-label="Code sample metadata"><strong>JS</strong><span><code>ecommerce-add-to-cart.js</code></span><span><code>dataLayer.push()</code></span></div>
+                <pre class="code-sample"><code>// Data Layer push when a user adds a product to cart
+window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({ ecommerce: null }); // Clear previous ecommerce object
 window.dataLayer.push({
-  event: "add_to_cart",
-  ecommerce: {
-    currency: "USD",
-    value: 1199.00,
-    items: [{
-      item_id: "IPHONE-15-PRO-128",
-      item_name: "iPhone 15 Pro 128GB",
-      price: 1199.00,
-      quantity: 1,
-      item_category: "Smartphones"
-    }]
-  }
+    event: "add_to_cart",
+    ecommerce: {
+        currency: "USD",
+        value: 1199.00,
+        items: [
+            {
+                item_id: "IPHONE-15-PRO-128",
+                item_name: "iPhone 15 Pro 128GB",
+                price: 1199.00,
+                quantity: 1,
+                item_category: "Smartphones"
+            }
+        ]
+    }
 });</code></pre>
-                <p>Named container versions record who changed the implementation, what changed, and when it was released. Preview, DebugView, and backend reconciliation form the release gate; a published container version alone is not proof that the data is correct.</p>
+                <p class="case-source-note"><strong>Source status.</strong> The PDF labels this program “Confidential,” identifies it as Pillar 1 of 6, and associates the source footer with container <code>GTM-K8K5N7RK</code>. No validation result, release-gate procedure, Consent Mode configuration, or commercial performance outcome is documented in this case, so none is added here.</p>
               </section>
             </div>
           </article>

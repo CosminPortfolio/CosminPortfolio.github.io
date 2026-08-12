@@ -1744,6 +1744,64 @@ footer {
   line-height: 1.05;
 }
 .case-story--performance-max > section > h5 + p { grid-column: 1 / -1; max-width: 84ch; }
+.case-story--gtm-governance > section > .case-stage-intro { grid-column: 2; }
+.case-story--gtm-governance > section > p,
+.case-story--gtm-governance > section > .case-control-list,
+.case-story--gtm-governance > section > .case-evidence-stack,
+.case-story--gtm-governance > section > .case-source-note,
+.case-story--gtm-governance > section > .case-code-header,
+.case-story--gtm-governance > section > .code-sample,
+.case-story--gtm-governance > section > .case-takeaway { grid-column: 1 / -1; margin-block: 0; }
+.case-story--gtm-governance > section > .case-stage-intro + .case-takeaway,
+.case-story--gtm-governance > section > .case-stage-intro + p { margin-top: .25rem; }
+.case-story--gtm-governance .case-control-list--stacked { grid-template-columns: 1fr; }
+.case-story--gtm-governance .case-control-list--stacked > div { padding: 1.25rem 0; }
+.case-story--gtm-governance .case-control-list--stacked > div:nth-child(even) { padding-left: 0; border-left: 0; }
+.case-story--gtm-governance .case-control-list--stacked dt {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.case-story--gtm-governance .case-control-list--stacked dt span {
+  color: var(--muted);
+  font-family: var(--body);
+  font-size: .65rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.case-story--gtm-governance .case-control-list--stacked dd + dd { margin-top: .65rem; }
+.case-inline-figure--native-1600 > .case-evidence-link {
+  display: block;
+  width: min(100%, 100rem);
+  margin-inline: auto;
+}
+.case-inline-figure--native-1600 img { display: block; width: 100%; height: auto; max-height: none; }
+.case-inline-figure--native-1600 figcaption { width: min(100%, 100rem); max-width: none; margin-inline: auto; }
+.case-source-locator {
+  width: min(100%, 100rem);
+  margin: 0 auto .75rem;
+  color: var(--muted);
+  font-size: .72rem;
+  overflow-wrap: anywhere;
+}
+.case-code-header {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: .75rem;
+  margin-top: 1.5rem !important;
+  padding: .65rem .8rem;
+  border: 1px solid var(--line-dark);
+  border-bottom: 0;
+  background: var(--ink);
+  color: #fff;
+  font-size: .72rem;
+}
+.case-code-header strong { color: #fff; font-size: .65rem; letter-spacing: .08em; }
+.case-code-header span:last-child { color: #fff; text-align: right; }
+.case-story--gtm-governance .case-code-header + .code-sample { margin-top: 0; }
 .case-inline-figure--native-900 > .case-evidence-link {
   width: min(100%, 56.25rem);
   margin-inline: auto;
@@ -2911,7 +2969,9 @@ footer { border-top: 0; }
   .case-story--competitor-conquesting > section > .case-stage-intro,
   .case-story--competitor-conquesting > section > :not(h4),
   .case-story--performance-max > section > .case-stage-intro,
-  .case-story--performance-max > section > :not(h4) { grid-column: 1; }
+  .case-story--performance-max > section > :not(h4),
+  .case-story--gtm-governance > section > .case-stage-intro,
+  .case-story--gtm-governance > section > :not(h4) { grid-column: 1; }
   .case-story--flagship-driver > section > .case-stage-body { grid-row: auto; grid-column: 1; }
   .case-story--flagship-driver .case-stage-body > .case-stage-intro { grid-row: auto; grid-column: 1; }
   .case-story > section > h4 + * { grid-row: auto; }
@@ -2996,6 +3056,9 @@ footer { border-top: 0; }
   .case-asset-list > div:nth-child(even),
   .case-copy-inventory--two-columns li:nth-child(even) { padding-left: 0; border-left: 0; }
   .case-copy-inventory--two-columns li:nth-child(odd) { padding-right: 0; }
+  .case-story--gtm-governance .case-control-list--stacked dt { align-items: flex-start; flex-direction: column; gap: .3rem; }
+  .case-code-header { grid-template-columns: auto minmax(0, 1fr); }
+  .case-code-header span:last-child { display: none; }
   .case-dossier-nav { grid-template-columns: 1fr; }
   .case-dossier-nav a:last-child { text-align: left; }
   .detail-main { width: min(calc(100% - 1.25rem), 1160px); }
