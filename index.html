@@ -2060,45 +2060,66 @@ window.dataLayer.push({
             </div>
           </article>
 
-          <article class="full-case" data-case-article data-module="optimization" data-case-id="auction-memo" data-card-title="Auction response" data-card-summary="Separate rank, budget, demand, and competitor pressure before changing bids.">
+          <article class="full-case" data-case-article data-module="optimization" data-case-id="auction-memo" data-card-title="Competitive intelligence" data-card-summary="Competitor displacement detection and an impression-share defense protocol.">
             <header class="full-case__header">
-              <h3 tabindex="-1">Competitive auction response</h3>
-              <p class="full-case__lede">A bounded response memo that distinguishes rank pressure, budget pressure, demand movement, and competitor displacement.</p>
+              <h3 tabindex="-1">Competitive Intelligence &amp; Auction Response Framework</h3>
+              <p class="full-case__subtitle">Deliverable 03 — Competitor Displacement Detection &amp; Impression Share Defense</p>
               <ul class="full-case__meta" aria-label="Case details">
-                <li><strong>Window</strong>Anonymized 14-day alert</li>
-                <li><strong>Primary signal</strong>Search impression-share loss</li>
-                <li><strong>Output</strong>Three-step response protocol</li>
+                <li><strong>To</strong>Performance Marketing Team</li>
+                <li><strong>From</strong>SEM Specialist</li>
+                <li><strong>Subject</strong>Auction Insights Alert: Samsung Flagship Promo Displacement</li>
+                <li><strong>Date</strong>Current Cycle</li>
               </ul>
-              <p class="evidence-notice"><strong>Anonymized professional case.</strong> Client identifiers, competitor names, and sensitive auction values have been withheld or selectively adjusted. The diagnosis and response protocol reflect the work performed.</p>
+              <p class="evidence-notice"><strong>Confidential simulation.</strong> Staged in a non-production demo account; all campaigns are paused. Benchmark figures are illustrative case-study values, not live client data or verified performance.</p>
             </header>
-            <div class="case-story">
-              <section class="case-section--wide">
-                <h4>Situation diagnosis</h4>
-                <p>The anonymized alert shows flagship Search impression share falling from 78% to 63%. Lost impression share from rank rises by 11 points while lost share from budget remains stable at 4%, indicating that simply increasing the daily budget would not address the observed problem. Competitor overlap and top-of-page presence are the hypotheses to investigate, not proof by themselves.</p>
-                <div class="table-scroll" tabindex="0" role="region" aria-label="Anonymized auction metrics">
+            <div class="case-story case-story--optimization-source">
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 1</span><strong>Executive Briefing &amp; Situation Analysis</strong></h4>
+                <div class="case-stage-intro"><p>Rank loss separated from budget pressure.</p></div>
+                <dl class="case-control-list case-control-list--stacked">
+                  <div><dt>Situation Summary <span>Trailing 14 days</span></dt><dd>Search Impression Share on the flagship search campaign dropped from 78% to 63%, a 15-point loss. Auction Insights model competitor promo escalation—Samsung Galaxy Book / S-Series promotions—with overlap rate increasing by 22% and competitors outranking top positions.</dd></div>
+                  <div><dt>Lost IS (Rank) <span>Primary friction</span></dt><dd>Increased by 11%, driven by competitor Quality Score / bid leverage.</dd></div>
+                  <div><dt>Lost IS (Budget) <span>Not the immediate constraint</span></dt><dd>Remained stable at 4%, confirming Ad Rank and bid strategy as the modeled primary friction points rather than daily budget caps.</dd></div>
+                </dl>
+              </section>
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 2</span><strong>Auction Metric Benchmark Matrix</strong></h4>
+                <div class="case-stage-intro"><p>Illustrative case-study values.</p></div>
+                <div class="table-scroll" tabindex="0" role="region" aria-label="Auction metric benchmark matrix">
                   <table>
-                    <thead><tr><th>Domain</th><th>Impression share</th><th>Overlap rate</th><th>Top of page</th><th>Outranking share</th></tr></thead>
+                    <thead><tr><th>Display URL domain</th><th>Impression share</th><th>Overlap rate</th><th>Top of page rate</th><th>Outranking share</th></tr></thead>
                     <tbody>
-                      <tr><td>apple.com</td><td>63.2%</td><td>—</td><td>82.4%</td><td>—</td></tr>
-                      <tr><td>samsung.com</td><td>24.8%</td><td>48.6%</td><td>74.1%</td><td>18.2%</td></tr>
-                      <tr><td>bestbuy.com</td><td>18.5%</td><td>36.2%</td><td>58.9%</td><td>12.4%</td></tr>
-                      <tr><td>amazon.com</td><td>14.1%</td><td>28.5%</td><td>46.3%</td><td>8.1%</td></tr>
+                      <tr><td><strong>apple.com</strong> (Our Account)</td><td><strong>63.2%</strong></td><td>—</td><td><strong>82.4%</strong></td><td>—</td></tr>
+                      <tr><td>samsung.com (Competitor)</td><td>24.8%</td><td>48.6%</td><td>74.1%</td><td>18.2%</td></tr>
+                      <tr><td>bestbuy.com (Retailer)</td><td>18.5%</td><td>36.2%</td><td>58.9%</td><td>12.4%</td></tr>
+                      <tr><td>amazon.com (Marketplace)</td><td>14.1%</td><td>28.5%</td><td>46.3%</td><td>8.1%</td></tr>
                     </tbody>
                   </table>
                 </div>
               </section>
-              <figure class="case-figure case-figure--wide">
-                <img src="assets/images/case-evidence/auction-memo.webp" width="1500" height="227" loading="lazy" decoding="async" alt="Anonymized Google Ads Auction Insights table with the expected diagnostic columns">
-                <figcaption>The anonymized panel withholds competitor identities and sensitive auction values; the accompanying table preserves the diagnostic logic used to interpret the populated report.</figcaption>
-              </figure>
-              <section>
-                <h4>Three-step response</h4>
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 3</span><strong>Technical Staging &amp; UI Validation</strong></h4>
+                <div class="case-stage-intro"><p>The source screenshot and its explicit threshold limitation.</p></div>
+                <div class="case-evidence-stack">
+                  <figure class="case-inline-figure case-inline-figure--native-1500">
+                    <p class="case-source-locator"><code>console.google.com/ads · auction-insights</code></p>
+                    <a class="case-evidence-link" href="assets/images/case-evidence/auction-insights-diagnostic.png" target="_blank" rel="noopener" aria-label="Open high-resolution Auction Insights evidence">
+                      <img src="assets/images/case-evidence/auction-insights-diagnostic.png" width="1500" height="227" loading="lazy" decoding="async" alt="Google Ads Auction Insights panel showing impression share, overlap, position above, top of page, absolute top of page, and outranking columns with no competitor rows because Search impression share is below 10 percent">
+                    </a>
+                    <figcaption>Fig. 3.3 — Staging of the Auction Insights diagnostic panel (Insights and reports → Auction insights), establishing baseline monitoring columns for impression share, overlap rate, and outranking metrics. <a href="assets/images/case-evidence/auction-insights-diagnostic.png" target="_blank" rel="noopener">Open high-resolution evidence ↗</a></figcaption>
+                  </figure>
+                </div>
+                <p class="case-source-note"><strong>Technical audit note.</strong> The sandbox campaign’s Search impression share sits below Google’s 10% reporting threshold for populating live competitor rows, so the panel correctly renders its diagnostic column structure with no rows returned. The Section 2 matrix models the competitor data this panel would surface after the threshold is cleared on a live account; it is planning evidence, not live competitor output.</p>
+              </section>
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 4</span><strong>3-Step Counter-Strategy Action Plan</strong></h4>
+                <div class="case-stage-intro"><p>Remediation protocol for modeled impression-share recovery.</p></div>
                 <ol class="process-list process-list--compact">
-                  <li><strong>Adapt the SERP assets</strong><span>Deploy a structured snippet and callout test centered on “Instant $250 Trade-In Credit for Non-Apple Laptops,” subject to legal and offer validation.</span></li>
-                  <li><strong>Run a bounded rank test</strong><span>Test Target Impression Share at 75% absolute top of page only on the core exact-match switcher terms, rather than changing the entire campaign fleet.</span></li>
-                  <li><strong>Intercept qualified intent</strong><span>Add custom-segment themes such as <code>Samsung trade-in deal</code> and <code>Galaxy Book promo</code> to the relevant PMax asset group as learning signals, not hard targeting.</span></li>
+                  <li><strong>RSA Asset Adaptation</strong><span>Deploy Structured Snippet and Callout Extensions emphasizing “Instant $250 Trade-In Credit for Non-Apple Laptops” to neutralize promo displacement directly on the SERP.</span></li>
+                  <li><strong>Bidding Strategy Shift</strong><span>Adjust target bidding from tCPA to Target Impression Share (75% Absolute Top of Page) on core exact-match switcher terms to counter rank-driven impression-share loss.</span></li>
+                  <li><strong>Audience Interception in PMax</strong><span>Layer Custom Intent audience signals—“Samsung trade-in deal” and “Galaxy Book promo”—into PMax asset groups to intercept high-intent shoppers before conversion.</span></li>
                 </ol>
-                <p>Success is not “recover impression share at any cost.” The test must monitor CPC, CPA, conversion quality, and marginal return so a rank response does not create a larger commercial problem.</p>
+                <p class="case-source-note"><strong>Source status.</strong> The action plan is a portfolio counter-strategy based on illustrative benchmark values and a paused sandbox diagnostic. The source does not document rollout, recovery, revenue impact, or a verified commercial outcome.</p>
               </section>
             </div>
           </article>
