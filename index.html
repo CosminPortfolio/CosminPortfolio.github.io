@@ -13,7 +13,7 @@
     <title>Cosmin Pintilie — Performance Marketing &amp; Analytics</title>
     <link rel="canonical" href="https://cosminportfolio.github.io/">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css?v=20260812i">
+    <link rel="stylesheet" href="styles.css?v=20260812j">
     <script src="script.js?v=20260810a" defer></script>
     <script src="case-workspace.js?v=20260811i" type="module"></script>
   </head>
@@ -1608,39 +1608,89 @@ window.dataLayer.push({
             </div>
           </article>
 
-          <article class="full-case" data-case-article data-module="measurement" data-case-id="cross-domain" data-card-title="Cross-domain sessions" data-card-summary="Preserve sessions and acquisition credit across storefront and payment boundaries.">
+          <article class="full-case" data-case-article data-module="measurement" data-case-id="cross-domain" data-card-title="GA4 stream &amp; cross-domain setup" data-card-summary="Preserve one Client ID across storefront subdomains while governing automated telemetry, retention, internal traffic, and referral credit." data-card-image="assets/images/case-evidence/ga4-web-stream-configuration.png">
             <header class="full-case__header">
-              <h3 tabindex="-1">Stream architecture &amp; cross-domain linking</h3>
-              <p class="full-case__lede">A session-continuity blueprint covering linked domains, referral exclusions, internal traffic, retention, and enhanced measurement.</p>
-              <ul class="full-case__meta" aria-label="Case details">
-                <li><strong>Tool</strong>GA4 web stream</li>
-                <li><strong>Journey</strong>Marketing site to storefront and checkout</li>
-                <li><strong>Retention</strong>14 months</li>
-              </ul>
-              <p class="evidence-notice"><strong>Anonymized professional implementation.</strong> Property IDs, domains, and business data have been removed or substituted. The stream architecture, controls, and validation method reflect the work performed.</p>
-            </header>
-            <div class="case-story">
-              <section>
-                <h4>Keep one journey as one journey</h4>
-                <p>A campaign may begin on a marketing domain, continue on a storefront, and pass through a payment service before purchase. Without deliberate configuration, those boundaries can fragment a single visitor into separate sessions and allow a payment referral to overwrite the original acquisition source.</p>
-                <p>The source architecture links <code>apple.com</code> and <code>store.apple.com</code> through GA4’s <strong>Configure your domains</strong> control. GA4’s native linker carries the Client ID through eligible links so one user journey remains one session; the receiving page must not discard the linker parameter before analytics reads it. Enhanced Measurement remains enabled, then its automatically collected events are reviewed against the custom event plan to prevent duplicate signals.</p>
-              </section>
-              <section>
-                <h4>Governance controls</h4>
-                <div class="decision-list">
-                  <div><strong>Domain rules</strong><p>Register <code>apple.com</code> and <code>store.apple.com</code> with narrow contains rules in Configure your domains, avoiding unrelated hosts.</p></div>
-                  <div><strong>Referral exclusions</strong><p>Exclude known payment and checkout services so their return redirects do not claim acquisition credit.</p></div>
-                  <div><strong>Internal traffic</strong><p>Define employee, developer, QA, and staging traffic before activating filters that could permanently remove it.</p></div>
-                  <div><strong>Retention</strong><p>Use a 14-month event retention setting to support seasonal and year-over-year Explorations.</p></div>
+              <h3 tabindex="-1">GA4 Stream &amp; Cross-Domain Setup</h3>
+              <p class="full-case__subtitle">Multi-Subdomain Session Stitching, Telemetry Governance &amp; Stream Configuration | Apple Store Measurement Setup</p>
+              <p class="full-case__lede">A GA4 Web Data Stream configured so one coherent user journey can survive movement across multiple digital storefronts and regional subdomains instead of fragmenting at each hostname boundary.</p>
+              <div class="case-opening" aria-label="Case objective and coverage">
+                <div>
+                  <strong>Project objective</strong>
+                  <p>Configure the GA4 Web Data Stream so a single, coherent user journey survives movement across multiple digital storefronts and regional subdomains, rather than fragmenting into disconnected sessions at every subdomain boundary.</p>
                 </div>
+                <div>
+                  <strong>What this case covers</strong>
+                  <p>Context and scope, three cross-domain stream controls, three data-governance controls, and the source’s GA4 administration evidence with its visible collection-status limitation.</p>
+                </div>
+              </div>
+              <ul class="full-case__meta" aria-label="Case details">
+                <li><strong>Property name</strong>Apple Store GA4 Demo</li>
+                <li><strong>Measurement ID</strong><code>G-X3R766JV6K</code></li>
+                <li><strong>Linked domains</strong><code>apple.com</code> · <code>store.apple.com</code></li>
+                <li><strong>Data retention</strong>14 Months (Extended)</li>
+              </ul>
+              <p class="evidence-notice"><strong>Source framing and limitation.</strong> The canonical PDF identifies this as an Apple Store Demo measurement setup and describes Fig. 3 as a visual asset from a live property. The captured interface itself warns that data collection is not active and reports “No Recent Data,” so the evidence confirms the documented administration surface and control locations, not successful telemetry, session stitching, or a commercial outcome.</p>
+            </header>
+            <div class="case-story case-story--compact case-story--cross-domain">
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 1</span><strong>Context &amp; Scope</strong></h4>
+                <div class="case-stage-intro"><p>The executive narrative.</p></div>
+                <div class="case-takeaway"><strong>Project objective</strong><p>Configure the GA4 Web Data Stream so a single, coherent user journey survives movement across multiple digital storefronts and regional subdomains, rather than fragmenting into disconnected sessions at every subdomain boundary.</p></div>
+                <p>Modern storefronts rarely live on one hostname: a marketing campaign might land a visitor on <code>apple.com</code>, while checkout completes on <code>store.apple.com</code>. Without deliberate stream configuration, GA4 treats that handoff as two separate visits from two separate users, which quietly destroys attribution the moment a session crosses the subdomain boundary. Session stitching is the mechanism that keeps the Client ID intact across that handoff, so a single visitor who starts on a landing page and finishes at checkout is still measured as one continuous journey, not two disconnected fragments.</p>
               </section>
-              <figure class="case-figure case-figure--wide">
-                <img src="assets/images/case-evidence/cross-domain.webp" width="1600" height="845" loading="lazy" decoding="async" alt="Anonymized GA4 web-stream administration view with tag and stream configuration controls">
-                <figcaption>The stream administration surface holds the domain, internal-traffic, and tag controls used by the blueprint.</figcaption>
-              </figure>
-              <section>
-                <h4>Validation path</h4>
-                <p>Start a controlled session with campaign parameters, cross every domain and payment boundary, then verify the same client and session context survives. Confirm the original source remains intact, unwanted self-referrals are absent, key events fire once with the expected parameters, and internal test traffic is labeled before any exclusion filter becomes active.</p>
+
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 2</span><strong>Stream Architecture &amp; Cross-Domain Linker Rules</strong></h4>
+                <div class="case-stage-intro"><p>How Client IDs survive a subdomain handoff.</p></div>
+                <dl class="case-control-list case-control-list--stacked" aria-label="Stream architecture and cross-domain linker rules">
+                  <div>
+                    <dt>Native Client ID Preservation <span>Cross-domain</span></dt>
+                    <dd>GA4 preserves Client IDs natively across subdomains that share the same root domain, with no cookie override scripts or manual linker configuration required for same-root traffic.</dd>
+                  </div>
+                  <div>
+                    <dt>Configure Your Domains - Contains Match <span>Auto-linking rule</span></dt>
+                    <dd>Both <code>apple.com</code> and <code>store.apple.com</code> are registered under the Configure Your Domains panel using Contains match logic, so any outbound link between the two automatically appends the <code>_gl</code> query parameter carrying the Client ID forward.</dd>
+                  </div>
+                  <div>
+                    <dt>Enhanced Measurement Tuning <span>Automated telemetry</span></dt>
+                    <dd>Outbound clicks, site search, and video engagement are enabled under Enhanced Measurement, so this baseline telemetry is captured automatically without a single custom GTM trigger.</dd>
+                  </div>
+                </dl>
+              </section>
+
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 3</span><strong>Data Governance, Retention &amp; Referral Exclusions</strong></h4>
+                <div class="case-stage-intro"><p>Keeping the data long enough, and clean enough, to trust.</p></div>
+                <dl class="case-control-list case-control-list--stacked" aria-label="Data governance, retention, and referral exclusions">
+                  <div>
+                    <dt>Extended Data Retention <span>Governance</span></dt>
+                    <dd>Event data retention was raised from the 2-month default to <strong>14 months</strong>, giving Exploration reports enough historical depth to support year-over-year and seasonal analysis without hitting a retention wall.</dd>
+                  </div>
+                  <div>
+                    <dt>Internal Traffic Definition <span>IP filtering</span></dt>
+                    <dd>Internal developer and employee IP ranges are registered under Define Internal Traffic and tagged accordingly, keeping QA and staging activity out of production reporting rather than inflating real customer counts.</dd>
+                  </div>
+                  <div>
+                    <dt>Referral Exclusion List <span>Attribution protection</span></dt>
+                    <dd>Third-party payment gateways, PayPal and the Apple Pay web checkout flow, are added to the referral exclusion list, so a payment redirect isn’t misread as a brand-new acquisition channel and doesn’t overwrite the original campaign’s credit.</dd>
+                  </div>
+                </dl>
+              </section>
+
+              <section class="case-build-stage">
+                <h4 class="case-stage-title"><span>Section 4</span><strong>Implementation Proof</strong></h4>
+                <div class="case-stage-intro"><p>Visual asset from the live property.</p></div>
+                <div class="case-evidence-stack">
+                  <figure class="case-inline-figure case-inline-figure--native-1600">
+                    <p class="case-source-locator"><code>analytics.google.com/analytics/web/#/p000000/admin/streams/table/000000</code></p>
+                    <a class="case-evidence-link" href="assets/images/case-evidence/ga4-web-stream-configuration.png" target="_blank" rel="noopener" aria-label="Open the high-resolution GA4 Web Stream configuration evidence">
+                      <img src="assets/images/case-evidence/ga4-web-stream-configuration.png" width="1600" height="845" loading="lazy" decoding="async" alt="GA4 Web stream details and Google tag configuration for Apple Web Stream, showing Measurement ID G-X3R766JV6K, Enhanced Measurement, Configure tag settings, Configure your domains, and a visible warning that data collection is not active">
+                    </a>
+                    <figcaption>Fig. 3: GA4 Web Stream Configuration - confirms the Apple Web Stream under Measurement ID <code>G-X3R766JV6K</code>, with the Google tag configuration panel surfaced, including the cross-domain linking and internal traffic controls used to implement the domain rules described in Section 2. <a href="assets/images/case-evidence/ga4-web-stream-configuration.png" target="_blank" rel="noopener">Open high-resolution evidence ↗</a></figcaption>
+                  </figure>
+                </div>
+                <p class="case-source-note"><strong>Evidence-state caveat.</strong> The PDF calls this a live-property asset, but the unchanged screenshot displays “Data collection isn’t active for your website” and “Tag quality: No Recent Data.” It proves the stream and Google tag administration context, not that traffic was being collected or that the documented domain, retention, internal-traffic, and referral controls were validated end to end.</p>
+                <p class="case-source-note"><strong>Source status.</strong> The PDF labels the Apple Store Measurement Program “Confidential,” identifies this as Pillar 2 of 6, and associates the footer with Measurement ID <code>G-X3R766JV6K</code>. No measured session-continuity result or commercial performance outcome is documented.</p>
               </section>
             </div>
           </article>
