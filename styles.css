@@ -1630,18 +1630,21 @@ footer {
   padding-block: clamp(2rem, 3vw, 2.5rem);
 }
 .case-story.case-story--flagship-driver > section,
-.case-story.case-story--mac-b2b > section {
+.case-story.case-story--mac-b2b > section,
+.case-story.case-story--competitor-conquesting > section {
   grid-template-columns: minmax(23rem, 1fr) minmax(0, 1fr);
   row-gap: clamp(1rem, 1.6vw, 1.25rem);
   column-gap: clamp(1.5rem, 3vw, 3rem);
   padding-block: clamp(2rem, 3vw, 2.5rem);
 }
 .case-story--flagship-driver .case-stage-title,
-.case-story--mac-b2b .case-stage-title {
+.case-story--mac-b2b .case-stage-title,
+.case-story--competitor-conquesting .case-stage-title {
   max-width: none;
 }
 .case-story--flagship-driver .case-stage-title > strong,
-.case-story--mac-b2b .case-stage-title > strong { text-wrap: balance; }
+.case-story--mac-b2b .case-stage-title > strong,
+.case-story--competitor-conquesting .case-stage-title > strong { text-wrap: balance; }
 .case-story--brand-defense > section > h5,
 .case-story--brand-defense > section > .strategy-decisions,
 .case-story--brand-defense > section > .case-inline-figure,
@@ -1701,6 +1704,24 @@ footer {
 .case-story--mac-b2b > section > .negative-grid,
 .case-story--mac-b2b > section > .process-list,
 .case-story--mac-b2b > section > .table-scroll { grid-column: 1 / -1; }
+.case-story--competitor-conquesting > section > h5,
+.case-story--competitor-conquesting > section > .case-control-list,
+.case-story--competitor-conquesting > section > .case-asset-list,
+.case-story--competitor-conquesting > section > .case-evidence-explainer,
+.case-story--competitor-conquesting > section > .negative-grid,
+.case-story--competitor-conquesting > section > .process-list,
+.case-story--competitor-conquesting > section > .table-scroll,
+.case-story--competitor-conquesting > section > .case-budget-note,
+.case-story--competitor-conquesting > section > .case-source-note,
+.case-story--competitor-conquesting > section > .case-takeaway { grid-column: 1 / -1; margin-block: 0; }
+.case-story--competitor-conquesting > section > .case-stage-intro { grid-column: 2; }
+.case-story--competitor-conquesting > section > h5 {
+  margin-top: .75rem;
+  font-family: var(--display);
+  font-size: clamp(1.65rem, 2.7vw, 2.65rem);
+  font-weight: 500;
+  line-height: 1.05;
+}
 .case-inline-figure--native-900 > .case-evidence-link {
   width: min(100%, 56.25rem);
   margin-inline: auto;
@@ -1874,6 +1895,10 @@ footer {
 .case-evidence-media--mac-objective > .case-evidence-link { width: min(100%, 48rem); margin-inline: auto; }
 .case-evidence-media--mac-keywords > .case-evidence-link { width: min(100%, 48rem); margin-inline: auto; }
 .case-evidence-media--mac-portrait > .case-evidence-link { width: min(100%, 33.25rem); margin-inline: auto; }
+.case-evidence-media--competitor-objective > .case-evidence-link,
+.case-evidence-media--competitor-sitelinks > .case-evidence-link { width: min(100%, 48rem); margin-inline: auto; }
+.case-evidence-explainer__media--portrait.case-evidence-media--competitor-keywords > .case-evidence-link { width: min(100%, 41.375rem); margin-inline: auto; }
+.case-evidence-explainer__media--portrait.case-evidence-media--competitor-headlines > .case-evidence-link { width: min(100%, 40.75rem); margin-inline: auto; }
 .case-evidence-explainer__media--hd img {
   display: block;
   width: 100%;
@@ -2849,11 +2874,14 @@ footer { border-top: 0; }
   .case-story > section,
   .case-story > figure { grid-template-columns: 1fr; gap: 1.25rem; }
   .case-story.case-story--flagship-driver > section,
-  .case-story.case-story--mac-b2b > section { grid-template-columns: minmax(0, 1fr); }
+  .case-story.case-story--mac-b2b > section,
+  .case-story.case-story--competitor-conquesting > section { grid-template-columns: minmax(0, 1fr); }
   .case-story--flagship-driver > section > .case-stage-intro,
   .case-story--flagship-driver > section > :not(h4),
   .case-story--mac-b2b > section > .case-stage-intro,
-  .case-story--mac-b2b > section > :not(h4) { grid-column: 1; }
+  .case-story--mac-b2b > section > :not(h4),
+  .case-story--competitor-conquesting > section > .case-stage-intro,
+  .case-story--competitor-conquesting > section > :not(h4) { grid-column: 1; }
   .case-story--flagship-driver > section > .case-stage-body { grid-row: auto; grid-column: 1; }
   .case-story--flagship-driver .case-stage-body > .case-stage-intro { grid-row: auto; grid-column: 1; }
   .case-story > section > h4 + * { grid-row: auto; }
